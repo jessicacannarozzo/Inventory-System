@@ -106,7 +106,7 @@ void InvControl::processCashier()
 void InvControl::initProducts()
 {
   /*
-     This function is so ugly!  It's because we're using 
+     This function is so ugly!  It's because we're using
      statically allocated memory, instead of dynamically
      alloated.  Don't worry, we'll fix this in Assignment #2.
   */
@@ -197,4 +197,3 @@ void InvControl::initCustomers()
   store.addCust(cust09);
   store.addCust(cust10);
 }
-
