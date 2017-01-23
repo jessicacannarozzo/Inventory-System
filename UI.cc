@@ -87,7 +87,7 @@ void UI::printCustomers(CustArray& arr)
 
   for (int i=0; i<arr.getSize(); i++) {
     Customer& cust = arr.get(i);
-    cout << cust.getId() << "  " << setw(10) << cust.getName() 
+    cout << cust.getId() << "  " << setw(10) << cust.getName()
          << "  " << setw(4) << cust.getPoints() << endl;
   }
 }
@@ -148,4 +148,3 @@ void UI::pause()
   cout << endl << "\nPress enter to continue...";
   getline(cin, str);
 }
-
