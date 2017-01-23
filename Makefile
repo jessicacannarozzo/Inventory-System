@@ -3,19 +3,19 @@ OBJ = main.o InvControl.o Store.o Product.o UI.o ProdArray.o CustArray.o Custome
 cushop:	$(OBJ)
 	g++ -o cushop $(OBJ)
 
-main.o:	main.cc 
+main.o:	main.cc
 	g++ -c main.cc
 
 InvControl.o:	InvControl.cc InvControl.h Store.h UI.h
 	g++ -c InvControl.cc
 
-UI.o:	UI.cc UI.h 
+UI.o:	UI.cc UI.h
 	g++ -c UI.cc
 
-Store.o:	Store.cc Store.h ProdArray.h  
+Store.o:	Store.cc Store.h ProdArray.h
 	g++ -c Store.cc
 
-Product.o:	Product.cc Product.h 
+Product.o:	Product.cc Product.h
 	g++ -c Product.cc
 
 ProdArray.o:	ProdArray.cc ProdArray.h Product.h defs.h
@@ -24,7 +24,7 @@ ProdArray.o:	ProdArray.cc ProdArray.h Product.h defs.h
 CustArray.o:	CustArray.cc CustArray.h Customer.h defs.h
 	g++ -c CustArray.cc
 
-Customer.o:	Customer.cc Customer.h 
+Customer.o:	Customer.cc Customer.h
 	g++ -c Customer.cc
 
 clean:
