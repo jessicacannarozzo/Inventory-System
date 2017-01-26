@@ -10,4 +10,4 @@ PurchArray::PurchArray() {
 
 int PurchArray::getPurchArraySize() { return purchSize; } //get the size
 
-Purchase PurchArray::getPurchArray() { return *pArr; }
+Purchase* PurchArray::getPurchArray() { return *pArr; }

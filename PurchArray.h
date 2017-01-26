@@ -5,10 +5,10 @@ class PurchArray {
 
   public:
     PurchArray();
-    Purchase getPurchArray();
+    Purchase* getPurchArray();
     int getPurchArraySize();
 
   private:
-    Purchase pArr[MAX_ARR];
+    Purchase* pArr[MAX_ARR];
     int purchSize;
 };

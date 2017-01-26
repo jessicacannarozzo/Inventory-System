@@ -26,6 +26,7 @@ class Product
     string getSize();
     int    getUnits();
     float  getPrice();
+    void incrementUnits(); //increments units by 1. Is it ok to add?
   protected:
     static int nextProdId;
     int        id;
