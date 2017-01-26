@@ -28,7 +28,7 @@ class Customer
     string getName();
     int    getPoints();
     PurchArray getPurchArray();
-    void buyItem(Product*);
+    int buyItem(Product*);
 
   protected:
     static int nextCustId;

@@ -11,3 +11,5 @@ PurchArray::PurchArray() {
 int PurchArray::getPurchArraySize() { return purchSize; } //get the size
 
 Purchase* PurchArray::getPurchArray() { return *pArr; }
+
+void PurchArray::incrementPurchArraySize() { purchSize++; }

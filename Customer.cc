@@ -23,16 +23,30 @@ Customer::Customer(string n)
   points = 0;
 }
 
-void Customer::buyItem(Product* p) {
-  Purchase array[pArray.getPurchArraySize()];
-  array = pArray.getPurchArray();
-
+int Customer::buyItem(Product* p) {
   for (int i = 0; i < pArray.getPurchArraySize(); i++) {
-    if (array[i].getProd().getId() == p->getId()) {
+    if (pArray.getPurchArray()[i].getProd().getId() == p->getId()) {
       //product was bought in the past, increment units by 1
-      pArray.getPurchArray().getProd().incrementUnits();
+      pArray.getPurchArray()[i].getProd().incrementUnits();
+      return 1; //don't need to iterate anymore, function successful
     }
   }
+  //we didn't find the item if we get here. Customer has never bought this item before.
+  Purchase array[pArray.getPurchArraySize()+1];
+
+  for (int i = 0; i < pArray.getPurchArraySize(); i++) {
+    array[i] = pArray.getPurchArray()[i];
+  }
+
+  array[pArray.getPurchArraySize()].setProd(*p);
+  pArray.incrementPurchArraySize();
+
+  //put elements back into pArray
+  for (int i = 0; i < pArray.getPurchArraySize(); i++) {
+    pArray.getPurchArray()[i] = array[i];
+  }
+
+  return 1; //now function is successful
 }
 
 int    Customer::getId()     { return id;     }

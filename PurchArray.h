@@ -7,6 +7,7 @@ class PurchArray {
     PurchArray();
     Purchase* getPurchArray();
     int getPurchArraySize();
+    void incrementPurchArraySize();
 
   private:
     Purchase* pArr[MAX_ARR];
