@@ -3,12 +3,20 @@
 #include "Purchase.h"
 using namespace std;
 
-Purchase::Purchase() {}
-
-Product Purchase::getProd() {
-  return prod;
+Purchase::Purchase(Product& p) 
+{
+	prod = &p;
+	purchQnt = 1;
 }
 
-void Purchase::setProd(Product p) {
-  prod = p;
+Product& Purchase::getProd() {
+  return *prod;
+}
+
+int Purchase::getPurchQnt() {
+  return purchQnt;
+}
+
+void Purchase::incrementProdQnt() {
+  purchQnt ++;
 }

@@ -23,32 +23,9 @@ Customer::Customer(string n)
   points = 0;
 }
 
-int Customer::buyItem(Product* p) {
-  for (int i = 0; i < pArray.getPurchArraySize(); i++) {
-    if (pArray.getPurchArray()[i].getProd().getId() == p->getId()) {
-      //product was bought in the past, increment units by 1
-      pArray.getPurchArray()[i].getProd().incrementUnits();
-      return 1; //don't need to iterate anymore, function successful
-    }
-  }
-  //we didn't find the item if we get here. Customer has never bought this item before.
-
-  //K: I think some kind of addProduct(p) function should be implemented on PurchArray class in order to keep encapsulation principles, then we could just call pArray.add(p) here and move code below to PurchArray class
-  Purchase array[pArray.getPurchArraySize()+1];
-
-  for (int i = 0; i < pArray.getPurchArraySize(); i++) {
-    array[i] = pArray.getPurchArray()[i];
-  }
-
-  array[pArray.getPurchArraySize()].setProd(*p);
-  pArray.incrementPurchArraySize();
-
-  //put elements back into pArray
-  for (int i = 0; i < pArray.getPurchArraySize(); i++) {
-    pArray.getPurchArray()[i] = array[i];
-  }
-
-  return 1; //now function is successful
+void Customer::buyItem(Product& p) {
+  pArray.addNewPurchase(p);
+  return;
 }
 
 int    Customer::getId()     { return id;     }

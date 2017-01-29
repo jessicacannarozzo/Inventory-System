@@ -7,7 +7,7 @@ class PurchArray {
     PurchArray();
     Purchase* getPurchArray(); //K: not necessary, no other class should have access to this
     int getPurchArraySize();
-    void incrementPurchArraySize();
+    void addNewPurchase(Product&);
 
   private:
     Purchase* pArr[MAX_ARR];
