@@ -15,6 +15,8 @@
 #include "InvControl.h"
 #include "Store.h"
 
+#include "stdlib.h" //K: not sure we are allowed to do this???
+
 InvControl::InvControl()
 {
   initProducts();
@@ -87,7 +89,18 @@ void InvControl::processCashier()
     choice = -1;
     view.cashierMenu(choice);
     if (choice == 1) {			// purchases
-      view.printError("Feature not implemented");
+      view.promptForInt("Enter customer id", custId);
+	  Customer& cust = verifyCustomer(custId);
+
+	  //Init cust purchase
+	  view.promptForInt("Enter a sequence of product ids to be purchased (Terminate with 0)", prodId);
+	  while (prodId > 0)
+	  {
+	  	verifyProduct(prodId);
+		makePurchase(prodId, cust);
+		view.promptForInt("next product id", prodId);
+	  }
+
     }
     else if (choice == 2) {		// return purchases
       view.printError("Feature not implemented");
@@ -102,6 +115,51 @@ void InvControl::processCashier()
     }
   }
 }
+
+
+
+
+Customer& InvControl::verifyCustomer(int id)
+{
+
+	CustArray custArr = store.getCustomers();
+	// search for existing customer
+	for (int i=0; i<custArr.getSize(); i++) {
+    	Customer& cust = custArr.get(i);
+		if(cust.getId() == id) return cust; 
+	}
+
+	view.printError("Customer not found. Terminating program...");
+	exit(1); //K: not sure we are allowed to use this???
+}
+
+
+
+void InvControl::verifyProduct(int prodId)
+{
+
+	ProdArray products = store.getStock();
+	for (int i=0; i<products.getSize(); i++) {
+    	Product& prod = products.get(i);
+		if(prod.getId() == prodId && prod.getUnits() > 0)
+		{ 
+			return; 
+		}
+	}
+
+	view.printError("Product not found. Terminating program...");
+	exit(1); //K: not sure we are allowed to use this???
+}
+
+
+
+void InvControl::makePurchase(int prodId, Customer& cust)
+{
+	return;
+}
+
+
+
 
 void InvControl::initProducts()
 {

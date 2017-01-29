@@ -32,6 +32,8 @@ int Customer::buyItem(Product* p) {
     }
   }
   //we didn't find the item if we get here. Customer has never bought this item before.
+
+  //K: I think some kind of addProduct(p) function should be implemented on PurchArray class in order to keep encapsulation principles, then we could just call pArray.add(p) here and move code below to PurchArray class
   Purchase array[pArray.getPurchArraySize()+1];
 
   for (int i = 0; i < pArray.getPurchArraySize(); i++) {

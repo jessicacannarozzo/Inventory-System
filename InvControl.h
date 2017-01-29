@@ -29,5 +29,14 @@ class InvControl
     void      initCustomers();
     void      processAdmin();
     void      processCashier();
+
+	// Verify that a given custumer id is existing and return that Customer
+	Customer& verifyCustomer(int);
+
+	// Verify that a given product id is existing and in stock
+	void      verifyProduct(int);
+
+    // Initiate customer purchase
+	void 	  makePurchase(int prodId, Customer& cust);
 };
 #endif
