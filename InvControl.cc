@@ -12,8 +12,11 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include <cstdlib>
+#include <math.h>       // using round()
 #include "InvControl.h"
 #include "Store.h"
+
+#include "stdlib.h" //K: not sure we are allowed to do this???
 
 InvControl::InvControl()
 {
@@ -87,7 +90,22 @@ void InvControl::processCashier()
     choice = -1;
     view.cashierMenu(choice);
     if (choice == 1) {			// purchases
-      view.printError("Feature not implemented");
+      view.promptForInt("Enter customer id", custId);
+	  Customer& cust = verifyCustomer(custId);
+
+	  //Init cust purchase
+	  float totalAmount = 0;
+	  int   totalPoints = 0; 
+	  view.promptForInt("Enter a sequence of product ids to be purchased (Terminate with 0)", prodId);
+	  while (prodId != 0)
+	  {
+	  	Product prod = verifyProduct(prodId);
+		productPurchase(prod, cust, &totalAmount, &totalPoints);
+		view.promptForInt("next product id", prodId);
+	  }
+
+	  view.printPurchaseSummary(totalAmount, totalPoints);
+
     }
     else if (choice == 2) {		// return purchases
       view.printError("Feature not implemented");
@@ -103,10 +121,71 @@ void InvControl::processCashier()
   }
 }
 
+
+
+
+Customer& InvControl::verifyCustomer(int id)
+{
+
+	CustArray custArr = store.getCustomers();
+	// search for existing customer
+	for (int i=0; i<custArr.getSize(); i++) {
+    	Customer& cust = custArr.get(i);
+		if(cust.getId() == id) return cust; 
+	}
+
+	view.printError("Customer not found. Terminating program...");
+	exit(1); //K: not sure we are allowed to use this???
+}
+
+
+
+Product& InvControl::verifyProduct(int prodId)
+{
+
+	ProdArray products = store.getStock();
+	for (int i=0; i<products.getSize(); i++) {
+    	Product& prod = products.get(i);
+		if(prod.getId() == prodId && prod.getUnits() > 0)
+		{ 
+			return prod; 
+		}
+	}
+
+	view.printError("Product not found. Terminating program...");
+	exit(1); //K: not sure we are allowed to use this???
+}
+
+
+
+void InvControl::productPurchase(Product& prod, Customer& cust, float* totalAmount, int* totalPoints)
+{
+
+	cust.buyItem(prod);
+
+	//reduce the number of units of that product available in the store
+	prod.decrementUnits();
+
+	//compute the number of loyalty points earned by the customer with purchasing that product
+	*totalPoints += computeLoyaltyPoints(prod.getPrice(), cust);
+	*totalAmount += prod.getPrice();
+	
+}
+
+int InvControl::computeLoyaltyPoints(float price, Customer& cust)
+{
+	int points = round(price);
+	// add the loyalty points to the customer’s points
+	cust.addPoints(points);
+	return points;
+}
+
+
+
 void InvControl::initProducts()
 {
   /*
-     This function is so ugly!  It's because we're using 
+     This function is so ugly!  It's because we're using
      statically allocated memory, instead of dynamically
      alloated.  Don't worry, we'll fix this in Assignment #2.
   */
@@ -197,4 +276,3 @@ void InvControl::initCustomers()
   store.addCust(cust09);
   store.addCust(cust10);
 }
-

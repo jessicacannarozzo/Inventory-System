@@ -16,6 +16,7 @@
 #include <string>
 #include <sstream>
 #include "UI.h"
+
 using namespace std;
 
 
@@ -51,10 +52,12 @@ void UI::cashierMenu(int& choice)
 
   while (choice < 0 || choice > 2) {
     cout << "Enter your selection:  ";
-    choice = readInt();
+	choice = readInt();
     if (choice == MAGIC_NUM) return;
   }
 }
+
+
 
 void UI::printStock(ProdArray& arr)
 {
@@ -81,6 +84,8 @@ void UI::printStock(ProdArray& arr)
   }
 }
 
+
+// modify the “print customers” feature so that it prints out all the purchase information for each customer, in addition to all the customer’s information.
 void UI::printCustomers(CustArray& arr)
 {
   cout << endl << "CUSTOMERS: " << endl << endl;
@@ -90,6 +95,14 @@ void UI::printCustomers(CustArray& arr)
     cout << cust.getId() << "  " << setw(10) << cust.getName()
          << "  " << setw(4) << cust.getPoints() << endl;
   }
+}
+
+
+void UI::printPurchaseSummary(float totalAmount, int points)
+{
+	cout << "\n\n PURCHASE SUMMARY : \n\n";
+    cout<< " Total purchase amount: $" << totalAmount <<"\n";
+    cout<< " Total points earned  :  " << points <<"\n"<<endl;
 }
 
 void UI::printError(string err)

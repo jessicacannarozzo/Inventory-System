@@ -16,7 +16,7 @@
 int Product::nextProdId = 5001;
 
 Product::Product(string n, string s, int u, float p)
-{ 
+{
   id    = nextProdId++;
   name  = n;
   size  = s;
@@ -24,10 +24,16 @@ Product::Product(string n, string s, int u, float p)
   price = (p >= 0) ? p : 0;
 }
 
+void Product::incrementUnits() {
+  units++;
+}
+
+void Product::decrementUnits() {
+  units--;
+}
+
 int    Product::getId()    { return id;    }
 string Product::getName()  { return name;  }
 string Product::getSize()  { return size;  }
 int    Product::getUnits() { return units; }
 float  Product::getPrice() { return price; }
-
-

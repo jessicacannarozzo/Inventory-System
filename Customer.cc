@@ -17,14 +17,17 @@
 int Customer::nextCustId = 2001;
 
 Customer::Customer(string n)
-{ 
+{
   id     = nextCustId++;
   name   = n;
   points = 0;
 }
 
+void Customer::buyItem(Product& p) { pArray.addNewPurchase(p); }
+
+void Customer::addPoints(int p)    { points += p; }
+
 int    Customer::getId()     { return id;     }
 string Customer::getName()   { return name;   }
 int    Customer::getPoints() { return points; }
-
-
+PurchArray Customer::getPurchArray() { return pArray; } //getter added
