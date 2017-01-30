@@ -29,6 +29,7 @@ class Customer
     int    getPoints();
     PurchArray getPurchArray();
     void buyItem(Product&);
+	void addPoints(int); //add loyalty points
 
   protected:
     static int nextCustId;

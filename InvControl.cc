@@ -12,6 +12,7 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include <cstdlib>
+#include <math.h>       // using round()
 #include "InvControl.h"
 #include "Store.h"
 
@@ -93,13 +94,17 @@ void InvControl::processCashier()
 	  Customer& cust = verifyCustomer(custId);
 
 	  //Init cust purchase
+	  float totalAmount = 0;
+	  int   totalPoints = 0; 
 	  view.promptForInt("Enter a sequence of product ids to be purchased (Terminate with 0)", prodId);
-	  while (prodId > 0)
+	  while (prodId != 0)
 	  {
-	  	verifyProduct(prodId);
-		makePurchase(prodId, cust);
+	  	Product prod = verifyProduct(prodId);
+		productPurchase(prod, cust, &totalAmount, &totalPoints);
 		view.promptForInt("next product id", prodId);
 	  }
+
+	  view.printPurchaseSummary(totalAmount, totalPoints);
 
     }
     else if (choice == 2) {		// return purchases
@@ -135,7 +140,7 @@ Customer& InvControl::verifyCustomer(int id)
 
 
 
-void InvControl::verifyProduct(int prodId)
+Product& InvControl::verifyProduct(int prodId)
 {
 
 	ProdArray products = store.getStock();
@@ -143,7 +148,7 @@ void InvControl::verifyProduct(int prodId)
     	Product& prod = products.get(i);
 		if(prod.getId() == prodId && prod.getUnits() > 0)
 		{ 
-			return; 
+			return prod; 
 		}
 	}
 
@@ -153,11 +158,27 @@ void InvControl::verifyProduct(int prodId)
 
 
 
-void InvControl::makePurchase(int prodId, Customer& cust)
+void InvControl::productPurchase(Product& prod, Customer& cust, float* totalAmount, int* totalPoints)
 {
-	return;
+
+	cust.buyItem(prod);
+
+	//reduce the number of units of that product available in the store
+	prod.decrementUnits();
+
+	//compute the number of loyalty points earned by the customer with purchasing that product
+	*totalPoints += computeLoyaltyPoints(prod.getPrice(), cust);
+	*totalAmount += prod.getPrice();
+	
 }
 
+int InvControl::computeLoyaltyPoints(float price, Customer& cust)
+{
+	int points = round(price);
+	// add the loyalty points to the customer’s points
+	cust.addPoints(points);
+	return points;
+}
 
 
 

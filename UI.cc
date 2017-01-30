@@ -97,6 +97,14 @@ void UI::printCustomers(CustArray& arr)
   }
 }
 
+
+void UI::printPurchaseSummary(float totalAmount, int points)
+{
+	cout << "\n\n PURCHASE SUMMARY : \n\n";
+    cout<< " Total purchase amount: $" << totalAmount <<"\n";
+    cout<< " Total points earned  :  " << points <<"\n"<<endl;
+}
+
 void UI::printError(string err)
 {
   cout << endl << err << " -- press enter to continue...";

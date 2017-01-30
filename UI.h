@@ -35,6 +35,9 @@ class UI
     void printCustomers(CustArray&);
     void pause();
 
+	//print a summary to the screen of the total purchase amount and number of points earned
+	void printPurchaseSummary(float, int);
+
   private:
     int    readInt();
 };

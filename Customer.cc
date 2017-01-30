@@ -23,10 +23,9 @@ Customer::Customer(string n)
   points = 0;
 }
 
-void Customer::buyItem(Product& p) {
-  pArray.addNewPurchase(p);
-  return;
-}
+void Customer::buyItem(Product& p) { pArray.addNewPurchase(p); }
+
+void Customer::addPoints(int p)    { points += p; }
 
 int    Customer::getId()     { return id;     }
 string Customer::getName()   { return name;   }

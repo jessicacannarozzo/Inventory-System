@@ -14,7 +14,7 @@ int PurchArray::getPurchArraySize() { return purchSize; } //get the size
 
 
 Purchase& PurchArray::getPurchase(int index){
-	return &(pArr[index]);
+	return *(pArr[index]);
 }
 
 

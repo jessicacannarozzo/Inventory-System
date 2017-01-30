@@ -28,6 +28,10 @@ void Product::incrementUnits() {
   units++;
 }
 
+void Product::decrementUnits() {
+  units--;
+}
+
 int    Product::getId()    { return id;    }
 string Product::getName()  { return name;  }
 string Product::getSize()  { return size;  }

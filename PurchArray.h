@@ -5,7 +5,8 @@ class PurchArray {
 
   public:
     PurchArray();
-    Purchase* getPurchArray(); //K: not necessary, no other class should have access to this
+    //Purchase* getPurchArray(); //K: not necessary, no other class should have access to this
+    Purchase& getPurchase(int);
     int getPurchArraySize();
     void addNewPurchase(Product&);
 

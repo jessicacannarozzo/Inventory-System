@@ -5,7 +5,7 @@ class Purchase {
   public:
     Purchase(Product& p);  //K: according to forum, there should be at least one prod when calling Purchase(). Prod is also set here
 
-    Product getProd();
+    Product& getProd();
 	int getPurchQnt();
 
     // increments quantity of the same product bought by a customer
