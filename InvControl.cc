@@ -16,8 +16,6 @@
 #include "InvControl.h"
 #include "Store.h"
 
-#include "stdlib.h" //K: not sure we are allowed to do this???
-
 InvControl::InvControl()
 {
   initProducts();
@@ -99,7 +97,7 @@ void InvControl::processCashier()
 	  view.promptForInt("Enter a sequence of product ids to be purchased (Terminate with 0)", prodId);
 	  while (prodId != 0)
 	  {
-	  	Product prod = verifyProduct(prodId);
+	  	Product& prod = verifyProduct(prodId);
 		productPurchase(prod, cust, &totalAmount, &totalPoints);
 		view.promptForInt("next product id", prodId);
 	  }
@@ -135,7 +133,7 @@ Customer& InvControl::verifyCustomer(int id)
 	}
 
 	view.printError("Customer not found. Terminating program...");
-	exit(1); //K: not sure we are allowed to use this???
+	exit(1);
 }
 
 
@@ -153,7 +151,7 @@ Product& InvControl::verifyProduct(int prodId)
 	}
 
 	view.printError("Product not found. Terminating program...");
-	exit(1); //K: not sure we are allowed to use this???
+	exit(1); 
 }
 
 
@@ -189,7 +187,6 @@ void InvControl::initProducts()
      statically allocated memory, instead of dynamically
      alloated.  Don't worry, we'll fix this in Assignment #2.
   */
-
   Product prod01("Sudzzy Dish Soap", "1 L", 10, 3.99f);
   store.addProd(prod01);
 

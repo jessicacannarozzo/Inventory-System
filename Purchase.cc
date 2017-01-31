@@ -3,6 +3,12 @@
 #include "Purchase.h"
 using namespace std;
 
+Purchase::Purchase() 
+{
+	prod = 0;
+	purchQnt = 0;
+}
+
 Purchase::Purchase(Product& p) 
 {
 	prod = &p;
