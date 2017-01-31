@@ -30,4 +30,3 @@ class CustArray
 };
 
 #endif
-
