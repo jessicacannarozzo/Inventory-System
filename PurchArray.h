@@ -5,12 +5,12 @@ class PurchArray {
 
   public:
     PurchArray();
-    //Purchase* getPurchArray(); //K: not necessary, no other class should have access to this
     Purchase& getPurchase(int);
     int getPurchArraySize();
-    void addNewPurchase(Product&);
+    void addNewPurchase(Purchase&);
+	Product& getProd (int);
 
   private:
-    Purchase* pArr[MAX_ARR];
+    Purchase pArr[MAX_ARR];
     int purchSize;
 };

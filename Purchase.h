@@ -3,7 +3,8 @@
 
 class Purchase {
   public:
-    Purchase(Product& p);  //K: according to forum, there should be at least one prod when calling Purchase(). Prod is also set here
+    Purchase();
+    Purchase(Product& p);
 
     Product& getProd();
 	int getPurchQnt();
@@ -12,6 +13,6 @@ class Purchase {
     void incrementProdQnt(); 
 
   private:
-	Product* prod; //K: keeping reference instead of a prod copy
+	Product* prod;
 	int purchQnt; // num of units of that product bought by a customer
 };

@@ -14,6 +14,7 @@
 #include <cmath>
 #include "Customer.h"
 
+
 int Customer::nextCustId = 2001;
 
 Customer::Customer(string n)
@@ -23,7 +24,21 @@ Customer::Customer(string n)
   points = 0;
 }
 
-void Customer::buyItem(Product& p) { pArray.addNewPurchase(p); }
+void Customer::buyItem(Product& p) 
+{ 
+	//check if product was already bought in the past
+	for (int i = 0; i < pArray.getPurchArraySize(); i++) {
+		if (pArray.getProd(i).getId() == p.getId()) {
+		  	//product was bought in the past, increment units by 1
+		  	pArray.getPurchase(i).incrementProdQnt();
+		  	return; //don't need to iterate anymore, function successful
+		}
+	}
+  	
+  	//we didn't find the item if we get here. Customer has never bought this item before.
+	Purchase newPurch(p);
+	pArray.addNewPurchase(newPurch); 
+}
 
 void Customer::addPoints(int p)    { points += p; }
 
