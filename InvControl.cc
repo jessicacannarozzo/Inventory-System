@@ -141,7 +141,7 @@ Customer& InvControl::verifyCustomer(int id)
 Product& InvControl::verifyProduct(int prodId)
 {
 
-	ProdArray products = store.getStock();
+	ProdArray& products = store.getStock();
 	for (int i=0; i<products.getSize(); i++) {
     	Product& prod = products.get(i);
 		if(prod.getId() == prodId && prod.getUnits() > 0)
