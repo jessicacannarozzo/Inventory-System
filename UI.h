@@ -11,6 +11,16 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                 */
+/* Authors: Jess Cannarozzo (101007447)            */
+/*          Karla Martins Spuldaro (101021516)     */
+/*                                                 */
+/* Class Def: UI.h                                 */
+/* Provides the user interface for this            */
+/* application.                                    */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #ifndef UI_H
 #define UI_H
 

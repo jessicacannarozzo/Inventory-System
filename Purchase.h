@@ -1,3 +1,12 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                 */
+/* Authors: Jess Cannarozzo (101007447)            */
+/*          Karla Martins Spuldaro (101021516)     */
+/*                                                 */
+/* Class Def: Product.h                            */
+/* Products that may be purchased from the store.  */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #include "defs.h"
 #include "Product.h"
 
@@ -10,7 +19,7 @@ class Purchase {
 	int getPurchQnt();
 
     // increments quantity of the same product bought by a customer
-    void incrementProdQnt(); 
+    void incrementProdQnt();
 
   private:
 	Product* prod;

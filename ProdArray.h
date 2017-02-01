@@ -11,6 +11,16 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                 */
+/* Authors: Jess Cannarozzo (101007447)            */
+/*          Karla Martins Spuldaro (101021516)     */
+/*                                                 */
+/* Class Def: ProdArray.h                          */
+/* Array of products that may be purchased from    */
+/* the store.                                      */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #ifndef PRODARRAY_H
 #define PRODARRAY_H
 
