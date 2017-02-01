@@ -11,6 +11,16 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                 */
+/* Authors: Jess Cannarozzo (101007447)            */
+/*          Karla Martins Spuldaro (101021516)     */
+/*                                                 */
+/* Class Def: Product.h                            */
+/* Product type. Includes all information for each */
+/* item at the store.                              */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #ifndef PRODUCT_H
 #define PRODUCT_H
 

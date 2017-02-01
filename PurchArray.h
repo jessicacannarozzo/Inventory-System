@@ -1,3 +1,13 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                 */
+/* Authors: Jess Cannarozzo (101007447)            */
+/*          Karla Martins Spuldaro (101021516)     */
+/*                                                 */
+/* Class Def: PurchArray.h                         */
+/* Array of items that may be purchased from the   */
+/* store.                                          */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #include "defs.h"
 #include "Purchase.h"
 
