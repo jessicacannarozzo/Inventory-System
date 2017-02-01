@@ -11,6 +11,17 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                 */
+/* Authors: Jess Cannarozzo (101007447)            */
+/*          Karla Martins Spuldaro (101021516)     */
+/*                                                 */
+/* Class Def: InvControl.h                         */
+/* Controls the inventory of the store. Processes  */
+/* cashier and administration functions, which     */
+/* allows the store to process transactions.       */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #ifndef INVCONTROL_H
 #define INVCONTROL_H
 

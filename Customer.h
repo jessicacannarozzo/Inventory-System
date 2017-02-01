@@ -11,6 +11,17 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                 */
+/* Authors: Jess Cannarozzo (101007447)            */
+/*          Karla Martins Spuldaro (101021516)     */
+/*                                                 */
+/* Class Def: Customer.h                           */
+/* Customers that populate the store, may buy      */
+/* products from the store and collect Loyalty     */
+/* points.                                         */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 

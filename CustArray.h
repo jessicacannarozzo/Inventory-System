@@ -11,6 +11,16 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                 */
+/* Authors: Jess Cannarozzo (101007447)            */
+/*          Karla Martins Spuldaro (101021516)     */
+/*                                                 */
+/* Class Def: CustArray.h                          */
+/* Array of customers that may buy products from   */
+/* the store.                                      */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #ifndef CUSTARRAY_H
 #define CUSTARRAY_H
 
