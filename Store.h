@@ -42,9 +42,6 @@ class Store
     ProdArray  stock;
     CustArray  customers;
     // Initiate customer purchase
-  void productPurchase(Product&, Customer&, float*, int*);
-  //compute loyalty points earned by a customer with a purchase. Update customer points. Return number of points.
-  int computeLoyaltyPoints(float, Customer&);
 };
 
 #endif
