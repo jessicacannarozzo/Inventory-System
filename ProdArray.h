@@ -17,8 +17,7 @@
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
 /* Class Def: ProdArray.h                          */
-/* Array of products that may be purchased from    */
-/* the store.                                      */
+/* Array of products contained in the store        */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef PRODARRAY_H
@@ -31,9 +30,9 @@ class ProdArray
 {
   public:
     ProdArray();
-    void add(Product&);
-    Product& get(int);
-    int getSize();
+    void add(Product&);//adds a product in array
+    Product& get(int); //returns a product at a given position in array
+    int getSize();     //returns number of products in array
   private:
     Product elements[MAX_ARR];
     int size;
