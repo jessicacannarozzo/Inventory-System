@@ -125,7 +125,7 @@ void InvControl::processCashier()
 Customer& InvControl::verifyCustomer(int id)
 {
 
-	CustArray custArr = store.getCustomers();
+	CustArray& custArr = store.getCustomers();
 	// search for existing customer
 	for (int i=0; i<custArr.getSize(); i++) {
     	Customer& cust = custArr.get(i);
