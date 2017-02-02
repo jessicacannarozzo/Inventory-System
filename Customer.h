@@ -35,12 +35,12 @@ class Customer
 {
   public:
     Customer(string="Unknown");
-    int    getId();
-    string getName();
-    int    getPoints();
-    PurchArray& getPurchArray();
-    void buyItem(Product&);
-	void addPoints(int); //add loyalty points
+    int    getId();            //returns customer id
+    string getName();          //returns customer name
+    int    getPoints();        //returns customer points
+    PurchArray getPurchArray();//returns customer collection of purchases
+    void buyItem(Product&);    //adds new purchase to the purchase collection
+	void addPoints(int);       //add loyalty points
 
   protected:
     static int nextCustId;

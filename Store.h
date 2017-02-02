@@ -34,14 +34,19 @@
 class Store
 {
   public:
-    void       addProd(Product&);
-    void       addCust(Customer&);
-    ProdArray& getStock();
-    CustArray& getCustomers();
+    void       addProd(Product&); //add Product in store stock
+    void       addCust(Customer&);// add new customer
+    ProdArray& getStock();        //get collection of products in stock
+    CustArray& getCustomers();    //get collection of registered customers
+
   private:
     ProdArray  stock;
     CustArray  customers;
-    // Initiate customer purchase
+
+  // Initiate customer purchase
+  void productPurchase(Product&, Customer&, float*, int*);
+  //compute loyalty points earned by a customer with a purchase. Update customer points. Return number of points.
+  int computeLoyaltyPoints(float, Customer&);
 };
 
 #endif

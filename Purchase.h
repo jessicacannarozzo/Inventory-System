@@ -15,8 +15,8 @@ class Purchase {
     Purchase();
     Purchase(Product& p);
 
-    Product& getProd();
-	int getPurchQnt();
+    Product& getProd(); //get product
+	int getPurchQnt();  //get quantity of the same product bought by a customer
 
     // increments quantity of the same product bought by a customer
     void incrementProdQnt();

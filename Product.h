@@ -31,11 +31,11 @@ class Product
 {
   public:
     Product(string="Unknown", string="Unknown", int=0, float=0.0f);
-    int    getId();
-    string getName();
-    string getSize();
-    int    getUnits();
-    float  getPrice();
+    int    getId();        //returns product id       
+    string getName();      //returns product name
+    string getSize();      //returns product size
+    int    getUnits();     //returns product units available
+    float  getPrice();     //returns product price
     void incrementUnits(); //increments units by 1.
 	void decrementUnits(); //increments units by 1.
 

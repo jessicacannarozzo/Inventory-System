@@ -85,7 +85,7 @@ void UI::printStock(ProdArray& arr)
 }
 
 
-// modify the “print customers” feature so that it prints out all the purchase information for each customer, in addition to all the customer’s information.
+
 void UI::printCustomers(CustArray& arr)
 {
   cout << endl << "CUSTOMERS: " << endl << endl;

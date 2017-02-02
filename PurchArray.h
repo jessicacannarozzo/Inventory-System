@@ -15,10 +15,10 @@ class PurchArray {
 
   public:
     PurchArray();
-    Purchase& getPurchase(int);
-    int getPurchArraySize();
-    void addNewPurchase(Purchase&);
-	Product& getProd (int);
+    Purchase& getPurchase(int);    //get the purchase
+    int getPurchArraySize();       //get the size
+    void addNewPurchase(Purchase&);//add new Purchase in collection
+	Product& getProd (int);        //get product from a given position in purchase coolection
 
   private:
     Purchase pArr[MAX_ARR];

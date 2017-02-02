@@ -8,18 +8,12 @@ PurchArray::PurchArray() {
   purchSize = 0;
 }
 
-int PurchArray::getPurchArraySize() { return purchSize; } //get the size
+int PurchArray::getPurchArraySize(){ return purchSize; } 
 
 
-Purchase& PurchArray::getPurchase(int index){
-	return pArr[index];
-}
+Purchase& PurchArray::getPurchase(int index){ return pArr[index]; }
 
-Product& PurchArray::getProd (int index)
-{
-	return pArr[index].getProd();
-
-}
+Product& PurchArray::getProd (int index){ return pArr[index].getProd(); }
 
 
 void PurchArray::addNewPurchase(Purchase& p) 

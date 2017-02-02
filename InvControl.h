@@ -36,10 +36,10 @@ class InvControl
   private:
     Store     store;
     UI        view;
-    void      initProducts();
-    void      initCustomers();
-    void      processAdmin();
-    void      processCashier();
+    void      initProducts();  //initiate product stock
+    void      initCustomers(); //initiate collection of registered customers
+    void      processAdmin();  //process admin menu options
+    void      processCashier();//process cashier menu options
 
 	// Verify that a given custumer id is existing, and return a ref to that Customer
 	Customer& verifyCustomer(int);
