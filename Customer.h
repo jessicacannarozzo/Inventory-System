@@ -38,7 +38,7 @@ class Customer
     int    getId();            //returns customer id
     string getName();          //returns customer name
     int    getPoints();        //returns customer points
-    PurchArray getPurchArray();//returns customer collection of purchases
+    PurchArray& getPurchArray();//returns customer collection of purchases
     void buyItem(Product&);    //adds new purchase to the purchase collection
 	void addPoints(int);       //add loyalty points
 

@@ -97,7 +97,7 @@ void UI::printCustomers(CustArray& arr)
          << "  " << setw(4) << cust.getPoints() << endl;
 
 	// iterate through customer purchase array
-	PurchArray& purchases = cust.getPurchArray();
+	PurchArray purchases = cust.getPurchArray();
 	int purchSize = purchases.getPurchArraySize();
 
   cout << endl << "Purchased items: " << endl << endl;
