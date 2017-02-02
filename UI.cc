@@ -84,52 +84,44 @@ void UI::printStock(ProdArray& arr)
   }
 }
 
-//back-up print
-// void UI::printCustomerItems(Customer& c) {
-//    stringstream ss;
-//
-//    cout << endl << "Customer items: " << endl << endl;
-//    cout << " ID                                 Name             Size    Qty   Subtotal" << endl;
-//    cout << " --                                 ----             ----    ---    -----" << endl;
-//
-//    cout << c.getPurchArray().getPurchase(0).getProd().getName() << endl;
-//
-//    for (int i = 0; i < c.getPurchArray().getPurchArraySize(); i++) {
-//      Product& product = c.getPurchArray().getPurchase(i).getProd();
-//
-//      cout << product.getId()   << "  " << setw(40) << product.getName() << "  "
-//           << setw(10) << product.getSize() << "  " << setw(4)  << product.getUnits() << "    ";
-//
-//      ss << setw(6) << fixed << setprecision(2) << product.getPrice()*product.getUnits();
-//
-//      cout << "$" << ss.str() << endl;
-//      ss.str("");
-//
-//    }
-//  }
 
 // modify the “print customers” feature so that it prints out all the purchase information for each customer, in addition to all the customer’s information.
 void UI::printCustomers(CustArray& arr)
 {
   cout << endl << "CUSTOMERS: " << endl << endl;
+  cout << "---------------------------------------------------------------------------" << endl;
 
   for (int i=0; i < arr.getSize(); i++) {
     Customer& cust = arr.get(i);
     cout << cust.getId() << "  " << setw(10) << cust.getName()
-         << "  " << setw(4) << cust.getPoints();
+         << "  " << setw(4) << cust.getPoints() << endl;
 
 	// iterate through customer purchase array
 	PurchArray& purchases = cust.getPurchArray();
 	int purchSize = purchases.getPurchArraySize();
 
-	cout << "  " << "Purchased items: " ;
+  cout << endl << "Purchased items: " << endl << endl;
+  cout << " ID                                 Name             Size    Qty   Subtotal" << endl;
+  cout << " --                                 ----             ----    ---    -------" << endl;
+
 	for(int j = 0; j < purchSize; j++)
 	{
-		Purchase& p = purchases.getPurchase(j);
-		cout << "(" << p.getProd().getId() << ": " << p.getPurchQnt() << ")";
+    stringstream ss;
+    Purchase& p = purchases.getPurchase(j);
 
-		if (j < purchases.getPurchArraySize()-1) cout << ", ";
+       cout << p.getProd().getId()   << "  " << setw(40) << p.getProd().getName() << "  "
+                 << setw(10) << p.getProd().getSize() << "  " << setw(4)  << p.getPurchQnt() << "    ";
+
+            ss << setw(6) << fixed << setprecision(2) << p.getProd().getPrice()*p.getPurchQnt();
+
+            cout << "$" << ss.str() << endl;
+            ss.str("");
+
+		// cout << "(" << p.getProd().getId() << ": " << p.getProd().getName() << ")";
+    //
+		// if (j < purchases.getPurchArraySize()-1) cout << ", ";
 	}
+  cout << "---------------------------------------------------------------------------" << endl;
 	cout << endl;
   }
 }
