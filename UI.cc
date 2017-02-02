@@ -84,6 +84,29 @@ void UI::printStock(ProdArray& arr)
   }
 }
 
+//back-up print
+// void UI::printCustomerItems(Customer& c) {
+//    stringstream ss;
+//
+//    cout << endl << "Customer items: " << endl << endl;
+//    cout << " ID                                 Name             Size    Qty   Subtotal" << endl;
+//    cout << " --                                 ----             ----    ---    -----" << endl;
+//
+//    cout << c.getPurchArray().getPurchase(0).getProd().getName() << endl;
+//
+//    for (int i = 0; i < c.getPurchArray().getPurchArraySize(); i++) {
+//      Product& product = c.getPurchArray().getPurchase(i).getProd();
+//
+//      cout << product.getId()   << "  " << setw(40) << product.getName() << "  "
+//           << setw(10) << product.getSize() << "  " << setw(4)  << product.getUnits() << "    ";
+//
+//      ss << setw(6) << fixed << setprecision(2) << product.getPrice()*product.getUnits();
+//
+//      cout << "$" << ss.str() << endl;
+//      ss.str("");
+//
+//    }
+//  }
 
 // modify the “print customers” feature so that it prints out all the purchase information for each customer, in addition to all the customer’s information.
 void UI::printCustomers(CustArray& arr)
