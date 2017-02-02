@@ -27,7 +27,7 @@ class Customer
     int    getId();
     string getName();
     int    getPoints();
-    PurchArray getPurchArray();
+    PurchArray& getPurchArray();
     void buyItem(Product&);
 	void addPoints(int); //add loyalty points
 

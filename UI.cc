@@ -90,10 +90,24 @@ void UI::printCustomers(CustArray& arr)
 {
   cout << endl << "CUSTOMERS: " << endl << endl;
 
-  for (int i=0; i<arr.getSize(); i++) {
+  for (int i=0; i < arr.getSize(); i++) {
     Customer& cust = arr.get(i);
     cout << cust.getId() << "  " << setw(10) << cust.getName()
-         << "  " << setw(4) << cust.getPoints() << endl;
+         << "  " << setw(4) << cust.getPoints();
+
+	// iterate through customer purchase array
+	PurchArray& purchases = cust.getPurchArray();
+	int purchSize = purchases.getPurchArraySize();
+
+	cout << "  " << "Purchased items: " ;
+	for(int j = 0; j < purchSize; j++)
+	{
+		Purchase& p = purchases.getPurchase(j);
+		cout << "(" << p.getProd().getId() << ": " << p.getPurchQnt() << ")";
+
+		if (j < purchases.getPurchArraySize()-1) cout << ", ";
+	}
+	cout << endl;
   }
 }
 
