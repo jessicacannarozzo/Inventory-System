@@ -45,4 +45,4 @@ void Customer::addPoints(int p)    { points += p; }
 int    Customer::getId()     { return id;     }
 string Customer::getName()   { return name;   }
 int    Customer::getPoints() { return points; }
-PurchArray Customer::getPurchArray() { return pArray; } //getter added
+PurchArray& Customer::getPurchArray() { return pArray; } //getter added

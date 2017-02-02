@@ -1,14 +1,17 @@
 Simple Inventory System
 
+
 Purpose:
 Keeps track of product and customer information, and allows for the record-keeping of transactions.
+
 
 Authors:
 Jess Cannarozzo (S/N: 101007447)
 Karla Martins Spuldaro (S/N: 101021516)
 
+
 List of Source Files:
-____________________
+//.cc
 CustArray.cc
 Customer.cc
 InvControl.cc
@@ -20,6 +23,7 @@ Purchase.cc
 Store.cc
 UI.cc
 
+//.h files
 CustArray.h
 Customer.h
 defs.h
@@ -31,12 +35,15 @@ Purchase.h
 Store.h
 UI.h
 
+//other
 Makefile
 readme
+UML-diagram
 
-_____________________
+
 Compilation Command:
 make
+
 
 Operating Instructions:
 ./cushop -a OR ./cushop -c

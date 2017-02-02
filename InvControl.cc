@@ -125,7 +125,7 @@ void InvControl::processCashier()
 Customer& InvControl::verifyCustomer(int id)
 {
 
-	CustArray custArr = store.getCustomers();
+	CustArray& custArr = store.getCustomers();
 	// search for existing customer
 	for (int i=0; i<custArr.getSize(); i++) {
     	Customer& cust = custArr.get(i);
@@ -141,7 +141,7 @@ Customer& InvControl::verifyCustomer(int id)
 Product& InvControl::verifyProduct(int prodId)
 {
 
-	ProdArray products = store.getStock();
+	ProdArray& products = store.getStock();
 	for (int i=0; i<products.getSize(); i++) {
     	Product& prod = products.get(i);
 		if(prod.getId() == prodId && prod.getUnits() > 0)
@@ -156,27 +156,27 @@ Product& InvControl::verifyProduct(int prodId)
 
 
 
-// void InvControl::productPurchase(Product& prod, Customer& cust, float* totalAmount, int* totalPoints)
-// {
-//
-// 	cust.buyItem(prod);
-//
-// 	//reduce the number of units of that product available in the store
-// 	prod.decrementUnits();
-//
-// 	//compute the number of loyalty points earned by the customer with purchasing that product
-// 	*totalPoints += computeLoyaltyPoints(prod.getPrice(), cust);
-// 	*totalAmount += prod.getPrice();
-//
-// }
+void InvControl::productPurchase(Product& prod, Customer& cust, float* totalAmount, int* totalPoints)
+{
 
-// int InvControl::computeLoyaltyPoints(float price, Customer& cust)
-// {
-// 	int points = round(price);
-// 	// add the loyalty points to the customer’s points
-// 	cust.addPoints(points);
-// 	return points;
-// }
+	cust.buyItem(prod);
+
+	//reduce the number of units of that product available in the store
+	prod.decrementUnits();
+
+	//compute the number of loyalty points earned by the customer with purchasing that product
+	*totalPoints += computeLoyaltyPoints(prod.getPrice(), cust);
+	*totalAmount += prod.getPrice();
+
+}
+
+int InvControl::computeLoyaltyPoints(float price, Customer& cust)
+{
+	int points = round(price);
+	// add the loyalty points to the customer’s points
+	cust.addPoints(points);
+	return points;
+}
 
 
 
