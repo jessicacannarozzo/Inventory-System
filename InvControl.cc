@@ -63,7 +63,9 @@ void InvControl::processAdmin()
       view.pause();
     }
     else if (choice == 2) {	// add inventory
-      view.printError("Feature not implemented");
+      view.promptForInt("Product ID", prodId);
+      view.promptForInt("Quantity", amount);
+      store.addInventory(prodId, amount);
     }
     else if (choice == 3) {	// print inventory
       view.printStock(store.getStock());
@@ -243,6 +245,10 @@ void InvControl::initProducts()
 
   Product* prod20 = new Product("Dogbert Sweet and Spicy Popcorn", "180 g", 5, 2.29f);
   store.addProd(prod20);
+
+  //our product!!!
+  Product prod21("Off-brand Kit-Kat", "1000 g", 100, 9.99f);
+  store.addProd(prod21);
 
 }
 

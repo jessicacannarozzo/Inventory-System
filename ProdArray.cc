@@ -14,7 +14,7 @@
 #include <string>
 #include <cstdlib>
 using namespace std;
-
+#include <iostream>
 #include "ProdArray.h"
 
 ProdArray::ProdArray()
@@ -39,3 +39,11 @@ void ProdArray::add(Product* prod)
   elements[size++] = prod;
 }
 
+Product* ProdArray::getProductByID(int id) {
+  for (int i = 0; i < size; i++) {
+    if (elements[i].getId() == id) {
+      return &elements[i];
+    }
+  }
+  return NULL;
+}

@@ -33,6 +33,7 @@ class ProdArray
     void add(Product*);//adds a product in array
     Product& get(int); //returns a product at a given position in array
     int getSize();     //returns number of products in array
+    Product* getProductByID(int);
   private:
     Product* elements[MAX_ARR];
     int size;

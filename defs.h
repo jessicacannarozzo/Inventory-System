@@ -26,6 +26,9 @@
 #define MAX_ARR    64
 #define MAGIC_NUM  42
 
+#define C_OK       1
+#define C_NOK      0
+
 
 
 #endif
