@@ -31,11 +31,11 @@ class CustArray
 {
   public:
     CustArray();
-    void add(Customer&); //adds new customer to the array
+    void add(Customer*); //adds new customer to the array
     Customer& get(int);  //returns customer object at a given position in array
     int getSize();       //returns the number of registered customers
   private:
-    Customer elements[MAX_ARR];
+    Customer* elements[MAX_ARR];
     int size;
 };
 

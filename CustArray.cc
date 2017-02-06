@@ -28,10 +28,10 @@ Customer& CustArray::get(int index)
 {
   if (index < 0 || index >= size)
     exit(1);
-  return elements[index];
+  return *(elements[index]);
 }
 
-void CustArray::add(Customer& cust)
+void CustArray::add(Customer* cust)
 {
   if (size >= MAX_ARR)
     return;

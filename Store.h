@@ -33,15 +33,18 @@
 
 class Store
 {
+
   public:
-    void       addProd(Product&); //add Product in store stock
-    void       addCust(Customer&);// add new customer
+    void       addProd(Product*); //add Product in store stock
+    void       addCust(Customer*);// add new customer
     ProdArray& getStock();        //get collection of products in stock
     CustArray& getCustomers();    //get collection of registered customers
+	~Store();                     //destructor: deallocates all dynamically allocated memory
 
   private:
     ProdArray  stock;
     CustArray  customers;
+	
 
   // Initiate customer purchase
   //void productPurchase(Product&, Customer&, float*, int*);
