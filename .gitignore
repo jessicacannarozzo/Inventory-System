@@ -2,3 +2,5 @@
 
 *.o
 cushop*
+*.xml
+*.tar

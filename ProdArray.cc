@@ -28,10 +28,10 @@ Product& ProdArray::get(int index)
 {
   if (index < 0 || index >= size)
     exit(1);
-  return elements[index];
+  return *(elements[index]);
 }
 
-void ProdArray::add(Product& prod)
+void ProdArray::add(Product* prod)
 {
   if (size >= MAX_ARR)
     return;

@@ -33,21 +33,25 @@
 
 class Store
 {
+
   public:
-    void       addProd(Product&); //add Product in store stock
-    void       addCust(Customer&);// add new customer
+    void       addProd(Product*); //add Product in store stock
+    void       addCust(Customer*);// add new customer
     ProdArray& getStock();        //get collection of products in stock
     CustArray& getCustomers();    //get collection of registered customers
     int        addInventory(int, int);
+	~Store();                     //destructor: deallocates all dynamically allocated memory
 
   private:
     ProdArray  stock;
     CustArray  customers;
+	
 
   // Initiate customer purchase
-  void productPurchase(Product&, Customer&, float*, int*);
+  //void productPurchase(Product&, Customer&, float*, int*);
+
   //compute loyalty points earned by a customer with a purchase. Update customer points. Return number of points.
-  int computeLoyaltyPoints(float, Customer&);
+  //int computeLoyaltyPoints(float, Customer&);
 };
 
 #endif

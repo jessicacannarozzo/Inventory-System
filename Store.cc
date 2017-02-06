@@ -19,12 +19,12 @@ ProdArray& Store::getStock()     { return stock; }
 
 CustArray& Store::getCustomers() { return customers; }
 
-void Store::addProd(Product& prod)
+void Store::addProd(Product* prod)
 {
   stock.add(prod);
 }
 
-void Store::addCust(Customer& cust)
+void Store::addCust(Customer* cust)
 {
   customers.add(cust);
 }
@@ -37,4 +37,20 @@ int Store::addInventory(int orderID, int UnitsArrived) {
     p->incrementUnitsByX(UnitsArrived);
   }
   return C_OK;
+}
+
+Store::~Store()
+{
+	//deallocate products from stock
+	for(int i = 0; i < stock.getSize(); i++)
+	{
+		delete &(stock.get(i));
+	}
+
+
+	//deallocate customers
+	for(int i = 0; i < customers.getSize(); i++)
+	{
+		delete &(customers.get(i));
+	}
 }
