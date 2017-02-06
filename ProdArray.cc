@@ -41,8 +41,8 @@ void ProdArray::add(Product* prod)
 
 Product* ProdArray::getProductByID(int id) {
   for (int i = 0; i < size; i++) {
-    if (elements[i].getId() == id) {
-      return &elements[i];
+    if (elements[i]->getId() == id) {
+      return elements[i];
     }
   }
   return NULL;

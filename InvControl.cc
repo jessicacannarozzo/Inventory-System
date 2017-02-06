@@ -185,7 +185,7 @@ int InvControl::computeLoyaltyPoints(float price, Customer& cust)
 void InvControl::initProducts()
 {
   //Dynamically allocated memory
-  
+
   Product* prod01 = new Product("Sudzzy Dish Soap", "1 L", 10, 3.99f);
   store.addProd(prod01);
 
@@ -247,7 +247,7 @@ void InvControl::initProducts()
   store.addProd(prod20);
 
   //our product!!!
-  Product prod21("Off-brand Kit-Kat", "1000 g", 100, 9.99f);
+  Product* prod21 = new Product("Off-brand Kit-Kat", "1000 g", 100, 9.99f);
   store.addProd(prod21);
 
 }

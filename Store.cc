@@ -31,12 +31,18 @@ void Store::addCust(Customer* cust)
 
 int Store::addInventory(int orderID, int UnitsArrived) {
   Product* p = stock.getProductByID(orderID);
-  if (UnitsArrived <= 0) {
-    return C_NOK;
+  if (p != NULL) {
+    if (UnitsArrived <= 0) {
+      cout << "Invalid amount. Please enter an amount greater than 0." << endl;
+      return C_NOK;
+    } else {
+      (*p).incrementUnitsByX(UnitsArrived);
+      return C_OK;
+    }
   } else {
-    p->incrementUnitsByX(UnitsArrived);
+    cout << "Item not found." << endl;
+    return C_NOK;
   }
-  return C_OK;
 }
 
 Store::~Store()

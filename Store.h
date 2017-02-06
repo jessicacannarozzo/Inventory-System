@@ -45,7 +45,7 @@ class Store
   private:
     ProdArray  stock;
     CustArray  customers;
-	
+
 
   // Initiate customer purchase
   //void productPurchase(Product&, Customer&, float*, int*);
