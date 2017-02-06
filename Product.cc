@@ -24,12 +24,16 @@ Product::Product(string n, string s, int u, float p)
   price = (p >= 0) ? p : 0;
 }
 
-void Product::incrementUnits() {
+void Product::incrementUnits() { //increment units by 1
   units++;
 }
 
 void Product::decrementUnits() {
   units--;
+}
+
+void Product::incrementUnitsByX(int x) {
+  units += x;
 }
 
 int    Product::getId()    { return id;    }

@@ -31,13 +31,14 @@ class Product
 {
   public:
     Product(string="Unknown", string="Unknown", int=0, float=0.0f);
-    int    getId();        //returns product id       
+    int    getId();        //returns product id
     string getName();      //returns product name
     string getSize();      //returns product size
     int    getUnits();     //returns product units available
     float  getPrice();     //returns product price
     void incrementUnits(); //increments units by 1.
-	void decrementUnits(); //increments units by 1.
+	  void decrementUnits(); //increments units by 1.
+    void incrementUnitsByX(int); //increments units by X amount
 
   protected:
     static int nextProdId;

@@ -38,6 +38,7 @@ class Store
     void       addCust(Customer&);// add new customer
     ProdArray& getStock();        //get collection of products in stock
     CustArray& getCustomers();    //get collection of registered customers
+    int        addInventory(int, int);
 
   private:
     ProdArray  stock;

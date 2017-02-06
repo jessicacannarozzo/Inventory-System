@@ -13,6 +13,7 @@
 
 
 #include "Store.h"
+#include <iostream>
 
 ProdArray& Store::getStock()     { return stock; }
 
@@ -26,4 +27,14 @@ void Store::addProd(Product& prod)
 void Store::addCust(Customer& cust)
 {
   customers.add(cust);
+}
+
+int Store::addInventory(int orderID, int UnitsArrived) {
+  Product* p = stock.getProductByID(orderID);
+  if (UnitsArrived <= 0) {
+    return C_NOK;
+  } else {
+    p->incrementUnitsByX(UnitsArrived);
+  }
+  return C_OK;
 }
