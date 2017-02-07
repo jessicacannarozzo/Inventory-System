@@ -37,7 +37,7 @@ class Product
     int    getUnits();     //returns product units available
     float  getPrice();     //returns product price
     void incrementUnits(); //increments units by 1.
-	  void decrementUnits(); //increments units by 1.
+	void decrementUnits(); //increments units by 1.
     void incrementUnitsByX(int); //increments units by X amount
 
   protected:

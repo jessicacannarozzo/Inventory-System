@@ -127,10 +127,10 @@ void InvControl::processCashier()
 Customer* InvControl::verifyCustomer(int id)
 {
 
-	CustArray* custArr = store.getCustomers();
+	CustArray& custArr = store.getCustomers();
 	// search for existing customer
-	for (int i=0; i < (*custArr).getSize(); i++) {
-    	Customer* cust = custArr->get(i);
+	for (int i=0; i < custArr.getSize(); i++) {
+    	Customer* cust = custArr.get(i);
 		if(cust->getId() == id) return cust;
 	}
 
@@ -143,9 +143,9 @@ Customer* InvControl::verifyCustomer(int id)
 Product* InvControl::verifyProduct(int prodId)
 {
 
-	ProdArray* products = store.getStock();
-	for (int i=0; i< products->getSize(); i++) {
-    	Product* prod = products->get(i);
+	ProdArray& products = store.getStock();
+	for (int i=0; i< products.getSize(); i++) {
+    	Product* prod = products.get(i);
 		if(prod->getId() == prodId && prod->getUnits() > 0)
 		{
 			return prod;
