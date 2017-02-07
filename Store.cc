@@ -15,9 +15,9 @@
 #include "Store.h"
 #include <iostream>
 
-ProdArray& Store::getStock()     { return stock; }
+ProdArray* Store::getStock()     { return &stock; }
 
-CustArray& Store::getCustomers() { return customers; }
+CustArray* Store::getCustomers() { return &customers; }
 
 void Store::addProd(Product* prod)
 {
@@ -31,18 +31,12 @@ void Store::addCust(Customer* cust)
 
 int Store::addInventory(int orderID, int UnitsArrived) {
   Product* p = stock.getProductByID(orderID);
-  if (p != NULL) {
-    if (UnitsArrived <= 0) {
-      cout << "Invalid amount. Please enter an amount greater than 0." << endl;
-      return C_NOK;
-    } else {
-      (*p).incrementUnitsByX(UnitsArrived);
-      return C_OK;
-    }
-  } else {
-    cout << "Item not found." << endl;
+  if (UnitsArrived <= 0) {
     return C_NOK;
+  } else {
+    p->incrementUnitsByX(UnitsArrived);
   }
+  return C_OK;
 }
 
 Store::~Store()
@@ -50,13 +44,13 @@ Store::~Store()
 	//deallocate products from stock
 	for(int i = 0; i < stock.getSize(); i++)
 	{
-		delete &(stock.get(i));
+		delete stock.get(i);
 	}
 
 
 	//deallocate customers
 	for(int i = 0; i < customers.getSize(); i++)
 	{
-		delete &(customers.get(i));
+		delete customers.get(i);
 	}
 }

@@ -59,7 +59,7 @@ void UI::cashierMenu(int& choice)
 
 
 
-void UI::printStock(ProdArray& arr)
+void UI::printStock(ProdArray* arr)
 {
   // The stringstream class helps us convert from numeric values to string.
   // The I/O manipulation functions help us make the output look pretty.
@@ -70,14 +70,14 @@ void UI::printStock(ProdArray& arr)
   cout << " ID                                 Name             Size    Qty    Price" << endl;
   cout << " --                                 ----             ----    ---    -----" << endl;
 
-  for (int i=0; i<arr.getSize(); i++) {
+  for (int i=0; i < arr->getSize(); i++) {
 
-    Product& prod = arr.get(i);
+    Product* prod = arr->get(i);
 
-    cout << prod.getId()   << "  " << setw(40) << prod.getName() << "  "
-         << setw(10) << prod.getSize() << "  " << setw(4)  << prod.getUnits() << "    ";
+    cout << prod->getId()   << "  " << setw(40) << prod->getName() << "  "
+         << setw(10) << prod->getSize() << "  " << setw(4)  << prod->getUnits() << "    ";
 
-    ss << setw(6) << fixed << setprecision(2) << prod.getPrice();
+    ss << setw(6) << fixed << setprecision(2) << prod->getPrice();
 
     cout << "$" << ss.str() << endl;
     ss.str("");
@@ -86,19 +86,19 @@ void UI::printStock(ProdArray& arr)
 
 
 
-void UI::printCustomers(CustArray& arr)
+void UI::printCustomers(CustArray* arr)
 {
   cout << endl << "CUSTOMERS: " << endl << endl;
   cout << "---------------------------------------------------------------------------" << endl;
 
-  for (int i=0; i < arr.getSize(); i++) {
-    Customer& cust = arr.get(i);
-    cout << cust.getId() << "  " << setw(10) << cust.getName()
-         << "  " << setw(4) << cust.getPoints() << endl;
+  for (int i=0; i < arr->getSize(); i++) {
+    Customer* cust = arr->get(i);
+    cout << cust->getId() << "  " << setw(10) << cust->getName()
+         << "  " << setw(4) << cust->getPoints() << endl;
 
 	// iterate through customer purchase array
-	PurchArray purchases = cust.getPurchArray();
-	int purchSize = purchases.getPurchArraySize();
+	PurchArray* purchases = cust->getPurchArray();
+	int purchSize = purchases->getPurchArraySize();
 
   cout << endl << "Purchased items: " << endl << endl;
   cout << " ID                                 Name             Size    Qty   Subtotal" << endl;
@@ -107,19 +107,15 @@ void UI::printCustomers(CustArray& arr)
 	for(int j = 0; j < purchSize; j++)
 	{
     stringstream ss;
-    Purchase& p = purchases.getPurchase(j);
+    Purchase* p = purchases->getPurchase(j);
 
-       cout << p.getProd().getId()   << "  " << setw(40) << p.getProd().getName() << "  "
-                 << setw(10) << p.getProd().getSize() << "  " << setw(4)  << p.getPurchQnt() << "    ";
+       cout << p->getProd()->getId()   << "  " << setw(40) << p->getProd()->getName() << "  "
+                 << setw(10) << p->getProd()->getSize() << "  " << setw(4)  << p->getPurchQnt() << "    ";
 
-            ss << setw(6) << fixed << setprecision(2) << p.getProd().getPrice()*p.getPurchQnt();
+            ss << setw(6) << fixed << setprecision(2) << p->getProd()->getPrice()*p->getPurchQnt();
 
             cout << "$" << ss.str() << endl;
             ss.str("");
-
-		// cout << "(" << p.getProd().getId() << ": " << p.getProd().getName() << ")";
-    //
-		// if (j < purchases.getPurchArraySize()-1) cout << ", ";
 	}
   cout << "---------------------------------------------------------------------------" << endl;
 	cout << endl;

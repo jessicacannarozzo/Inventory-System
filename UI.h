@@ -33,17 +33,16 @@ using namespace std;
 class UI
 {
   public:
-    void mainMenu(int&);
-    void adminMenu(int&);
-    void cashierMenu(int&);
-    void promptForInt(string, int&);
-    void promptForStr(string, string&);
-    void promptForFloat(string, float&);
-    void printError(string);
-    void printUsageError();
-    void printStock(ProdArray&);
-    void printCustomers(CustArray&);
-  //  void printCustomerItems(Customer&);
+    void mainMenu(int&);                //not implemented...
+    void adminMenu(int&);               //displays admin menu options
+    void cashierMenu(int&);             //displays cashier menu options
+    void promptForInt(string, int&);    //prompts integer from user
+    void promptForStr(string, string&); //prompts string from user
+    void promptForFloat(string, float&);//prompts float  from user
+    void printError(string);            //displays given error message
+    void printUsageError();             //displays usage error for running program
+    void printStock(ProdArray*);        //displays store product stock info
+    void printCustomers(CustArray*);    //displays registered customers info
     void pause();
 
 	//print a summary to the screen of the total purchase amount and number of points earned

@@ -42,16 +42,16 @@ class InvControl
     void      processCashier();//process cashier menu options
 
 	// Verify that a given custumer id is existing, and return a ref to that Customer
-	Customer& verifyCustomer(int);
+	Customer* verifyCustomer(int);
 
 	// Verify that a given product id is existing and in stock. Return a ref to that Product
-	Product& verifyProduct(int);
+	Product* verifyProduct(int);
 
     // Initiate customer purchase
-	void productPurchase(Product&, Customer&, float*, int*);
+	void productPurchase(Product*, Customer*, float*, int*);
 
 	//compute loyalty points earned by a customer with a purchase. Update customer points. Return number of points.
-	int computeLoyaltyPoints(float, Customer&);
+	int computeLoyaltyPoints(float, Customer*);
 
 };
 #endif
