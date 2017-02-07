@@ -11,14 +11,23 @@ PurchArray::PurchArray() {
 int PurchArray::getPurchArraySize(){ return purchSize; } 
 
 
-Purchase& PurchArray::getPurchase(int index){ return pArr[index]; }
+Purchase* PurchArray::getPurchase(int index){ return pArr[index]; }
 
-Product& PurchArray::getProd (int index){ return pArr[index].getProd(); }
+Product* PurchArray::getProd (int index){ return pArr[index]->getProd(); }
 
 
-void PurchArray::addNewPurchase(Purchase& p) 
+void PurchArray::addNewPurchase(Purchase* p) 
 { 
-	pArr[purchSize] = p; // assuming purchSize is always < MAX_ARR for this assignment
+	if (purchSize >= MAX_ARR) return;
+	pArr[purchSize] = p;
 	purchSize++; 
 	return;
+}
+
+PurchArray::~PurchArray()
+{
+	for (int i = 0; i < purchSize; i++)
+	{
+		delete pArr[i];	
+	}
 }

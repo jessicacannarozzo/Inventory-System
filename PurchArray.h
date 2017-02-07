@@ -15,12 +15,13 @@ class PurchArray {
 
   public:
     PurchArray();
-    Purchase& getPurchase(int);    //get the purchase
+	~PurchArray();                 //destructor: deallocates dynamically allocated purchases
+    Purchase* getPurchase(int);    //get the purchase
     int getPurchArraySize();       //get the size
-    void addNewPurchase(Purchase&);//add new Purchase in collection
-	Product& getProd (int);        //get product from a given position in purchase coolection
+    void addNewPurchase(Purchase*);//add new Purchase in collection
+	Product* getProd (int);        //get product from a given position in purchase coolection
 
   private:
-    Purchase pArr[MAX_ARR];
+    Purchase* pArr[MAX_ARR];
     int purchSize;
 };
