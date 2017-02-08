@@ -41,8 +41,8 @@ class UI
     void promptForFloat(string, float&);//prompts float  from user
     void printError(string);            //displays given error message
     void printUsageError();             //displays usage error for running program
-    void printStock(ProdArray*);        //displays store product stock info
-    void printCustomers(CustArray*);    //displays registered customers info
+    void printStock(ProdArray&);        //displays store product stock info
+    void printCustomers(CustArray&);    //displays registered customers info
     void pause();
 
 	//print a summary to the screen of the total purchase amount and number of points earned

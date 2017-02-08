@@ -15,9 +15,9 @@
 #include "Store.h"
 #include <iostream>
 
-ProdArray* Store::getStock()     { return &stock; }
+ProdArray& Store::getStock()     { return stock; }
 
-CustArray* Store::getCustomers() { return &customers; }
+CustArray& Store::getCustomers() { return customers; }
 
 void Store::addProd(Product* prod)
 {

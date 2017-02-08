@@ -37,8 +37,8 @@ class Store
   public:
     void       addProd(Product*); //add Product in store stock
     void       addCust(Customer*);// add new customer
-    ProdArray* getStock();        //get collection of products in stock
-    CustArray* getCustomers();    //get collection of registered customers
+    ProdArray& getStock();        //get collection of products in stock
+    CustArray& getCustomers();    //get collection of registered customers
     int        addInventory(int, int);
 	~Store();                     //destructor: deallocates all dynamically allocated memory
 
