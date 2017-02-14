@@ -3,6 +3,7 @@ Simple Inventory System
 
 Purpose:
 Keeps track of product and customer information, and allows for the record-keeping of transactions.
+Update A2: Dynamic memory allocation & the ability to add more inventory to the store.
 
 
 Authors:
