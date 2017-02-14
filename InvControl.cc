@@ -116,10 +116,10 @@ void InvControl::processCashier()
 	  while (prodId != 0 || prod == NULL)
 	  {
 	  	prod = store.verifyProduct(prodId);
-		if (prod == NULL) 
+		if (prod == NULL && prodId != 0)
 		{
 			view.printError("Product not found.");
-			view.promptForInt("Product id", prodId);
+			view.promptForInt("next product id", prodId);
 		}
 		else
 		{
