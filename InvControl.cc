@@ -50,6 +50,8 @@ void InvControl::processAdmin()
   int    prodUnits, prodId, amount;
   float  prodPrice;
 
+  int code;
+
   while (1) {
     choice = -1;
     view.adminMenu(choice);
@@ -63,9 +65,13 @@ void InvControl::processAdmin()
       view.pause();
     }
     else if (choice == 2) {	// add inventory
-      view.promptForInt("Product ID", prodId);
-      view.promptForInt("Quantity", amount);
-      store.addInventory(prodId, amount);
+	  code = C_NOK;
+	  while (code == C_NOK){
+		  view.promptForInt("Product ID", prodId);
+		  view.promptForInt("Quantity", amount);
+		  code = store.addInventory(prodId, amount);
+	  }
+	  view.pause();
     }
     else if (choice == 3) {	// print inventory
       view.printStock(store.getStock());
