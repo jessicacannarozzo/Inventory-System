@@ -12,7 +12,6 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include <cstdlib>
-#include <math.h>       // using round()
 #include "InvControl.h"
 #include "Store.h"
 
@@ -70,6 +69,7 @@ void InvControl::processAdmin()
 		  view.promptForInt("Product ID", prodId);
 		  view.promptForInt("Quantity", amount);
 		  code = store.addInventory(prodId, amount);
+		  if (code == C_NOK) view.printError("Product not found.");
 	  }
 	  view.pause();
     }
@@ -91,23 +91,41 @@ void InvControl::processCashier()
 {
   int choice;
   int prodId, custId;
+  int code;
 
   while (1) {
     choice = -1;
     view.cashierMenu(choice);
     if (choice == 1) {			// purchases
-      view.promptForInt("Enter customer id", custId);
-	  Customer* cust = verifyCustomer(custId);
+
+	  Customer* cust = NULL;
+
+	  while (cust == NULL){
+      	view.promptForInt("Enter customer id", custId);
+	    cust = store.verifyCustomer(custId);
+		if (cust == NULL) view.printError("Customer not found.");
+	  }
 
 	  //Init cust purchase
 	  float totalAmount = 0;
 	  int   totalPoints = 0;
 	  view.promptForInt("Enter a sequence of product ids to be purchased (Terminate with 0)", prodId);
-	  while (prodId != 0)
+
+ 	  Product* prod = NULL;
+
+	  while (prodId != 0 || prod == NULL)
 	  {
-	  	Product* prod = verifyProduct(prodId);
-		productPurchase(prod, cust, &totalAmount, &totalPoints);
-		view.promptForInt("next product id", prodId);
+	  	prod = store.verifyProduct(prodId);
+		if (prod == NULL) 
+		{
+			view.printError("Product not found.");
+			view.promptForInt("Product id", prodId);
+		}
+		else
+		{
+		  store.productPurchase(prod, cust, &totalAmount, &totalPoints);
+		  view.promptForInt("next product id", prodId);
+		}
 	  }
 
 	  view.printPurchaseSummary(totalAmount, totalPoints);
@@ -125,65 +143,6 @@ void InvControl::processCashier()
       break;
     }
   }
-}
-
-
-
-
-Customer* InvControl::verifyCustomer(int id)
-{
-
-	CustArray& custArr = store.getCustomers();
-	// search for existing customer
-	for (int i=0; i < custArr.getSize(); i++) {
-    	Customer* cust = custArr.get(i);
-		if(cust->getId() == id) return cust;
-	}
-
-	view.printError("Customer not found. Terminating program...");
-	exit(1);
-}
-
-
-
-Product* InvControl::verifyProduct(int prodId)
-{
-
-	ProdArray& products = store.getStock();
-	for (int i=0; i< products.getSize(); i++) {
-    	Product* prod = products.get(i);
-		if(prod->getId() == prodId && prod->getUnits() > 0)
-		{
-			return prod;
-		}
-	}
-
-	view.printError("Product not found. Terminating program...");
-	exit(1);
-}
-
-
-
-void InvControl::productPurchase(Product* prod, Customer* cust, float* totalAmount, int* totalPoints)
-{
-
-	cust->buyItem(prod);
-
-	//reduce the number of units of that product available in the store
-	prod->decrementUnits();
-
-	//compute the number of loyalty points earned by the customer with purchasing that product
-	*totalPoints += computeLoyaltyPoints(prod->getPrice(), cust);
-	*totalAmount += prod->getPrice();
-
-}
-
-int InvControl::computeLoyaltyPoints(float price, Customer* cust)
-{
-	int points = round(price);
-	// add the loyalty points to the customer’s points
-	cust->addPoints(points);
-	return points;
 }
 
 
