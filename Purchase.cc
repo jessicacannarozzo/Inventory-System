@@ -9,14 +9,14 @@ Purchase::Purchase()
 	purchQnt = 0;
 }
 
-Purchase::Purchase(Product& p) 
+Purchase::Purchase(Product* p) 
 {
-	prod = &p;
+	prod = p;
 	purchQnt = 1;
 }
 
-Product& Purchase::getProd() {
-  return *prod;
+Product* Purchase::getProd() {
+  return prod;
 }
 
 int Purchase::getPurchQnt() {

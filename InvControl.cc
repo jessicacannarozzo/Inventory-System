@@ -97,7 +97,7 @@ void InvControl::processCashier()
     view.cashierMenu(choice);
     if (choice == 1) {			// purchases
       view.promptForInt("Enter customer id", custId);
-	  Customer& cust = verifyCustomer(custId);
+	  Customer* cust = verifyCustomer(custId);
 
 	  //Init cust purchase
 	  float totalAmount = 0;
@@ -105,7 +105,7 @@ void InvControl::processCashier()
 	  view.promptForInt("Enter a sequence of product ids to be purchased (Terminate with 0)", prodId);
 	  while (prodId != 0)
 	  {
-	  	Product& prod = verifyProduct(prodId);
+	  	Product* prod = verifyProduct(prodId);
 		productPurchase(prod, cust, &totalAmount, &totalPoints);
 		view.promptForInt("next product id", prodId);
 	  }
@@ -130,14 +130,14 @@ void InvControl::processCashier()
 
 
 
-Customer& InvControl::verifyCustomer(int id)
+Customer* InvControl::verifyCustomer(int id)
 {
 
 	CustArray& custArr = store.getCustomers();
 	// search for existing customer
-	for (int i=0; i<custArr.getSize(); i++) {
-    	Customer& cust = custArr.get(i);
-		if(cust.getId() == id) return cust;
+	for (int i=0; i < custArr.getSize(); i++) {
+    	Customer* cust = custArr.get(i);
+		if(cust->getId() == id) return cust;
 	}
 
 	view.printError("Customer not found. Terminating program...");
@@ -146,13 +146,13 @@ Customer& InvControl::verifyCustomer(int id)
 
 
 
-Product& InvControl::verifyProduct(int prodId)
+Product* InvControl::verifyProduct(int prodId)
 {
 
 	ProdArray& products = store.getStock();
-	for (int i=0; i<products.getSize(); i++) {
-    	Product& prod = products.get(i);
-		if(prod.getId() == prodId && prod.getUnits() > 0)
+	for (int i=0; i< products.getSize(); i++) {
+    	Product* prod = products.get(i);
+		if(prod->getId() == prodId && prod->getUnits() > 0)
 		{
 			return prod;
 		}
@@ -164,25 +164,25 @@ Product& InvControl::verifyProduct(int prodId)
 
 
 
-void InvControl::productPurchase(Product& prod, Customer& cust, float* totalAmount, int* totalPoints)
+void InvControl::productPurchase(Product* prod, Customer* cust, float* totalAmount, int* totalPoints)
 {
 
-	cust.buyItem(prod);
+	cust->buyItem(prod);
 
 	//reduce the number of units of that product available in the store
-	prod.decrementUnits();
+	prod->decrementUnits();
 
 	//compute the number of loyalty points earned by the customer with purchasing that product
-	*totalPoints += computeLoyaltyPoints(prod.getPrice(), cust);
-	*totalAmount += prod.getPrice();
+	*totalPoints += computeLoyaltyPoints(prod->getPrice(), cust);
+	*totalAmount += prod->getPrice();
 
 }
 
-int InvControl::computeLoyaltyPoints(float price, Customer& cust)
+int InvControl::computeLoyaltyPoints(float price, Customer* cust)
 {
 	int points = round(price);
 	// add the loyalty points to the customer’s points
-	cust.addPoints(points);
+	cust->addPoints(points);
 	return points;
 }
 

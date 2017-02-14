@@ -13,9 +13,9 @@
 class Purchase {
   public:
     Purchase();
-    Purchase(Product& p);
+    Purchase(Product* p);
 
-    Product& getProd(); //get product
+    Product* getProd(); //get product
 	int getPurchQnt();  //get quantity of the same product bought by a customer
 
     // increments quantity of the same product bought by a customer
