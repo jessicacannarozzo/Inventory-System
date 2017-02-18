@@ -36,5 +36,8 @@ Purchase.o: Purchase.cc Purchase.h Product.h defs.h
 PurchArray.o: PurchArray.cc PurchArray.h Purchase.h defs.h
 	g++ -c PurchArray.cc
 
+ProdList.o: ProdList.cc ProdList.h Product.h defs.h
+	g++ -c ProdList.cc
+
 clean:
 	rm -f $(OBJ) cushop
