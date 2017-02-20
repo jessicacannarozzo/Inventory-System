@@ -26,7 +26,8 @@
 #define STORE_H
 
 #include <math.h>
-#include "ProdArray.h"
+// #include "ProdArray.h"
+#include "ProdList.h"
 #include "Product.h"
 #include "CustArray.h"
 #include "Customer.h"
@@ -38,7 +39,7 @@ class Store
 	~Store();                     //destructor: deallocates all dynamically allocated memory
     void       addProd(Product*); //add Product in store stock
     void       addCust(Customer*);// add new customer
-    ProdArray& getStock();        //get collection of products in stock
+    ProdList& getStock();        //get collection of products in stock
     CustArray& getCustomers();    //get collection of registered customers
 
     // Verify that a given custumer id is existing. Return prt to customer found, or null otherwise
@@ -46,18 +47,18 @@ class Store
 
 	// Verify that a given product id is existing and in stock. Return prt to product found, or null otherwise
 	Product* verifyProduct(int);
-	
+
 	void productPurchase(Product*, Customer*, float*, int*); // Init customer purchase
 
 	//compute loyalty points earned by a customer with a purchase. Update customer points. Return number of points.
 	int computeLoyaltyPoints(float, Customer*);
 
     //update product in stock with new units arrived
-    int addInventory(int, int); 
+    int addInventory(int, int);
 
 
   private:
-    ProdArray  stock;
+    ProdList  stock;
     CustArray  customers;
 
 };

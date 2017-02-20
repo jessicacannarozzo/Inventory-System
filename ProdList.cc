@@ -78,7 +78,17 @@ int ProdList::removeProd(Product* p) {
 }
 
 Product* ProdList::find(int id) {
+  Node* currNode = head;
 
+  while (currNode != NULL) {
+    if (currNode->data->getId() == id) {
+      return currNode->data;
+    } else {
+      currNode = currNode->next;
+    }
+  }
+
+  return NULL; // not found
 }
 
 void ProdList::print() {

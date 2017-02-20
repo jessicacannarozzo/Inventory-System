@@ -1,4 +1,4 @@
-OBJ = main.o InvControl.o Store.o Product.o UI.o ProdArray.o CustArray.o Customer.o Purchase.o PurchArray.o ProdList.o
+OBJ = main.o InvControl.o Store.o Product.o UI.o CustArray.o Customer.o Purchase.o PurchArray.o ProdList.o
 
 cushop:	$(OBJ)
 	g++ -o cushop $(OBJ)
@@ -12,14 +12,14 @@ InvControl.o:	InvControl.cc InvControl.h Store.h UI.h
 UI.o:	UI.cc UI.h
 	g++ -c UI.cc
 
-Store.o:	Store.cc Store.h ProdArray.h
+Store.o:	Store.cc Store.h ProdList.h
 	g++ -c Store.cc
 
 Product.o:	Product.cc Product.h
 	g++ -c Product.cc
 
-ProdArray.o:	ProdArray.cc ProdArray.h Product.h defs.h
-	g++ -c ProdArray.cc
+# ProdArray.o:	ProdArray.cc ProdArray.h Product.h defs.h
+# 	g++ -c ProdArray.cc
 
 ProdList.o:	ProdList.cc ProdList.h Product.h defs.h
 	g++ -c ProdList.cc

@@ -15,7 +15,7 @@
 #include "Store.h"
 #include <math.h> // using round() in computeLoyaltyPoints()
 
-ProdArray& Store::getStock()     { return stock; }
+ProdList& Store::getStock()     { return stock; }
 
 CustArray& Store::getCustomers() { return customers; }
 
@@ -32,10 +32,10 @@ void Store::addCust(Customer* cust)
 Store::~Store()
 {
 	//deallocate products from stock
-	for(int i = 0; i < stock.getSize(); i++)
-	{
-		delete stock.get(i);
-	}
+	// for(int i = 0; i < stock.getSize(); i++)
+	// {
+	// 	delete stock.get(i);
+	// }
 
 
 	//deallocate customers
@@ -65,17 +65,19 @@ Customer* Store::verifyCustomer(int id)
 
 Product* Store::verifyProduct(int prodId)
 {
-    if(prodId <= 0) return NULL;
+  //   if(prodId <= 0) return NULL;
+  //
+  //   // search for existing product
+	// for (int i = 0; i< stock.getSize(); i++) {
+	// 	Product* prod = stock.get(i);
+	// 	if(prod->getId() == prodId && prod->getUnits() > 0)
+	// 	{
+	// 		return prod;
+	// 	}
+	// }
+	// return NULL;
 
-    // search for existing product
-	for (int i = 0; i< stock.getSize(); i++) {
-		Product* prod = stock.get(i);
-		if(prod->getId() == prodId && prod->getUnits() > 0)
-		{
-			return prod;
-		}
-	}
-	return NULL;
+  return stock.find(prodId);
 }
 
 

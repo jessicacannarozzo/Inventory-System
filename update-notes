@@ -1,2 +1,3 @@
 - Store.cc: Not sure if we need destructor? I commented it out. li.32-38
 - sstream and iostream in ProdList allowed?
+- print function in List.cc ok?

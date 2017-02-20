@@ -6,6 +6,8 @@
 /* Class Def: ProdList.h                           */
 /* List of products contained in the store         */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
+#ifndef PRODlIST_H
+#define PRODlIST_H
 
 #include "defs.h"
 #include "Product.h"
@@ -32,3 +34,5 @@ class ProdList {
     Node* head;
     // int size;
 };
+
+#endif

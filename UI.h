@@ -27,7 +27,7 @@
 #include <string>
 using namespace std;
 
-#include "ProdArray.h"
+#include "ProdList.h"
 #include "CustArray.h"
 
 class UI
@@ -41,7 +41,7 @@ class UI
     void promptForFloat(string, float&);//prompts float  from user
     void printError(string);            //displays given error message
     void printUsageError();             //displays usage error for running program
-    void printStock(ProdArray&);        //displays store product stock info
+    void printStock(ProdList&);        //displays store product stock info
     void printCustomers(CustArray&);    //displays registered customers info
     void pause();
 
