@@ -29,7 +29,7 @@ ProdList::~ProdList() {
 
 // int ProdList::getSize() { return size; }
 
-//J: not sure where to add? Is back OK?
+//maintain order of units
 int ProdList::add(Product* p) { //add to back
   Node* newProd = new Node;
   Node* currNode;
@@ -77,6 +77,7 @@ int ProdList::removeProd(Product* p) {
   return C_OK;
 }
 
+//find's data according to prod ID
 Product* ProdList::find(int id) {
   Node* currNode = head;
 
@@ -117,8 +118,9 @@ void ProdList::print() {
 
 //sorts the product list in ascending order of number of units, called whenever units are added
 void ProdList::reorg() {
-  Node* currNode = head;
-  Node* temp = NULL;
+  Node* currNode = new Node;
+  currNode = head;
+  Node* temp = new Node;
 
   while (currNode->next != NULL) {
     if (currNode->data->getUnits() > currNode->next->data->getUnits()) {
@@ -126,7 +128,11 @@ void ProdList::reorg() {
       // temp = currNode->next;
       // currNode->next = currNode;
       // currNode = temp;
-      //reset
+      temp->data = currNode->data;
+      currNode->data = currNode->next->data;
+      currNode->next->data = temp->data;
+
+      // reset
       currNode = head;
     } else {
       //traverse

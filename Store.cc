@@ -89,6 +89,7 @@ void Store::productPurchase(Product* prod, Customer* cust, float* totalAmount, i
 
 	//reduce the number of units of that product available in the store
 	prod->decrementUnits();
+  stock.reorg(); //reorganize stock
 
 	//compute the number of loyalty points earned by the customer with purchasing that product
 	*totalPoints += computeLoyaltyPoints(prod->getPrice(), cust);
@@ -114,5 +115,6 @@ int Store::addInventory(int orderID, int unitsArrived) {
   if(p == NULL) return C_NOK;
 
   p->incrementUnitsByX(unitsArrived);
+  stock.reorg(); //reorganize stock
   return C_OK;
 }
