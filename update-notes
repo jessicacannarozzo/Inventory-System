@@ -1,3 +1,3 @@
 - Store.cc: Not sure if we need destructor? I commented it out. li.32-38
-- sstream and iostream in ProdList allowed?
+- sstream and iostream in ProdList allowed? Probably not
 - print function not finished, the one I made is just decoration to check that things work. It's not the toString() one that is required
