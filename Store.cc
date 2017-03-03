@@ -58,19 +58,12 @@ Customer* Store::verifyCustomer(int id)
 
 Product* Store::verifyProduct(int prodId)
 {
-  //   if(prodId <= 0) return NULL;
-  //
-  //   // search for existing product
-	// for (int i = 0; i< stock.getSize(); i++) {
-	// 	Product* prod = stock.get(i);
-	// 	if(prod->getId() == prodId && prod->getUnits() > 0)
-	// 	{
-	// 		return prod;
-	// 	}
-	// }
-	// return NULL;
-
-  return stock.find(prodId);
+  Product* p = stock.find(prodId); 
+  if (p->getUnits() == 0)
+  {
+    return NULL;
+  }
+  return p;
 }
 
 
@@ -82,7 +75,7 @@ void Store::productPurchase(Product* prod, Customer* cust, float* totalAmount, i
 
 	//reduce the number of units of that product available in the store
 	prod->decrementUnits();
-  stock.reorg(); //reorganize stock
+  	stock.reorg(); //reorganize stock
 
 	//compute the number of loyalty points earned by the customer with purchasing that product
 	*totalPoints += computeLoyaltyPoints(prod->getPrice(), cust);
@@ -101,7 +94,7 @@ int Store::computeLoyaltyPoints(float price, Customer* cust)
 
 
 int Store::addInventory(int orderID, int unitsArrived) {
-  //Product* p = stock.getProductByID(orderID);
+
   if (unitsArrived <= 0) return C_NOK;
 
   Product* p = verifyProduct(orderID);

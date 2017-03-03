@@ -24,7 +24,7 @@ Product::Product(string n, string s, int u, float p)
   price = (p >= 0) ? p : 0;
 }
 
-void Product::incrementUnits() { //increment units by 1
+void Product::incrementUnits() {
   units++;
 }
 

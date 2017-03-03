@@ -72,19 +72,21 @@ int ProdList::add(Product* p) {
 
 int ProdList::removeProd(Product* p) {
   Node* currNode = head;
+  Node* prevNode = NULL;
 
   while (currNode != NULL) {
     if (currNode->data == p)
       break;
+	prevNode = currNode;
     currNode = currNode->next;
   }
 
-  if (currNode->prev == NULL) { //removing head
+  //if (currNode->prev == NULL) { (this line makes a seg fault when currNode is null)
+  if (prevNode == NULL) { // remove 1st element
     head = currNode->next;
     head->prev = NULL;
   } else {
-    currNode->prev->next = currNode->next;
-    // prevNode->next = currNode->next;
+    prevNode->next = currNode->next;
   }
 
     if (currNode->data != p) { //we can't find the node, does not exist
