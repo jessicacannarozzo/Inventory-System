@@ -1,3 +1,8 @@
 - Store.cc: Not sure if we need destructor? I commented it out. li.32-38
+	k: ok, I inserted a line in ProdList destructor that frees the data as well
+
 - sstream and iostream in ProdList allowed? Probably not
+	k: i think it's ok since we need to return a long string with all prod info, it just won't display anything. After testing we remove the libraries we find not really needed there.
+	
 - print function not finished, the one I made is just decoration to check that things work. It's not the toString() one that is required
+

@@ -31,13 +31,6 @@ void Store::addCust(Customer* cust)
 
 Store::~Store()
 {
-	//deallocate products from stock
-	// for(int i = 0; i < stock.getSize(); i++)
-	// {
-	// 	delete stock.get(i);
-	// }
-
-
 	//deallocate customers
 	for(int i = 0; i < customers.getSize(); i++)
 	{

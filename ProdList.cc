@@ -14,7 +14,7 @@
 #include <sstream>
 
 ProdList::ProdList()
-  : head(0) {}
+  : head(0), size(0) {}
 
 ProdList::~ProdList() {
   Node* currNode = head;
@@ -22,32 +22,51 @@ ProdList::~ProdList() {
 
  while (currNode != NULL) {
    nextNode = currNode->next;
+   delete currNode->data;
    delete currNode;
    currNode = nextNode;
  }
 }
 
-// int ProdList::getSize() { return size; }
+int ProdList::getSize() { return size; }
 
 //maintain order of units
-int ProdList::add(Product* p) { //add to back
+int ProdList::add(Product* p) {
   Node* newProd = new Node;
   Node* currNode;
+  Node*  prevNode;
+
   newProd->data = p;
   newProd->next = NULL;
   newProd->prev = NULL;
+
   currNode = head;
+  prevNode = NULL;
 
-  if (currNode == NULL) { //list is empty
-    head = newProd;
-    return C_OK;
-  }
 
-  while (currNode->next != NULL) {
+  while (currNode != NULL) {
+	if (newProd->data->getUnits() <= currNode->data->getUnits())
+		break; // found the insertion point, quit loop
+	prevNode = currNode;
     currNode = currNode->next;
   }
-  currNode->next = newProd;
-  newProd->prev = currNode;
+
+  if (prevNode == NULL) {	// add to beginning
+    head = newProd;
+	newProd->prev = head;
+	newProd->next = currNode;
+	size++;
+	return C_OK;
+  } 
+  else {
+    prevNode->next = newProd;
+	newProd->prev = prevNode;
+  }
+  newProd->next = currNode;
+  if(currNode != NULL)
+  	currNode->prev = newProd;
+
+  size++;
   return C_OK;
 }
 
@@ -77,7 +96,7 @@ int ProdList::removeProd(Product* p) {
   return C_OK;
 }
 
-//find's data according to prod ID
+
 Product* ProdList::find(int id) {
   Node* currNode = head;
 
@@ -116,7 +135,7 @@ void ProdList::print() {
   }
 }
 
-//sorts the product list in ascending order of number of units, called whenever units are added
+//called whenever units are added or purchased
 void ProdList::reorg() {
   Node* currNode = new Node;
   currNode = head;

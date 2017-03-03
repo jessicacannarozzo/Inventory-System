@@ -24,15 +24,17 @@ class ProdList {
   public:
     ProdList();
     ~ProdList();
-    int add(Product*);
-    int removeProd(Product*);
-    void reorg();
-    Product* find(int);
-    void print();
-    // int getSize();
+    int add(Product*); //adds the product in its correct place in the list (by order of units)
+    int removeProd(Product*); // removes product from the list
+    void reorg(); //sorts the product list in ascending order of number of units
+    Product* find(int); //finds product according to given ID
+    void toString(string& outStr); //prints inventory
+    int getSize(); //returns number of products on list
+
+    void print(); //REMOVE THIS BEFORE SUBMITTING
   private:
     Node* head;
-    // int size;
+    int size;
 };
 
 #endif
