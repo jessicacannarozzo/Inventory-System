@@ -60,11 +60,11 @@ void UI::cashierMenu(int& choice)
 
 
 void UI::printStock(ProdList& arr)
-{
-  // The stringstream class helps us convert from numeric values to string.
-  // The I/O manipulation functions help us make the output look pretty.
-
-  arr.print();
+{ 
+  //arr.print();
+  string s;
+  arr.toString(s);
+  cout << s;
 }
 
 

@@ -28,13 +28,14 @@ class ProdList {
     int removeProd(Product*); // removes product from the list
     void reorg(); //sorts the product list in ascending order of number of units
     Product* find(int); //finds product according to given ID
-    void toString(string& outStr); //prints inventory
-    int getSize(); //returns number of products on list
+    void toString(string&); //returns string with inventory info in both forward and backward directions
+	void forwardToString(stringstream&); //returns string with inventory info in forward direction
+	void backwardToString(stringstream&); //returns string with inventory info in backward direction
 
     void print(); //REMOVE THIS BEFORE SUBMITTING
   private:
     Node* head;
-    int size;
+
 };
 
 #endif

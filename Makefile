@@ -18,12 +18,6 @@ Store.o:	Store.cc Store.h ProdList.h
 Product.o:	Product.cc Product.h
 	g++ -c Product.cc
 
-# ProdArray.o:	ProdArray.cc ProdArray.h Product.h defs.h
-# 	g++ -c ProdArray.cc
-
-ProdList.o:	ProdList.cc ProdList.h Product.h defs.h
-	g++ -c ProdList.cc
-
 CustArray.o:	CustArray.cc CustArray.h Customer.h defs.h
 	g++ -c CustArray.cc
 

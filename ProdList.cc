@@ -8,13 +8,13 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "ProdList.h"
-#include <iostream>
+#include <iostream> //REMOVE THIS BEFORE SUBMITTING
 #include <iomanip>
 #include <string>
 #include <sstream>
 
 ProdList::ProdList()
-  : head(0), size(0) {}
+  : head(0) {}
 
 ProdList::~ProdList() {
   Node* currNode = head;
@@ -28,7 +28,7 @@ ProdList::~ProdList() {
  }
 }
 
-int ProdList::getSize() { return size; }
+//int ProdList::getSize() { return size; }
 
 //maintain order of units
 int ProdList::add(Product* p) {
@@ -55,7 +55,6 @@ int ProdList::add(Product* p) {
     head = newProd;
 	newProd->prev = head;
 	newProd->next = currNode;
-	size++;
 	return C_OK;
   } 
   else {
@@ -66,7 +65,6 @@ int ProdList::add(Product* p) {
   if(currNode != NULL)
   	currNode->prev = newProd;
 
-  size++;
   return C_OK;
 }
 
@@ -81,7 +79,7 @@ int ProdList::removeProd(Product* p) {
     currNode = currNode->next;
   }
 
-  //if (currNode->prev == NULL) { (this line makes a seg fault when currNode is null)
+
   if (prevNode == NULL) { // remove 1st element
     head = currNode->next;
     head->prev = NULL;
@@ -113,6 +111,66 @@ Product* ProdList::find(int id) {
   return NULL; // not found
 }
 
+
+//called whenever units are added or purchased
+void ProdList::reorg() {
+  Node* currNode = new Node;
+  currNode = head;
+  Node* temp = new Node;
+
+  while (currNode->next != NULL) {
+    if (currNode->data->getUnits() > currNode->next->data->getUnits()) {
+      //swap
+      temp->data = currNode->data;
+      currNode->data = currNode->next->data;
+      currNode->next->data = temp->data;
+
+      // reset
+      currNode = head;
+    } else {
+      //traverse
+      currNode = currNode->next;
+    }
+  }
+}
+
+void ProdList::toString(string& outStr)
+{
+  
+  stringstream ss;
+  forwardToString(ss);
+  //backwardToString(ss);
+  outStr = ss.str();
+
+}
+
+void ProdList::forwardToString(stringstream& ss)
+{
+  // The stringstream class helps us convert from numeric values to string.
+  // The I/O manipulation functions help us make the output look pretty.
+  Node* currNode = head;
+  stringstream tmp;
+
+  ss<<endl<<"STOCK (Increasing order of product units):"<<endl<<endl;
+  ss<<" ID                                 Name             Size    Qty    Price" << endl;
+  ss << " --                                 ----             ----    ---    -----" << endl;
+
+  while (currNode != NULL) {
+
+    ss << currNode->data->getId()   << "  " << setw(40) << currNode->data->getName() << "  "
+         << setw(10) << currNode->data->getSize() << "  " << setw(4)  << currNode->data->getUnits() << "    ";
+
+    tmp << setw(6) << fixed << setprecision(2) << currNode->data->getPrice();
+    ss << "$" << tmp.str() << endl;
+    tmp.str("");
+
+    currNode = currNode->next;
+  }
+
+}
+
+
+/*
 void ProdList::print() {
   Node* currNode = head;
 
@@ -136,28 +194,4 @@ void ProdList::print() {
     currNode = currNode->next;
   }
 }
-
-//called whenever units are added or purchased
-void ProdList::reorg() {
-  Node* currNode = new Node;
-  currNode = head;
-  Node* temp = new Node;
-
-  while (currNode->next != NULL) {
-    if (currNode->data->getUnits() > currNode->next->data->getUnits()) {
-      //swap
-      // temp = currNode->next;
-      // currNode->next = currNode;
-      // currNode = temp;
-      temp->data = currNode->data;
-      currNode->data = currNode->next->data;
-      currNode->next->data = temp->data;
-
-      // reset
-      currNode = head;
-    } else {
-      //traverse
-      currNode = currNode->next;
-    }
-  }
-}
+*/
