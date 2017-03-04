@@ -61,7 +61,6 @@ void UI::cashierMenu(int& choice)
 
 void UI::printStock(ProdList& arr)
 { 
-  //arr.print();
   string s;
   arr.toString(s);
   cout << s;
@@ -73,7 +72,6 @@ void UI::printCustomers(CustArray& arr)
 {
   cout << endl << "CUSTOMERS: " << endl << endl;
   cout << "---------------------------------------------------------------------------" << endl;
-
   for (int i=0; i < arr.getSize(); i++) {
     Customer* cust = arr.get(i);
     cout << cust->getId() << "  " << setw(10) << cust->getName()

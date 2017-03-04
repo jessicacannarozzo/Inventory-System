@@ -115,11 +115,12 @@ void InvControl::processCashier()
 
 	  while (prodId != 0 || prod == NULL)
 	  {
-	  	prod = store.verifyProduct(prodId);
-    	if (prodId == 0) 
+		if (prodId == 0) 
       		break;
-   
-		if (prod == NULL)
+
+	  	prod = store.verifyProdId(prodId);
+		int c = store.verifyProdInStock(prod);
+        if(prod == NULL || c == C_NOK)
 		{
 			view.printError("Product not found or out of stock");
 			view.promptForInt("next prod id", prodId);

@@ -36,7 +36,6 @@ class Store
 {
 
   public:
-	~Store();                     //destructor: deallocates all dynamically allocated memory
     void       addProd(Product*); //add Product in store stock
     void       addCust(Customer*);// add new customer
     ProdList& getStock();        //get collection of products in stock
@@ -45,8 +44,9 @@ class Store
     // Verify that a given custumer id is existing. Return prt to customer found, or null otherwise
 	Customer* verifyCustomer(int);
 
-	// Verify that a given product id is existing and in stock. Return prt to product found, or null otherwise
-	Product* verifyProduct(int);
+	// Verify that a given product id is existing. Return prt to product, or null otherwise
+	Product* verifyProdId(int);
+	int verifyProdInStock(Product* p); // Verify that a given product is in stock
 
 	void productPurchase(Product*, Customer*, float*, int*); // Init customer purchase
 

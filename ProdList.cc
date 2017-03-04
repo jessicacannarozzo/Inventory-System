@@ -199,30 +199,3 @@ void ProdList::backwardToString(stringstream& ss)
 
 }
 
-
-
-/*
-void ProdList::print() {
-  Node* currNode = head;
-
-  stringstream ss;
-
-  cout << endl << "STOCK: " << endl << endl;
-  cout << " ID                                 Name             Size    Qty    Price" << endl;
-  cout << " --                                 ----             ----    ---    -----" << endl;
-
-  while (currNode != NULL) {
-
-    // Product* prod = arr.get(i);
-
-    cout << currNode->data->getId()   << "  " << setw(40) << currNode->data->getName() << "  "
-         << setw(10) << currNode->data->getSize() << "  " << setw(4)  << currNode->data->getUnits() << "    ";
-
-    ss << setw(6) << fixed << setprecision(2) << currNode->data->getPrice();
-
-    cout << "$" << ss.str() << endl;
-    ss.str("");
-    currNode = currNode->next;
-  }
-}
-*/

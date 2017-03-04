@@ -22,6 +22,14 @@ CustArray::CustArray()
   size = 0;
 }
 
+CustArray::~CustArray()
+{
+  //deallocate customers
+  for(int i = 0; i < size; i++)
+    delete elements[i];
+	
+}
+
 int CustArray::getSize() { return size; }
 
 Customer* CustArray::get(int index)

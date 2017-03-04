@@ -29,18 +29,6 @@ void Store::addCust(Customer* cust)
   customers.add(cust);
 }
 
-Store::~Store()
-{
-	//deallocate customers
-	for(int i = 0; i < customers.getSize(); i++)
-	{
-		delete customers.get(i);
-	}
-}
-
-
-
-
 
 Customer* Store::verifyCustomer(int id)
 {
@@ -56,16 +44,20 @@ Customer* Store::verifyCustomer(int id)
 
 
 
-Product* Store::verifyProduct(int prodId)
+Product* Store::verifyProdId(int prodId)
 {
   Product* p = stock.find(prodId); 
-  if (p->getUnits() == 0)
-  {
-    return NULL;
-  }
+  
   return p;
 }
 
+
+int Store::verifyProdInStock(Product* p)
+{
+  if (p->getUnits() == 0)
+    return C_NOK;
+  return C_OK;
+}
 
 
 void Store::productPurchase(Product* prod, Customer* cust, float* totalAmount, int* totalPoints)
@@ -97,7 +89,7 @@ int Store::addInventory(int orderID, int unitsArrived) {
 
   if (unitsArrived <= 0) return C_NOK;
 
-  Product* p = verifyProduct(orderID);
+  Product* p = verifyProdId(orderID);
   if(p == NULL) return C_NOK;
 
   p->incrementUnitsByX(unitsArrived);
