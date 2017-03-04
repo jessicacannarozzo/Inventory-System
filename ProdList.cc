@@ -53,14 +53,12 @@ int ProdList::add(Product* p) {
 
   if (prevNode == NULL) {	// add to beginning
     head = newProd;
-	newProd->prev = head;
-	newProd->next = currNode;
-	return C_OK;
   } 
   else {
     prevNode->next = newProd;
 	newProd->prev = prevNode;
   }
+
   newProd->next = currNode;
   if(currNode != NULL)
   	currNode->prev = newProd;
@@ -136,12 +134,13 @@ void ProdList::reorg() {
 
 void ProdList::toString(string& outStr)
 {
-  
   stringstream ss;
-  forwardToString(ss);
-  //backwardToString(ss);
-  outStr = ss.str();
 
+  forwardToString(ss);
+  ss << endl << endl;
+  backwardToString(ss);
+
+  outStr = ss.str();
 }
 
 void ProdList::forwardToString(stringstream& ss)
@@ -149,25 +148,57 @@ void ProdList::forwardToString(stringstream& ss)
   // The stringstream class helps us convert from numeric values to string.
   // The I/O manipulation functions help us make the output look pretty.
   Node* currNode = head;
-  stringstream tmp;
 
   ss<<endl<<"STOCK (Increasing order of product units):"<<endl<<endl;
   ss<<" ID                                 Name             Size    Qty    Price" << endl;
   ss << " --                                 ----             ----    ---    -----" << endl;
 
-  while (currNode != NULL) {
-
-    ss << currNode->data->getId()   << "  " << setw(40) << currNode->data->getName() << "  "
-         << setw(10) << currNode->data->getSize() << "  " << setw(4)  << currNode->data->getUnits() << "    ";
-
-    tmp << setw(6) << fixed << setprecision(2) << currNode->data->getPrice();
-    ss << "$" << tmp.str() << endl;
-    tmp.str("");
-
+  while (currNode != NULL) { //repetitive code, move to another function or in Product class
+    productToString(ss, currNode->data);
     currNode = currNode->next;
   }
 
 }
+
+void ProdList::productToString(stringstream& ss, Product* p)
+{
+    stringstream tmp;
+
+    ss << p->getId()   << "  " << setw(40) << p->getName() << "  " << setw(10) 
+	<< p->getSize() << "  " << setw(4) << p->getUnits() << "    ";
+
+    tmp << setw(6) << fixed << setprecision(2) << p->getPrice();
+    ss << "$" << tmp.str() << endl;
+}
+
+void ProdList::backwardToString(stringstream& ss)
+{
+  // The stringstream class helps us convert from numeric values to string.
+  // The I/O manipulation functions help us make the output look pretty.
+  Node* currNode = head;
+  if(currNode != NULL) // find last element in list
+  {
+    while (currNode->next != NULL)
+      currNode = currNode->next;
+  }
+
+
+  ss<<endl<<"STOCK (Decreasing order of product units):"<<endl<<endl;
+  ss<<" ID                                 Name             Size    Qty    Price" << endl;
+  ss << " --                                 ----             ----    ---    -----" << endl;
+
+  while (currNode != NULL) {
+    productToString(ss, currNode->data);
+
+    if(currNode == head)
+	  break;
+
+    currNode = currNode->prev;
+
+  }
+
+}
+
 
 
 /*

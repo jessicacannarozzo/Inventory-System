@@ -10,3 +10,5 @@
 
 - Size removed from list as per prof comment on forum
 
+- Find error for seg fault at the end of program (maybe some destructor)
+

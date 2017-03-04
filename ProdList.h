@@ -29,12 +29,13 @@ class ProdList {
     void reorg(); //sorts the product list in ascending order of number of units
     Product* find(int); //finds product according to given ID
     void toString(string&); //returns string with inventory info in both forward and backward directions
-	void forwardToString(stringstream&); //returns string with inventory info in forward direction
-	void backwardToString(stringstream&); //returns string with inventory info in backward direction
 
-    void print(); //REMOVE THIS BEFORE SUBMITTING
   private:
     Node* head;
+	void forwardToString(stringstream&); //returns string with inventory info in forward direction
+	void backwardToString(stringstream&); //returns string with inventory info in backward direction
+    void productToString(stringstream&, Product*); //returns string with product info
+
 
 };
 
