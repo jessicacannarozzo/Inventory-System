@@ -31,9 +31,10 @@ void UI::adminMenu(int& choice)
   cout<< "          2. Add more inventory \n\n";
   cout<< "          3. Print inventory \n\n";
   cout<< "          4. Print customers \n\n";
+  cout<< "          5. Remove product \n\n";
   cout<< "          0. Exit\n\n";
 
-  while (choice < 0 || choice > 4) {
+  while (choice < 0 || choice > 5) {
     cout << "Enter your selection:  ";
     choice = readInt();
   }

@@ -46,9 +46,7 @@ Customer* Store::verifyCustomer(int id)
 
 Product* Store::verifyProdId(int prodId)
 {
-  Product* p = stock.find(prodId); 
-  
-  return p;
+  return stock.find(prodId); 
 }
 
 
@@ -94,5 +92,12 @@ int Store::addInventory(int orderID, int unitsArrived) {
 
   p->incrementUnitsByX(unitsArrived);
   stock.reorg(); //reorganize stock
+  return C_OK;
+}
+
+
+int Store::removeProd(Product* prod)
+{
+  stock.removeProd(prod);
   return C_OK;
 }

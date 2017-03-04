@@ -3,12 +3,9 @@
 
 - sstream and iostream in ProdList allowed? Probably not
 	k: i think it's ok since we need to return a long string with all prod info, it just won't display anything. After testing we remove the libraries we find not really needed there.
-	
-- print function not finished, the one I made is just decoration to check that things work. It's not the toString() one that is required
 
 - ProdList remove(): k: added a prevNode pointer and adjusted the code as the prof did to fix seg fault in some cases 
 
 - Size removed from list as per prof comment on forum
 
-- Find error for seg fault at the end of program (maybe some destructor)
 

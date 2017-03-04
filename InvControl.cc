@@ -81,6 +81,19 @@ void InvControl::processAdmin()
       view.printCustomers(store.getCustomers());
       view.pause();
     }
+    else if (choice == 5) {	// remove product
+	  code = C_NOK;
+	  while (code == C_NOK){
+		  view.promptForInt("Product ID", prodId);
+		  
+		  Product* prod = store.verifyProdId(prodId);
+		  if (prod == NULL) 
+			view.printError("Product not found.");
+
+ 		  code = store.removeProd(prod);
+	  }
+      view.pause();
+    }
     else {
       break;
     }

@@ -52,10 +52,8 @@ class Store
 
 	//compute loyalty points earned by a customer with a purchase. Update customer points. Return number of points.
 	int computeLoyaltyPoints(float, Customer*);
-
-    //update product in stock with new units arrived
-    int addInventory(int, int);
-
+    int addInventory(int, int); //update product in stock with new units arrived
+    int removeProd(Product*); //removed product from stock
 
   private:
     ProdList  stock;
