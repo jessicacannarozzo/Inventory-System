@@ -83,6 +83,7 @@ int ProdList::removeProd(Product* p) {
     head->prev = NULL;
   } else {
     prevNode->next = currNode->next;
+	currNode->next->prev = prevNode;
   }
 
     if (currNode->data != p) { //we can't find the node, does not exist

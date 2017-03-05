@@ -98,6 +98,5 @@ int Store::addInventory(int orderID, int unitsArrived) {
 
 int Store::removeProd(Product* prod)
 {
-  stock.removeProd(prod);
-  return C_OK;
+  return stock.removeProd(prod);
 }

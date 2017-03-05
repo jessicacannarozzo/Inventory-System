@@ -87,10 +87,10 @@ void InvControl::processAdmin()
 		  view.promptForInt("Product ID", prodId);
 		  
 		  Product* prod = store.verifyProdId(prodId);
-		  if (prod == NULL) 
+		  if (prod == NULL)
 			view.printError("Product not found.");
-
- 		  code = store.removeProd(prod);
+ 		  else 
+			code = store.removeProd(prod);
 	  }
       view.pause();
     }
