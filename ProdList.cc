@@ -8,7 +8,6 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "ProdList.h"
-#include <iostream> //REMOVE THIS BEFORE SUBMITTING
 #include <iomanip>
 #include <string>
 #include <sstream>
@@ -113,8 +112,7 @@ Product* ProdList::find(int id) {
 
 //called whenever units are added or purchased
 void ProdList::reorg() {
-  Node* currNode = new Node;
-  currNode = head;
+  Node* currNode = head;
   Node* temp = new Node;
 
   while (currNode->next != NULL) {
@@ -131,6 +129,7 @@ void ProdList::reorg() {
       currNode = currNode->next;
     }
   }
+  delete temp;
 }
 
 void ProdList::toString(string& outStr)

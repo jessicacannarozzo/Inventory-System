@@ -134,15 +134,13 @@ void InvControl::processCashier()
 	  	prod = store.verifyProdId(prodId);
 		int c = store.verifyProdInStock(prod);
         if(prod == NULL || c == C_NOK)
-		{
-			view.printError("Product not found or out of stock");
-			view.promptForInt("next prod id", prodId);
-		}
+		  view.printError("Product not found or out of stock");
+		
 		else
-		{
 		  store.productPurchase(prod, cust, &totalAmount, &totalPoints);
-		  view.promptForInt("next product id", prodId);
-		}
+
+
+		view.promptForInt("next product id", prodId);
 	  }
 
 	  view.printPurchaseSummary(totalAmount, totalPoints);

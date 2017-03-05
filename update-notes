@@ -8,6 +8,6 @@
 
 - Size removed from list as per prof comment on forum
 
-- Fix memory leaks (when making purchase and adding more invetory)
+- Done Fixing memory leaks (when making purchase and adding more invetory - found leak in reorg())
 
 - remove <iostream> from prodList class
