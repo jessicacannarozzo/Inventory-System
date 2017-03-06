@@ -32,8 +32,8 @@ class ProdList {
 
   private:
     Node* head;
-	void forwardToString(stringstream&); //returns string with inventory info in forward direction
-	void backwardToString(stringstream&); //returns string with inventory info in backward direction
+	  void forwardToString(stringstream&); //returns string with inventory info in forward direction
+    void backwardToString(stringstream&); //returns string with inventory info in backward direction
     void productToString(stringstream&, Product*); //returns string with product info
 
 

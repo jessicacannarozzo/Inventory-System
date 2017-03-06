@@ -27,8 +27,6 @@ ProdList::~ProdList() {
  }
 }
 
-//int ProdList::getSize() { return size; }
-
 //maintain order of units
 int ProdList::add(Product* p) {
   Node* newProd = new Node;
@@ -52,7 +50,7 @@ int ProdList::add(Product* p) {
 
   if (prevNode == NULL) {	// add to beginning
     head = newProd;
-  } 
+  }
   else {
     prevNode->next = newProd;
 	newProd->prev = prevNode;
@@ -132,6 +130,7 @@ void ProdList::reorg() {
   delete temp;
 }
 
+//calls forwardToString and backwardToString functions, sets input value to the new output string
 void ProdList::toString(string& outStr)
 {
   stringstream ss;
@@ -160,11 +159,12 @@ void ProdList::forwardToString(stringstream& ss)
 
 }
 
+//formats product information
 void ProdList::productToString(stringstream& ss, Product* p)
 {
     stringstream tmp;
 
-    ss << p->getId()   << "  " << setw(40) << p->getName() << "  " << setw(10) 
+    ss << p->getId()   << "  " << setw(40) << p->getName() << "  " << setw(10)
 	<< p->getSize() << "  " << setw(4) << p->getUnits() << "    ";
 
     tmp << setw(6) << fixed << setprecision(2) << p->getPrice();
@@ -198,4 +198,3 @@ void ProdList::backwardToString(stringstream& ss)
   }
 
 }
-
