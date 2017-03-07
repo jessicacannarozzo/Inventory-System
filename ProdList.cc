@@ -90,6 +90,7 @@ int ProdList::removeProd(Product* p) {
   }
 
   //otherwise... delete successful
+  delete currNode->data;
   delete currNode;
   return C_OK;
 }
