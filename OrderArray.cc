@@ -3,22 +3,33 @@
 /* Authors: Jess Cannarozzo (101007447)            */
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
-/* Class Def: OrderArray.h                         */
+/* Class Def: OrderArray.cc                        */
 /* Array of product purchases by customers.        */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef ORDERARRAY_H
-#define ORDERARRAY_H
+#include "OrderArray.h"
 
-#include "Order.h"
+OrderArray::OrderArray() {
+  orderSize = 0;
+}
 
-class OrderArray {
-  public:
-    OrderArray();
-    ~OrderArray();
-  private:
-    int orderSize; //# of orders
-    Order* orders[MAX_ARR];
-};
+OrderArray::~OrderArray() {
+  for (int i = 0; i < orderSize; i++) {
+    delete orders[i];
+  }
+}
 
-#endif
+//add
+void OrderArray::addOrder(Order* o) {
+  if (orderSize >= MAX_ARR) return; //too many orders
+  
+  orders[orderSize] = o;
+  orderSize++;
+}
+
+//getters
+int OrderArray::getOrderSize() { return orderSize; }
+
+Order* OrderArray::getOrders() { return *orders; }
+
+Order* OrderArray::getOrder(int i) { return orders[i]; }
