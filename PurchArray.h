@@ -7,7 +7,8 @@
 /* Array of items that may be purchased from the   */
 /* store.                                          */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
-
+#ifndef PURCHARRAY_H
+#define PURCHARRAY_H
 #include "defs.h"
 #include "Purchase.h"
 
@@ -25,3 +26,5 @@ class PurchArray {
     Purchase* pArr[MAX_ARR];
     int purchSize;
 };
+
+#endif

@@ -7,6 +7,8 @@
 /* Products that may be purchased from the store.  */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#ifndef PURCHASE_H
+#define PURCHASE_H
 #include "defs.h"
 #include "Product.h"
 
@@ -25,3 +27,5 @@ class Purchase {
 	Product* prod;
 	int purchQnt; // num of units of that product bought by a customer
 };
+
+#endif
