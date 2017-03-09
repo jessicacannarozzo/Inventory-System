@@ -77,14 +77,14 @@ int ProdList::removeProd(Product* p) {
   if (currNode == NULL) { //we can't find the node, does not exist
     return C_NOK;
   }
-    
+
   if (prevNode == NULL) { // remove 1st element
     head = currNode->next;
     head->prev = NULL;
-  } 
+  }
   else {
     prevNode->next = currNode->next;
-    
+
     if (currNode->next != NULL)
       currNode->next->prev = prevNode;
   }

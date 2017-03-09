@@ -17,6 +17,8 @@ CustArray.cc
 Customer.cc
 InvControl.cc
 main.cc
+Order.cc
+OrderArray.cc
 Product.cc
 ProdList.cc
 PurchArray.cc
@@ -29,6 +31,8 @@ CustArray.h
 Customer.h
 defs.h
 InvControl.h
+Order.h
+OrderArray.h
 Product.h
 ProdList.h
 PurchArray.h
