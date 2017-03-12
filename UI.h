@@ -29,6 +29,7 @@ using namespace std;
 
 #include "ProdList.h"
 #include "CustArray.h"
+#include "OrderArray.h"
 
 class UI
 {
@@ -41,8 +42,9 @@ class UI
     void promptForFloat(string, float&);//prompts float  from user
     void printError(string);            //displays given error message
     void printUsageError();             //displays usage error for running program
-    void printStock(ProdList&);        //displays store product stock info
+    void printStock(ProdList&);         //displays store product stock info
     void printCustomers(CustArray&);    //displays registered customers info
+    void printOrders(OrderArray&);      //displays all orders info
     void pause();
 
 	//print a summary to the screen of the total purchase amount and number of points earned
@@ -50,6 +52,7 @@ class UI
 
   private:
     int    readInt();
+    void   printPurchases(PurchArray&);  //displays all purchases info
 };
 
 #endif

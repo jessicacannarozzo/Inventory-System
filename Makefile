@@ -9,7 +9,7 @@ main.o:	main.cc
 InvControl.o:	InvControl.cc InvControl.h Store.h UI.h OrderServer.h
 	g++ -c InvControl.cc
 
-UI.o:	UI.cc UI.h
+UI.o:	UI.cc UI.h CustArray.h ProdList.h OrderArray.h
 	g++ -c UI.cc
 
 Store.o:	Store.cc Store.h ProdList.h

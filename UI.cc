@@ -32,9 +32,10 @@ void UI::adminMenu(int& choice)
   cout<< "          3. Print inventory \n\n";
   cout<< "          4. Print customers \n\n";
   cout<< "          5. Remove product \n\n";
+  cout<< "          6. Print orders \n\n";
   cout<< "          0. Exit\n\n";
 
-  while (choice < 0 || choice > 5) {
+  while (choice < 0 || choice > 6) {
     cout << "Enter your selection:  ";
     choice = readInt();
   }
@@ -80,27 +81,7 @@ void UI::printCustomers(CustArray& arr)
 
 	// iterate through customer purchase array
 	PurchArray& purchases = cust->getPurchArray();
-	int purchSize = purchases.getPurchArraySize();
-
-  cout << endl << "Purchased items: " << endl << endl;
-  cout << " ID                                 Name             Size    Qty   Subtotal" << endl;
-  cout << " --                                 ----             ----    ---    -------" << endl;
-
-	for(int j = 0; j < purchSize; j++)
-	{
-    stringstream ss;
-    Purchase* p = purchases.getPurchase(j);
-
-       cout << p->getProd()->getId()   << "  " << setw(40) << p->getProd()->getName() << "  "
-                 << setw(10) << p->getProd()->getSize() << "  " << setw(4)  << p->getPurchQnt() << "    ";
-
-            ss << setw(6) << fixed << setprecision(2) << p->getProd()->getPrice()*p->getPurchQnt();
-
-            cout << "$" << ss.str() << endl;
-            ss.str("");
-	}
-  cout << "---------------------------------------------------------------------------" << endl;
-	cout << endl;
+    printPurchases(purchases);
   }
 }
 
@@ -111,6 +92,7 @@ void UI::printPurchaseSummary(float totalAmount, int points)
     cout<< " Total purchase amount: $" << totalAmount <<"\n";
     cout<< " Total points earned  :  " << points <<"\n"<<endl;
 }
+
 
 void UI::printError(string err)
 {
@@ -167,4 +149,42 @@ void UI::pause()
 
   cout << endl << "\nPress enter to continue...";
   getline(cin, str);
+}
+
+
+void UI::printPurchases(PurchArray& arr)
+{
+  cout << endl << "Purchased items: " << endl << endl;
+  cout << "PROD ID                              Name             Size    Qty   Subtotal" << endl;
+  cout << " --                                 ----             ----    ---    -------" << endl;
+  for(int i = 0; i < arr.getPurchArraySize(); i++)
+  {
+    stringstream ss;
+    Purchase* p = arr.getPurchase(i);
+
+    cout << p->getProd()->getId()   << "  " << setw(40) << p->getProd()->getName() << "  "
+         << setw(10) << p->getProd()->getSize() << "  " << setw(4)  << p->getPurchQnt() 
+         << "    ";
+
+    ss << setw(6) << fixed << setprecision(2) << p->getProd()->getPrice()*p->getPurchQnt();
+    cout << "$" << ss.str() << endl;
+    ss.str("");
+  }
+  cout << "---------------------------------------------------------------------------" << endl << endl;
+
+}
+
+
+void UI::printOrders(OrderArray& orders)
+{
+  cout << endl << endl << "ORDERS: " << endl;
+  cout << "---------------------------------------------------------------------------" << endl;
+  for (int i=0; i < orders.getOrderSize(); i++) {
+    Order* order = orders.getOrder(i);
+    cout << "Order ID: " << order->getOrderID() << "  " << setw(10)
+         << "Customer: " << order->getCustomer()->getName() << setw(15) 
+         << "  " << setw(20) << "TOTAL: $" << order->getTotalAmount()  << endl;
+    PurchArray& purchases = order->getOrderPurches();
+    printPurchases(purchases);
+  }
 }

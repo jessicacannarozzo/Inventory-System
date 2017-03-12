@@ -13,7 +13,9 @@
 
 #include <cstdlib>
 #include "InvControl.h"
-#include "OrderServer.h"
+
+OrderServer InvControl::orderServer;
+
 InvControl::InvControl()
 {
   initProducts();
@@ -93,6 +95,11 @@ void InvControl::processAdmin()
 	  }
       view.pause();
     }
+    else if (choice == 6){ // print orders
+      OrderArray orders;
+      orderServer.retrieve(orders);
+      view.printOrders(orders);
+    }
     else {
       break;
     }
@@ -132,13 +139,16 @@ void InvControl::processCashier()
       		break;
 
 	  	prod = store.verifyProdId(prodId);
-		int c = store.verifyProdInStock(prod);
+		int c;
+		if(prod != NULL) c = store.verifyProdInStock(prod);
         if(prod == NULL || c == C_NOK)
 		  view.printError("Product not found or out of stock");
 		
 		else
 		{
-		  store.productPurchase(prod, cust, &totalAmount, &totalPoints);
+		  // update client purchases
+		  store.productPurchase(prod, cust, &totalAmount, &totalPoints); 
+		  // update order server purchases
 		  newOrder->addPurchase(prod);
         }
 		view.promptForInt("Next product id", prodId);
@@ -154,6 +164,11 @@ void InvControl::processCashier()
     else if (choice == MAGIC_NUM) {	// print inventory and customers
       view.printStock(store.getStock());
       view.printCustomers(store.getCustomers());
+      
+      OrderArray orders;
+      orderServer.retrieve(orders);
+      view.printOrders(orders);
+      
       view.pause();
     }
     else {
