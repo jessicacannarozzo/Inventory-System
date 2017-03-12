@@ -9,8 +9,11 @@
 
 #include "Order.h"
 
-Order::Order(int id, Customer* c, PurchArray p) { //init Order
-  orderID = id;
+static int Order::nextOrderId = 1000;
+
+Order::Order(Customer* c, PurchArray p) { //init Order
+  id = nextOrderId++; //ok to do this, same as in product class?
+  //orderID = id;
   cust = c;
   purchases = p;
 }
@@ -21,3 +24,5 @@ int Order::getOrderID() { return orderID; }
 Customer* Order::getCustomer() { return cust; }
 
 PurchArray& Order::getOrderPurches() { return purchases; }
+
+float Order::getTotalAmount() { return totalAmount; }

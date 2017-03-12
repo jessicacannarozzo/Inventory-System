@@ -4,7 +4,7 @@
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
 /* Class Def: OrderArray.h                         */
-/* Array of product purchases by customers.        */
+/* Array of customer Orders.                       */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef ORDERARRAY_H

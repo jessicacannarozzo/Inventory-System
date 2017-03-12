@@ -30,6 +30,6 @@ void OrderArray::addOrder(Order* o) {
 //getters
 int OrderArray::getOrderSize() { return orderSize; }
 
-Order* OrderArray::getOrders() { return *orders; }
+Order* OrderArray::getOrders() { return *orders; } //Do we need this getter? Only the print function would use it, we could implement a toString() here
 
 Order* OrderArray::getOrder(int i) { return orders[i]; }
