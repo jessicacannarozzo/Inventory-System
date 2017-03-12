@@ -27,6 +27,7 @@
 
 #include "Store.h"
 #include "UI.h"
+#include "OrderServer.h"
 
 class InvControl
 {
@@ -34,12 +35,13 @@ class InvControl
     InvControl();
     void launch(int, char*[]);
   private:
-    Store     store;
-    UI        view;
-    void      initProducts();  //initiate product stock
-    void      initCustomers(); //initiate collection of registered customers
-    void      processAdmin();  //process admin menu options
-    void      processCashier();//process cashier menu options
+    Store              store;
+    UI                 view;
+    static OrderServer orderServer;
+    void   initProducts();  //initiate product stock
+    void   initCustomers(); //initiate collection of registered customers
+    void   processAdmin();  //process admin menu options
+    void   processCashier();//process cashier menu options
 
 };
 #endif

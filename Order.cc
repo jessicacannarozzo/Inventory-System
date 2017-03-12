@@ -9,10 +9,10 @@
 
 #include "Order.h"
 
-static int Order::nextOrderId = 1000;
+int Order::nextOrderId = 1000;
 
 Order::Order(Customer* c, PurchArray p) { //init Order
-  id = nextOrderId++; //ok to do this, same as in product class?
+  orderID = nextOrderId++; //ok to do this, same as in product class?
   //orderID = id;
   cust = c;
   purchases = p;

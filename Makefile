@@ -1,4 +1,4 @@
-OBJ = main.o InvControl.o Store.o Product.o UI.o CustArray.o Customer.o Purchase.o PurchArray.o ProdList.o Order.o OrderArray.o
+OBJ = main.o InvControl.o Store.o Product.o UI.o CustArray.o Customer.o Purchase.o PurchArray.o ProdList.o Order.o OrderArray.o OrderServer.o
 
 cushop:	$(OBJ)
 	g++ -o cushop $(OBJ)
@@ -6,7 +6,7 @@ cushop:	$(OBJ)
 main.o:	main.cc
 	g++ -c main.cc
 
-InvControl.o:	InvControl.cc InvControl.h Store.h UI.h
+InvControl.o:	InvControl.cc InvControl.h Store.h UI.h OrderServer.h
 	g++ -c InvControl.cc
 
 UI.o:	UI.cc UI.h
@@ -38,6 +38,9 @@ Order.o: Order.cc Order.h Customer.h PurchArray.h defs.h
 
 OrderArray.o: OrderArray.cc OrderArray.h Order.h
 	g++ -c OrderArray.cc
+	
+OrderServer.o: OrderServer.cc OrderServer.h OrderArray.h
+	g++ -c OrderServer.cc
 
 clean:
 	rm -f $(OBJ) cushop

@@ -17,10 +17,9 @@ class OrderArray {
     OrderArray();
     ~OrderArray();
     //getters
-    Order* getOrders();
+    //Order* getOrders();
     int getOrderSize();
     Order* getOrder(int); //gets particular order at index
-
     void addOrder(Order*);
   private:
     int orderSize; //# of orders
