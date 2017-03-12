@@ -11,11 +11,11 @@
 
 int Order::nextOrderId = 1000;
 
-Order::Order(Customer* c, PurchArray p) { //init Order
-  orderID = nextOrderId++; //ok to do this, same as in product class?
+Order::Order(Customer* c) { //init Order
+  orderID = nextOrderId++;
   //orderID = id;
   cust = c;
-  purchases = p;
+  totalAmount = 0;
 }
 
 //getters
@@ -26,3 +26,22 @@ Customer* Order::getCustomer() { return cust; }
 PurchArray& Order::getOrderPurches() { return purchases; }
 
 float Order::getTotalAmount() { return totalAmount; }
+
+void Order::addPurchase(Product* p)
+{
+  //check if product is already part of the same order
+	for (int i = 0; i < purchases.getPurchArraySize(); i++) {
+		if (purchases.getProd(i)->getId() == p->getId()) {
+		  	//product is already in the order, increment units by 1
+		  	purchases.getPurchase(i)->incrementProdQnt();
+		  	totalAmount += p->getPrice();
+		  	return; //don't need to iterate anymore, function successful
+		}
+	}
+
+  	//we didn't find the item if we get here. Add brand new purchase.
+	Purchase* newPurch = new Purchase(p);
+	purchases.addNewPurchase(newPurch);
+	totalAmount += p->getPrice();
+}
+

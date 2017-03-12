@@ -16,7 +16,7 @@ class PurchArray {
 
   public:
     PurchArray();
-	  ~PurchArray();                 //destructor: deallocates dynamically allocated purchases
+	  ~PurchArray();               //destructor: deallocates dynamically allocated purchases
     Purchase* getPurchase(int);    //get the purchase
     int getPurchArraySize();       //get the size
     void addNewPurchase(Purchase*);//add new Purchase in collection

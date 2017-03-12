@@ -13,8 +13,7 @@
 
 #include <cstdlib>
 #include "InvControl.h"
-#include "Store.h"
-
+#include "OrderServer.h"
 InvControl::InvControl()
 {
   initProducts();
@@ -125,7 +124,8 @@ void InvControl::processCashier()
 	  view.promptForInt("Enter a sequence of product ids to be purchased (Terminate with 0)", prodId);
 
  	  Product* prod = NULL;
-
+      Order* newOrder = new Order (cust);
+      
 	  while (prodId != 0 || prod == NULL)
 	  {
 		if (prodId == 0) 
@@ -137,14 +137,16 @@ void InvControl::processCashier()
 		  view.printError("Product not found or out of stock");
 		
 		else
+		{
 		  store.productPurchase(prod, cust, &totalAmount, &totalPoints);
-
-
-		view.promptForInt("next product id", prodId);
+		  newOrder->addPurchase(prod);
+        }
+		view.promptForInt("Next product id", prodId);
 	  }
-
+	  
 	  view.printPurchaseSummary(totalAmount, totalPoints);
-
+      // send new order to the order server for storage
+      orderServer.update(newOrder);
     }
     else if (choice == 2) {		// return purchases
       view.printError("Feature not implemented");
