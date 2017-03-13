@@ -13,6 +13,17 @@ OrderArray::OrderArray() {
   orderSize = 0;
 }
 
+//copy constructor
+OrderArray::OrderArray(OrderArray& arr) {
+
+  orderSize = arr.getOrderSize();
+  for(int i = 0; i < orderSize; i++)
+  {
+    orders[i] = new Order (*(arr.getOrder(i)));
+  }
+  
+}
+
 OrderArray::~OrderArray() {
   for (int i = 0; i < orderSize; i++) {
     delete orders[i];

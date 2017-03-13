@@ -17,12 +17,13 @@
 class Order {
   public:
     Order(Customer*);
+    Order(Order&);
     //getters
     int getOrderID();
     Customer* getCustomer();
     PurchArray& getOrderPurches();
     float getTotalAmount();
-
+    int getNextOrderID();
     void addPurchase(Product*); // adds a new purchase to the order
   private:
     int orderID;
