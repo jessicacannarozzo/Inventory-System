@@ -27,6 +27,12 @@ void OrderArray::addOrder(Order* o) {
   orderSize++;
 }
 
+void OrderArray::cleanup()
+{
+  for(int i = 0; i < orderSize; i++)
+    delete orders[i];
+}
+
 //getters
 int OrderArray::getOrderSize() { return orderSize; }
 

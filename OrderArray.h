@@ -19,8 +19,9 @@ class OrderArray {
     //getters
     //Order* getOrders();
     int getOrderSize();
-    Order* getOrder(int); //gets particular order at index
-    void addOrder(Order*);
+    Order* getOrder(int);  // gets particular order at index
+    void addOrder(Order*); // adds new order to array 
+    void cleanup(); // cleans up array
   private:
     int orderSize; //# of orders
     Order* orders[MAX_ARR];
