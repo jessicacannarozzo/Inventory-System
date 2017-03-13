@@ -18,12 +18,14 @@ Order::Order(Customer* c) { //init Order
   totalAmount = 0;
 }
 
+/*
 Order::Order(Order& o) { //copy constructor
   orderID = o.getOrderID();
   cust = o.getCustomer();
   purchases = o.getOrderPurches();
   totalAmount = o.getTotalAmount();
 }
+*/
 
 //getters
 int Order::getOrderID() { return orderID; }

@@ -19,7 +19,7 @@ OrderArray::OrderArray(OrderArray& arr) {
   orderSize = arr.getOrderSize();
   for(int i = 0; i < orderSize; i++)
   {
-    orders[i] = new Order (*(arr.getOrder(i)));
+    orders[i] = arr.getOrder(i);
   }
   
 }
@@ -38,10 +38,9 @@ void OrderArray::addOrder(Order* o) {
   orderSize++;
 }
 
-void OrderArray::cleanup()
-{
+void OrderArray::cleanup() { 
   for(int i = 0; i < orderSize; i++)
-    delete orders[i];
+    delete orders[i]; 
 }
 
 //getters
