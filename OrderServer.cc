@@ -24,7 +24,7 @@ void OrderServer::retrieve(OrderArray& arr)
   arr.cleanup();
   // create a copy of server orders
   OrderArray copy = new OrderArray(orders);
-  
+
   // Fill arr with orders
   for(int i = 0; i < orders.getOrderSize(); i++)
   {
