@@ -17,7 +17,7 @@
 class Order {
   public:
     Order(Customer*);
-    Order(Order&);
+    //Order(Order&);
     //getters
     int getOrderID();
     Customer* getCustomer();
