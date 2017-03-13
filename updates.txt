@@ -7,10 +7,5 @@ I think the solution could be making a copy constructor in OrderArray class, the
 Another solution would be destroying the order array in OrderServer class instead of doing in OrderArray as expected, but then again we could get into problems as we did last time, having a destructor of a collection somewhere else.
 What do you think? Can you think of something else?
 
-Part 5: print orders feature
-    - this option in admin menu always prints an empty array because the order server is still part of the cashier option only. I guess this is expected? The hidden option in cashier menu works fine.
-
 UML
-    - to be updated
-
-
+    - J: updated, check when you can
