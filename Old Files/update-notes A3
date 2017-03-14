@@ -1,0 +1,13 @@
+- Store.cc: Not sure if we need destructor? I commented it out. li.32-38
+	k: ok, I inserted a line in ProdList destructor that frees the data as well
+
+- sstream and iostream in ProdList allowed? Probably not
+	k: i think it's ok since we need to return a long string with all prod info, it just won't display anything. After testing we remove the libraries we find not really needed there.
+
+- ProdList remove(): k: added a prevNode pointer and adjusted the code as the prof did to fix seg fault in some cases 
+
+- Size removed from list as per prof comment on forum
+
+- Done Fixing memory leaks (when making purchase and adding more invetory - found leak in reorg())
+
+- remove <iostream> from prodList class

@@ -5,6 +5,7 @@ Purpose:
 Keeps track of product and customer information, and allows for the record-keeping of transactions.
 *Update A2*: Dynamic memory allocation & the ability to add more inventory to the store.
 *Update A3*: ProdArray replaced with ProdList, a doubly linked list. Also a new feature to reorganize stock in ascending order based on the number of units, as well as remove product feature.
+*Update A4*: Ability to track and print order information. Also implemented a "facade" class to hide order process details.
 
 Authors:
 Jess Cannarozzo (S/N: 101007447)
@@ -19,6 +20,7 @@ InvControl.cc
 main.cc
 Order.cc
 OrderArray.cc
+OrderServer.cc
 Product.cc
 ProdList.cc
 PurchArray.cc
@@ -33,6 +35,7 @@ defs.h
 InvControl.h
 Order.h
 OrderArray.h
+OrderServer.h
 Product.h
 ProdList.h
 PurchArray.h
@@ -43,6 +46,7 @@ UI.h
 //other
 Makefile
 readme
+UML-diagram
 
 
 Compilation Command:

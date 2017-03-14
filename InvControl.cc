@@ -13,7 +13,8 @@
 
 #include <cstdlib>
 #include "InvControl.h"
-#include "Store.h"
+
+OrderServer InvControl::orderServer;
 
 InvControl::InvControl()
 {
@@ -85,14 +86,19 @@ void InvControl::processAdmin()
 	  code = C_NOK;
 	  while (code == C_NOK){
 		  view.promptForInt("Product ID", prodId);
-		  
+
 		  Product* prod = store.verifyProdId(prodId);
 		  if (prod == NULL)
 			view.printError("Product not found.");
- 		  else 
+ 		  else
 			code = store.removeProd(prod);
 	  }
       view.pause();
+    }
+    else if (choice == 6){ // print orders
+      OrderArray orders;
+      orderServer.retrieve(orders);
+      view.printOrders(orders);
     }
     else {
       break;
@@ -104,7 +110,7 @@ void InvControl::processCashier()
 {
   int choice;
   int prodId, custId;
-  int code;
+  // int code;
 
   while (1) {
     choice = -1;
@@ -125,26 +131,32 @@ void InvControl::processCashier()
 	  view.promptForInt("Enter a sequence of product ids to be purchased (Terminate with 0)", prodId);
 
  	  Product* prod = NULL;
+      Order* newOrder = new Order (cust);
 
 	  while (prodId != 0 || prod == NULL)
 	  {
-		if (prodId == 0) 
+		if (prodId == 0)
       		break;
 
 	  	prod = store.verifyProdId(prodId);
-		int c = store.verifyProdInStock(prod);
+		int c;
+		if(prod != NULL) c = store.verifyProdInStock(prod);
         if(prod == NULL || c == C_NOK)
 		  view.printError("Product not found or out of stock");
-		
+
 		else
+		{
+		  // update client purchases
 		  store.productPurchase(prod, cust, &totalAmount, &totalPoints);
-
-
-		view.promptForInt("next product id", prodId);
+		  // update order server purchases
+		  newOrder->addPurchase(prod);
+        }
+		view.promptForInt("Next product id", prodId);
 	  }
 
 	  view.printPurchaseSummary(totalAmount, totalPoints);
-
+      // send new order to the order server for storage
+      orderServer.update(newOrder);
     }
     else if (choice == 2) {		// return purchases
       view.printError("Feature not implemented");
@@ -152,6 +164,13 @@ void InvControl::processCashier()
     else if (choice == MAGIC_NUM) {	// print inventory and customers
       view.printStock(store.getStock());
       view.printCustomers(store.getCustomers());
+
+      OrderArray orders;
+      orderServer.retrieve(orders);
+      if(orders.getOrderSize() == 0)
+        view.printError("COPY DID NOT WORK");
+      view.printOrders(orders);
+
       view.pause();
     }
     else {
