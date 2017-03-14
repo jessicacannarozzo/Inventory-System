@@ -23,7 +23,7 @@ void OrderServer::retrieve(OrderArray& arr)
 {
 
   arr.cleanup();
-  
+
   // Fill arr with orders
   for(int i = 0; i < orders.getOrderSize(); i++)
   {

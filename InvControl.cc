@@ -86,11 +86,11 @@ void InvControl::processAdmin()
 	  code = C_NOK;
 	  while (code == C_NOK){
 		  view.promptForInt("Product ID", prodId);
-		  
+
 		  Product* prod = store.verifyProdId(prodId);
 		  if (prod == NULL)
 			view.printError("Product not found.");
- 		  else 
+ 		  else
 			code = store.removeProd(prod);
 	  }
       view.pause();
@@ -110,7 +110,7 @@ void InvControl::processCashier()
 {
   int choice;
   int prodId, custId;
-  int code;
+  // int code;
 
   while (1) {
     choice = -1;
@@ -132,10 +132,10 @@ void InvControl::processCashier()
 
  	  Product* prod = NULL;
       Order* newOrder = new Order (cust);
-      
+
 	  while (prodId != 0 || prod == NULL)
 	  {
-		if (prodId == 0) 
+		if (prodId == 0)
       		break;
 
 	  	prod = store.verifyProdId(prodId);
@@ -143,17 +143,17 @@ void InvControl::processCashier()
 		if(prod != NULL) c = store.verifyProdInStock(prod);
         if(prod == NULL || c == C_NOK)
 		  view.printError("Product not found or out of stock");
-		
+
 		else
 		{
 		  // update client purchases
-		  store.productPurchase(prod, cust, &totalAmount, &totalPoints); 
+		  store.productPurchase(prod, cust, &totalAmount, &totalPoints);
 		  // update order server purchases
 		  newOrder->addPurchase(prod);
         }
 		view.promptForInt("Next product id", prodId);
 	  }
-	  
+
 	  view.printPurchaseSummary(totalAmount, totalPoints);
       // send new order to the order server for storage
       orderServer.update(newOrder);
@@ -164,13 +164,13 @@ void InvControl::processCashier()
     else if (choice == MAGIC_NUM) {	// print inventory and customers
       view.printStock(store.getStock());
       view.printCustomers(store.getCustomers());
-      
+
       OrderArray orders;
       orderServer.retrieve(orders);
       if(orders.getOrderSize() == 0)
         view.printError("COPY DID NOT WORK");
       view.printOrders(orders);
-      
+
       view.pause();
     }
     else {
