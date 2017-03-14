@@ -167,6 +167,8 @@ void InvControl::processCashier()
       
       OrderArray orders;
       orderServer.retrieve(orders);
+      if(orders.getOrderSize() == 0)
+        view.printError("COPY DID NOT WORK");
       view.printOrders(orders);
       
       view.pause();

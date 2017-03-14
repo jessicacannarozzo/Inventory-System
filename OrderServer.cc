@@ -23,14 +23,12 @@ void OrderServer::retrieve(OrderArray& arr)
 {
 
   arr.cleanup();
-    
-  // create a copy of server orders
-  OrderArray copy = new OrderArray(orders);
   
   // Fill arr with orders
-  for(int i = 0; i < copy.getOrderSize(); i++)
+  for(int i = 0; i < orders.getOrderSize(); i++)
   {
-    arr.addOrder(copy.getOrder(i));
+    Order* o = new Order( *(orders.getOrder(i)) );
+    arr.addOrder(o);
   }
 
 }

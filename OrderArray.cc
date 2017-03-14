@@ -13,6 +13,7 @@ OrderArray::OrderArray() {
   orderSize = 0;
 }
 
+/*
 //copy constructor
 OrderArray::OrderArray(OrderArray& arr) {
 
@@ -23,6 +24,8 @@ OrderArray::OrderArray(OrderArray& arr) {
   }
   
 }
+
+*/
 
 OrderArray::~OrderArray() {
   for (int i = 0; i < orderSize; i++) {
@@ -41,6 +44,7 @@ void OrderArray::addOrder(Order* o) {
 void OrderArray::cleanup() { 
   for(int i = 0; i < orderSize; i++)
     delete orders[i]; 
+  orderSize = 0;
 }
 
 //getters

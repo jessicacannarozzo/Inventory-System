@@ -18,14 +18,21 @@ Order::Order(Customer* c) { //init Order
   totalAmount = 0;
 }
 
-/*
+
 Order::Order(Order& o) { //copy constructor
+
   orderID = o.getOrderID();
-  cust = o.getCustomer();
-  purchases = o.getOrderPurches();
   totalAmount = o.getTotalAmount();
+  cust = o.getCustomer();
+  
+  for(int i = 0; i < o.getOrderPurches().getPurchArraySize(); i++)
+  {
+    Purchase* p = new Purchase( *(o.getOrderPurches().getPurchase(i)) );
+    purchases.addNewPurchase(p);
+  }
+  
 }
-*/
+
 
 //getters
 int Order::getOrderID() { return orderID; }

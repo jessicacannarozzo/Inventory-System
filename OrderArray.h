@@ -15,7 +15,7 @@
 class OrderArray {
   public:
     OrderArray();
-    OrderArray(OrderArray&); 
+    //OrderArray(OrderArray&); 
     ~OrderArray();
     //getters
     //Order* getOrders();

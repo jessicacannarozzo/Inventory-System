@@ -15,6 +15,15 @@ Purchase::Purchase(Product* p)
 	purchQnt = 1;
 }
 
+
+//copy constructor
+Purchase::Purchase(Purchase& p) 
+{
+  purchQnt = p.getPurchQnt();
+  prod = p.getProd();
+}
+
+
 Product* Purchase::getProd() {
   return prod;
 }
