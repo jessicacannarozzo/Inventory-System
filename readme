@@ -20,6 +20,7 @@ InvControl.cc
 main.cc
 Order.cc
 OrderArray.cc
+OrderServer.cc
 Product.cc
 ProdList.cc
 PurchArray.cc
@@ -34,6 +35,7 @@ defs.h
 InvControl.h
 Order.h
 OrderArray.h
+OrderServer.h
 Product.h
 ProdList.h
 PurchArray.h
@@ -44,6 +46,7 @@ UI.h
 //other
 Makefile
 readme
+UML-diagram
 
 
 Compilation Command:
