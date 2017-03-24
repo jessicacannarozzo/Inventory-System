@@ -16,21 +16,24 @@
 /* Authors: Jess Cannarozzo (101007447)            */
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
-/* Class Def: Defs.h                               */
-/* Global variables.                               */
+/* Class Def: Perishable.h                         */
+/* Perishable type. Contain perishable behaviour to*/
+/* compute a product’s expiry date                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef DEFS_H
-#define DEFS_H
+#ifndef PERISHABLE_H
+#define PERISHABLE_H
+#include <string>
+using namespace std;
 
-#define MAX_ARR    64
-#define MAGIC_NUM  42
-
-#define C_OK       1
-#define C_NOK      0
-
-#define TWO_YRS    720 //roughly number of days in 2 years
-
-
+class Perishable : public Product
+{
+  public:
+    Perishable(string="Unknown", string="Unknown", int=0, float=0.0f);
+    virtual void computeExpDate(); // computes and sets the product’s expiry date
+  
+  protected:
+    int lifespan; // the number of days between the manufactured date and the expiry date
+};
 
 #endif

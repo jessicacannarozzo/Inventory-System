@@ -15,7 +15,7 @@ UI.o:	UI.cc UI.h CustArray.h ProdList.h OrderArray.h
 Store.o:	Store.cc Store.h ProdList.h
 	g++ -c Store.cc
 
-Product.o:	Product.cc Product.h
+Product.o:	Product.cc Product.h Date.h
 	g++ -c Product.cc
 
 CustArray.o:	CustArray.cc CustArray.h Customer.h defs.h

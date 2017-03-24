@@ -11,26 +11,12 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * */
-/*                                                 */
-/* Authors: Jess Cannarozzo (101007447)            */
-/*          Karla Martins Spuldaro (101021516)     */
-/*                                                 */
-/* Class Def: Defs.h                               */
-/* Global variables.                               */
-/* * * * * * * * * * * * * * * * * * * * * * * * * */
+#include "NonPerishable.h"
 
-#ifndef DEFS_H
-#define DEFS_H
+Perishable::Perishable(string n, string s, int u, float p)
+           :Product(n,s,u,p){}
 
-#define MAX_ARR    64
-#define MAGIC_NUM  42
-
-#define C_OK       1
-#define C_NOK      0
-
-#define TWO_YRS    720 //roughly number of days in 2 years
-
-
-
-#endif
+Perishable::void computeExpDate()
+{
+  expiryDate = manufacturedDate + TWO_YRS;
+}
