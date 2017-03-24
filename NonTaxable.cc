@@ -11,16 +11,12 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#include "Perishable.h"
+#include "NonTaxable.h"
 
-Perishable::Perishable(string n, string s, int u, float p, int l)
-           :Product(n,s,u,p)
-{
-  lifespan = l; 
-  computeExpDate();
-}
+NonTaxable::NonTaxable(string n, string s, int u, float p)
+           :Product(n,s,u,p){}
 
-void Perishable::computeExpDate()
+float NonTaxable::computeTax()
 {
-  expiryDate = manufacturedDate + lifespan;
+  return 0;
 }

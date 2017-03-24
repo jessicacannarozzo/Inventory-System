@@ -16,25 +16,23 @@
 /* Authors: Jess Cannarozzo (101007447)            */
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
-/* Class Def: Perishable.h                         */
-/* Perishable type. Contain perishable behaviour to*/
-/* compute a product’s expiry date                 */
+/* Class Def: Taxable.h                            */
+/* Taxable type.  Determines the amount of tax     */
+/*to be added to a product’s price when purchased  */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef PERISHABLE_H
-#define PERISHABLE_H
+#ifndef TAXABLE_H
+#define TAXABLE_H
 #include <string>
 #include "Product.h"
+#include "defs.h"
 using namespace std;
 
-class Perishable : public Product
+class Taxable : public Product
 {
   public:
-    Perishable(string="Unknown", string="Unknown", int=0, float=0.0f, int);
-    virtual void computeExpDate(); // computes and sets the product’s expiry date
-  
-  protected:
-    int lifespan; // the number of days between the manufactured date and the expiry date
+    Taxable(string="Unknown", string="Unknown", int=0, float=0.0f);
+    virtual float computeTax(); // returns the amount of tax to be paid on the product
 };
 
 #endif

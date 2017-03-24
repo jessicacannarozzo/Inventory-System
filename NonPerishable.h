@@ -25,6 +25,7 @@
 #define NONPERISHABLE_H
 #include <string>
 #include "defs.h"
+#include "Product.h"
 
 using namespace std;
 

@@ -30,6 +30,7 @@
 #define C_NOK      0
 
 #define TWO_YRS    720 //roughly number of days in 2 years
+#define ON_TAX     13 //tax rate in Ontario (%)
 
 
 

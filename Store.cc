@@ -69,7 +69,8 @@ void Store::productPurchase(Product* prod, Customer* cust, float* totalAmount, i
 
 	//compute the number of loyalty points earned by the customer with purchasing that product
 	*totalPoints += computeLoyaltyPoints(prod->getPrice(), cust);
-	*totalAmount += prod->getPrice();
+	float tax = prod->computeTax();
+	*totalAmount += (prod->getPrice() + tax);
 
 }
 
