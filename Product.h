@@ -23,7 +23,7 @@
 
 #ifndef PRODUCT_H
 #define PRODUCT_H
-
+#include "Date.h"
 #include <string>
 using namespace std;
 
@@ -39,6 +39,8 @@ class Product
     void incrementUnits(); //increments units by 1.
 	void decrementUnits(); //decrements units by 1.
     void incrementUnitsByX(int); //increments units by X amount
+    //virtual float computeTax() = 0; //returns the amount of tax to be paid on the product
+    //virtual void  computeExpDate() = 0; // computes and sets the product’s expiry date
 
   protected:
     static int nextProdId;
@@ -47,6 +49,8 @@ class Product
     string     size;
     int        units;
     float      price;
+    Date       manufacturedDate;
+    Date       expiryDate;
 };
 
 #endif
