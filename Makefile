@@ -1,5 +1,4 @@
-OBJ = main.o InvControl.o Store.o Product.o UI.o CustArray.o Customer.o Purchase.o PurchArray.o ProdList.o Order.o OrderArray.o OrderServer.o Date.o Perishable.o 
-NonPerishable.o Taxable.o NonTaxable.o
+OBJ = main.o InvControl.o Store.o Product.o UI.o CustArray.o Customer.o Purchase.o PurchArray.o ProdList.o Order.o OrderArray.o OrderServer.o Date.o Perishable.o NonPerishable.o Taxable.o NonTaxable.o
 
 cushop:	$(OBJ)
 	g++ -o cushop $(OBJ)
