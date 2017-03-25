@@ -1,4 +1,4 @@
-OBJ = main.o InvControl.o Store.o Product.o UI.o CustArray.o Customer.o Purchase.o PurchArray.o ProdList.o Order.o OrderArray.o OrderServer.o Date.o Perishable.o NonPerishable.o Taxable.o NonTaxable.o
+OBJ = main.o InvControl.o Store.o Product.o UI.o CustArray.o Customer.o Purchase.o PurchArray.o ProdList.o Order.o OrderArray.o OrderServer.o Date.o Perishable.o NonPerishable.o Taxable.o NonTaxable.o Dairy.o CoffeeTea.o Bakery.o Meat.o MiscGoods.o
 
 cushop:	$(OBJ)
 	g++ -o cushop $(OBJ)
@@ -55,6 +55,22 @@ Taxable.o: Taxable.cc Taxable.h Product.h defs.h
 	g++ -c Taxable.cc
 	
 NonTaxable.o: NonTaxable.cc NonTaxable.h Product.h
-	g++ -c NonTaxable.cc	
+	g++ -c NonTaxable.cc
+	
+Dairy.o: Dairy.cc Perishable.h NonTaxable.h 
+	g++ -c Dairy.cc		
+	
+CoffeeTea.o: CoffeeTea.cc NonPerishable.h Taxable.h 
+	g++ -c CoffeeTea.cc
+	
+Bakery.o: Bakery.cc Perishable.h Taxable.h 
+	g++ -c Bakery.cc
+	
+Meat.o: Meat.cc Perishable.h NonTaxable.h 
+	g++ -c Meat.cc	
+	
+MiscGoods.o: MiscGoods.cc NonPerishable.h NonTaxable.h 
+	g++ -c MiscGoods.cc
+		
 clean:
 	rm -f $(OBJ) cushop
