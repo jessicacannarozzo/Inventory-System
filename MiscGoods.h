@@ -23,7 +23,7 @@
 #ifndef MISCGOODS_H
 #define MISCGOODS_H
 #include <string>
-#include "Perishable.h"
+#include "NonPerishable.h"
 #include "NonTaxable.h"
 using namespace std;
 

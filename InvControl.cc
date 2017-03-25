@@ -185,68 +185,68 @@ void InvControl::initProducts()
 {
   //Dynamically allocated memory
 
-  Product* prod01 = new Product("Sudzzy Dish Soap", "1 L", 10, 3.99f);
+  MiscGoods* prod01 = new MiscGoods("Sudzzy Dish Soap", "1 L", 10, 3.99f);
   store.addProd(prod01);
 
-  Product* prod02 = new Product("Peachy Laundry Soap", "2 L", 3, 8.99f);
+  MiscGoods* prod02 = new MiscGoods("Peachy Laundry Soap", "2 L", 3, 8.99f);
   store.addProd(prod02);
 
-  Product* prod03 = new Product("Daisy's Spicy Chili", "150 g", 5, 1.29f);
+  MiscGoods* prod03 = new MiscGoods("Daisy's Spicy Chili", "150 g", 5, 1.29f);
   store.addProd(prod03);
 
-  Product* prod04 = new Product("Daisy's Maple Baked Beans", "220 g", 2, 2.49f);
+  MiscGoods* prod04 = new MiscGoods("Daisy's Maple Baked Beans", "220 g", 2, 2.49f);
   store.addProd(prod04);
 
-  Product* prod05 = new Product("Marmaduke Hot Dogs", "12-pack", 4, 4.99f);
+  Meat* prod05 = new Meat("Marmaduke Hot Dogs", "12-pack", 4, 4.99f, 30);
   store.addProd(prod05);
 
-  Product* prod06 = new Product("Garfield Hamburger Patties", "900 g", 2, 11.99f);
+  Meat* prod06 = new Meat("Garfield Hamburger Patties", "900 g", 2, 11.99f, 30);
   store.addProd(prod06);
 
-  Product* prod07 = new Product("Chunky Munkey Ice Cream", "2 L", 1, 2.97f);
+  Dairy* prod07 = new Dairy("Chunky Munkey Ice Cream", "2 L", 1, 2.97f, 45);
   store.addProd(prod07);
 
-  Product* prod08 = new Product("It's Your Bday Chocolate Cake", "500 g", 0, 12.99f);
+  Bakery* prod08 = new Bakery("It's Your Bday Chocolate Cake", "500 g", 0, 12.99f, 5);
   store.addProd(prod08);
 
-  Product* prod09 = new Product("Happy Baker's Hot dog buns", "12-pack", 5, 3.49f);
+  Bakery* prod09 = new Bakery("Happy Baker's Hot dog buns", "12-pack", 5, 3.49f, 14);
   store.addProd(prod09);
 
-  Product* prod10 = new Product("Happy Baker's Hamburger buns", "8-pack", 8, 3.99f);
+  Bakery* prod10 = new Bakery("Happy Baker's Hamburger buns", "8-pack", 8, 3.99f, 15);
   store.addProd(prod10);
 
-  Product* prod11 = new Product("Moo-cow 2% milk", "1 L", 7, 2.99f);
+  Dairy* prod11 = new Dairy("Moo-cow 2% milk", "1 L", 7, 2.99f, 7);
   store.addProd(prod11);
 
-  Product* prod12 = new Product("Moo-cow 2% milk", "4 L", 3, 4.99f);
+  CoffeeTea* prod12 = new CoffeeTea("Moo-cow instant coffee", "200 g", 3, 4.99f);
   store.addProd(prod12);
 
-  Product* prod13 = new Product("Moo-cow 5% coffee cream", "250 ml", 4, 1.49f);
+  Dairy* prod13 = new Dairy("Moo-cow 5% coffee cream", "250 ml", 4, 1.49f, 20);
   store.addProd(prod13);
 
-  Product* prod14 = new Product("Good Morning Granola Cereal", "400 g", 2, 5.49f);
+  MiscGoods* prod14 = new MiscGoods("Good Morning Granola Cereal", "400 g", 2, 5.49f);
   store.addProd(prod14);
 
-  Product* prod15 = new Product("Lightening Bolt Instant Coffee", "150 g", 8, 4.99f);
+  CoffeeTea* prod15 = new CoffeeTea("Lightening Bolt Instant Coffee", "150 g", 8, 4.99f);
   store.addProd(prod15);
 
-  Product* prod16 = new Product("Lightening Bolt Decaf Coffee", "100 g", 2, 4.99f);
+  CoffeeTea* prod16 = new CoffeeTea("Lightening Bolt Decaf Coffee", "100 g", 2, 4.99f);
   store.addProd(prod16);
 
-  Product* prod17 = new Product("Munchies BBQ Chips", "250 g", 7, 2.99f);
+  MiscGoods* prod17 = new MiscGoods("Munchies BBQ Chips", "250 g", 7, 2.99f);
   store.addProd(prod17);
 
-  Product* prod18 = new Product("Munchies Ketchup Chips", "250 g", 3, 2.99f);
+  MiscGoods* prod18 = new MiscGoods("Munchies Ketchup Chips", "250 g", 3, 2.99f);
   store.addProd(prod18);
 
-  Product* prod19 = new Product("Dogbert Salted Chips", "210 g", 4, 1.99f);
+  MiscGoods* prod19 = new MiscGoods("Dogbert Salted Chips", "210 g", 4, 1.99f);
   store.addProd(prod19);
 
-  Product* prod20 = new Product("Dogbert Sweet and Spicy Popcorn", "180 g", 5, 2.29f);
+  MiscGoods* prod20 = new MiscGoods("Dogbert Sweet and Spicy Popcorn", "180 g", 5, 2.29f);
   store.addProd(prod20);
 
   //our product!!!
-  Product* prod21 = new Product("Off-brand Kit-Kat", "1000 g", 100, 9.99f);
+  MiscGoods* prod21 = new MiscGoods("Off-brand Kit-Kat", "1000 g", 100, 9.99f);
   store.addProd(prod21);
 
 }

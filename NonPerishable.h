@@ -29,7 +29,7 @@
 
 using namespace std;
 
-class NonPerishable : public Product
+class NonPerishable : virtual Product
 {
   public:
     NonPerishable(string="Unknown", string="Unknown", int=0, float=0.0f);

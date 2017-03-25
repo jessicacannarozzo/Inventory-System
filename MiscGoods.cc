@@ -14,4 +14,4 @@
 #include "MiscGoods.h"
 
 MiscGoods::MiscGoods(string n, string s, int u, float p)
-           :Perishable(n,s,u,p), NonTaxable(n,s,u,p){}
+           :NonPerishable(n,s,u,p), NonTaxable(n,s,u,p){}

@@ -28,9 +28,14 @@
 #include <math.h>
 // #include "ProdArray.h"
 #include "ProdList.h"
-#include "Product.h"
+//#include "Product.h"
 #include "CustArray.h"
 #include "Customer.h"
+#include "Dairy.h"
+#include "CoffeeTea.h"
+#include "Bakery.h"
+#include "Meat.h"
+#include "MiscGoods.h"
 
 class Store
 {

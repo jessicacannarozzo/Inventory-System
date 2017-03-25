@@ -30,7 +30,7 @@ using namespace std;
 class Bakery : public Perishable, public Taxable
 {
   public:
-    Bakery(string="Unknown", string="Unknown", int=0, float=0.0f, int);
+    Bakery(string="Unknown", string="Unknown", int=0, float=0.0f, int=1);
 };
 
 #endif

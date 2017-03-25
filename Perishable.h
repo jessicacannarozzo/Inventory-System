@@ -27,10 +27,10 @@
 #include "Product.h"
 using namespace std;
 
-class Perishable : public Product
+class Perishable : virtual Product
 {
   public:
-    Perishable(string="Unknown", string="Unknown", int=0, float=0.0f, int);
+    Perishable(string="Unknown", string="Unknown", int=0, float=0.0f, int=1);
     virtual void computeExpDate(); // computes and sets the product’s expiry date
   
   protected:

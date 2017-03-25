@@ -13,13 +13,13 @@
 
 #include "NonPerishable.h"
 
-Perishable::Perishable(string n, string s, int u, float p)
+NonPerishable::NonPerishable(string n, string s, int u, float p)
            :Product(n,s,u,p)
 {
   computeExpDate();
 }
 
-void Perishable::computeExpDate()
+void NonPerishable::computeExpDate()
 {
   expiryDate = manufacturedDate + TWO_YRS;
 }

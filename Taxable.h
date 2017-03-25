@@ -28,7 +28,7 @@
 #include "defs.h"
 using namespace std;
 
-class Taxable : public Product
+class Taxable : virtual Product
 {
   public:
     Taxable(string="Unknown", string="Unknown", int=0, float=0.0f);
