@@ -20,9 +20,11 @@ Date::Date(int m, int d, int y) {
 
 //overloaded operators
 Date& Date::operator+=(int numDays) {
- this->setDate(convertToDays() + numDays);
-
- return *this;
+ // this->setDate(this->convertToDays() + numDays);
+  int tempDays = this->convertToDays();
+  tempDays = tempDays + numDays;
+  this->setDate(tempDays);
+  return *this;
 }
 
 Date Date::operator+(int numDays) {
@@ -54,7 +56,7 @@ void Date::setDate(int days) { //from days
 }
 
 int Date::convertToDays() const {
-  return (this->day + this->month*30 + this->year*365);
+  return (day + month*30 + year*365);
 }
 
 //print: source: Dr. Christine Laurendeau
