@@ -13,7 +13,7 @@
 
 #include <cstdlib>
 #include "InvControl.h"
-
+//#include <iostream> 
 OrderServer InvControl::orderServer;
 
 InvControl::InvControl()
@@ -188,10 +188,13 @@ void InvControl::initProducts()
 {
   //Dynamically allocated memory
 
-  MiscGoods* prod01 = new MiscGoods("Sudzzy Dish Soap", "1 L", 10, 3.99f);
+  MiscGoods* prod01 = new MiscGoods("Sudzzy Dish Soap", "1 L", 10, 3.99f,1,2,3);
   store.addProd(prod01);
-
-  MiscGoods* prod02 = new MiscGoods("Peachy Laundry Soap", "2 L", 3, 8.99f);
+  
+  //cout <<"TEST id: "<<prod01->getId()<<" name: "<<prod01->getName()<<" size: "<< prod01->getSize()<<" units: "<<prod01->getUnits()<<" price: "<<prod01->getPrice()<<endl;
+  
+  
+ /* MiscGoods* prod02 = new MiscGoods("Peachy Laundry Soap", "2 L", 3, 8.99f);
   store.addProd(prod02);
 
   MiscGoods* prod03 = new MiscGoods("Daisy's Spicy Chili", "150 g", 5, 1.29f);
@@ -250,8 +253,8 @@ void InvControl::initProducts()
 
   //our product!!!
   MiscGoods* prod21 = new MiscGoods("Off-brand Kit-Kat", "1000 g", 100, 9.99f);
-  store.addProd(prod21);
-
+  store.addProd(prod21);*/
+  
 }
 
 void InvControl::initCustomers()

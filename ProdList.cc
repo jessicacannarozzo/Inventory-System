@@ -152,8 +152,8 @@ void ProdList::forwardToString(stringstream& ss)
   Node* currNode = head;
 
   ss<<endl<<"STOCK (Increasing order of product units):"<<endl<<endl;
-  ss<<" ID                                 Name             Size    Qty    Price" << endl;
-  ss << " --                                 ----             ----    ---    -----" << endl;
+  ss<<" ID                                 Name             Size    Qty    Price    Exp.Date" << endl;
+  ss << " --                                 ----             ----    ---    -----    --------" << endl;
 
   while (currNode != NULL) { //repetitive code, move to another function or in Product class
     productToString(ss, currNode->data);
@@ -187,8 +187,8 @@ void ProdList::backwardToString(stringstream& ss)
 
 
   ss<<endl<<"STOCK (Decreasing order of product units):"<<endl<<endl;
-  ss<<" ID                                 Name             Size    Qty    Price" << endl;
-  ss << " --                                 ----             ----    ---    -----" << endl;
+  ss<<" ID                                 Name             Size    Qty    Price    Exp.Date" << endl;
+  ss << " --                                 ----             ----    ---    -----    --------" << endl;
 
   while (currNode != NULL) {
     productToString(ss, currNode->data);
