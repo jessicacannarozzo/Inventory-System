@@ -13,10 +13,10 @@
 
 #include "Perishable.h"
 
-Perishable::Perishable(string n, string s, int u, float p, int l)
-           :Product(n,s,u,p)
+Perishable::Perishable(string n, string s, int u, float p,int m,int d,int y, int l)
+           :Product(n,s,u,p,m,d,y)
 {
-  lifespan = l; 
+  lifespan = l;
   computeExpDate();
 }
 

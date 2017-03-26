@@ -13,5 +13,5 @@
 
 #include "Bakery.h"
 
-Bakery::CoffeeTea(string n, string s, int u, float p, int l)
-           :Perishable(n,s,u,p,l), Taxable(n,s,u,p){}
+Bakery::Bakery(string n, string s, int u, float p,int m, int d, int y, int l)
+           :Perishable(n,s,u,p,m,d,y,l), Taxable(n,s,u,p,m,d,y){}

@@ -13,8 +13,8 @@
 
 #include "NonPerishable.h"
 
-NonPerishable::NonPerishable(string n, string s, int u, float p)
-           :Product(n,s,u,p)
+NonPerishable::NonPerishable(string n, string s, int u, float p,int m, int d, int y)
+           :Product(n,s,u,p,m,d,y)
 {
   computeExpDate();
 }

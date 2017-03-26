@@ -1,5 +1,4 @@
 -Part2:
-    . Product class: modify the constructor to initialize the manufactured date from a year, month, and day passed in as parameters;
     . Add date params in all products created in InvControl;
     . Fix everywhere in program where a Product is instantiated;
     . Fix prod purchase feature 

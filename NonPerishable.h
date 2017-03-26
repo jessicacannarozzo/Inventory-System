@@ -29,10 +29,10 @@
 
 using namespace std;
 
-class NonPerishable : virtual Product
+class NonPerishable : public virtual Product
 {
   public:
-    NonPerishable(string="Unknown", string="Unknown", int=0, float=0.0f);
+    NonPerishable(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0);
     virtual void computeExpDate(); // computes and sets the product’s expiry date
 };
 

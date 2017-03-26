@@ -13,5 +13,5 @@
 
 #include "CoffeeTea.h"
 
-CoffeeTea::CoffeeTea(string n, string s, int u, float p)
-           :NonPerishable(n,s,u,p), Taxable(n,s,u,p){}
+CoffeeTea::CoffeeTea(string n, string s, int u, float p, int m, int d, int y)
+           :NonPerishable(n,s,u,p,m,d,y), Taxable(n,s,u,p,m,d,y){}

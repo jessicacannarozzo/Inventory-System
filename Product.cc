@@ -15,7 +15,8 @@
 
 int Product::nextProdId = 5001;
 
-Product::Product(string n, string s, int u, float p)
+Product::Product(string n, string s, int u, float p, int m, int d, int y)
+        :manufacturedDate(m,d,y), expiryDate(0,0,0)
 {
   id    = nextProdId++;
   name  = n;

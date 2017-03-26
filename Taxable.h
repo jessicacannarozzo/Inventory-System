@@ -28,10 +28,10 @@
 #include "defs.h"
 using namespace std;
 
-class Taxable : virtual Product
+class Taxable : public virtual Product
 {
   public:
-    Taxable(string="Unknown", string="Unknown", int=0, float=0.0f);
+    Taxable(string="Unknown", string="Unknown", int=0, float=0.0f,int=0,int=0,int=0);
     virtual float computeTax(); // returns the amount of tax to be paid on the product
 };
 

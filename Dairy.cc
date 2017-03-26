@@ -13,5 +13,5 @@
 
 #include "Dairy.h"
 
-Dairy::Dairy(string n, string s, int u, float p, int l)
-           :Perishable(n,s,u,p,l), NonTaxable(n,s,u,p){}
+Dairy::Dairy(string n, string s, int u, float p, int m, int d, int y, int l)
+           :Perishable(n,s,u,p,m,d,y,l), NonTaxable(n,s,u,p,m,d,y){}

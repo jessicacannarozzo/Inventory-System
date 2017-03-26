@@ -30,7 +30,7 @@ using namespace std;
 class MiscGoods : public NonPerishable, public NonTaxable
 {
   public:
-    MiscGoods(string="Unknown", string="Unknown", int=0, float=0.0f);
+    MiscGoods(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0);
 };
 
 #endif

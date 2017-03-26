@@ -55,7 +55,9 @@ void InvControl::processAdmin()
   while (1) {
     choice = -1;
     view.adminMenu(choice);
-    if (choice == 1) {		// add new product
+    if (choice == 1) {		// add new product - FIX THIS LATER
+      view.printError("Sorry. Option currently not available."); //REMOVE THIS LINE
+      /*
       view.promptForStr("Product name", prodName);
       view.promptForStr("Product size", prodSize);
       view.promptForInt("# units", prodUnits);
@@ -63,6 +65,7 @@ void InvControl::processAdmin()
       Product* prod = new Product(prodName, prodSize, prodUnits, prodPrice);
       store.addProd(prod);
       view.pause();
+      */
     }
     else if (choice == 2) {	// add inventory
 	  code = C_NOK;

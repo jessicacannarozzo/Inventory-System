@@ -13,8 +13,8 @@
 
 #include "Taxable.h"
 
-Taxable::Taxable(string n, string s, int u, float p)
-           :Product(n,s,u,p){}
+Taxable::Taxable(string n, string s, int u, float p,int m,int d,int y)
+           :Product(n,s,u,p,m,d,y){}
 
 float Taxable::computeTax()
 {

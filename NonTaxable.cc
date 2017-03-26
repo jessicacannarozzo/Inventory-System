@@ -13,8 +13,8 @@
 
 #include "NonTaxable.h"
 
-NonTaxable::NonTaxable(string n, string s, int u, float p)
-           :Product(n,s,u,p){}
+NonTaxable::NonTaxable(string n, string s, int u, float p, int m, int d, int y)
+           :Product(n,s,u,p,m,d,y){}
 
 float NonTaxable::computeTax()
 {
