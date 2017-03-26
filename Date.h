@@ -12,7 +12,19 @@
 
 class Date {
   public:
+    Date(int, int, int);
+    Date& operator+=(int);
+    Date operator+(int);
+    bool operator>(Date&);
+    bool operator<(Date&);
+
+
   private:
+    int convertToDays() const;
+    void setDate(int);
+    int month;
+    int day;
+    int year;
 };
 
 #endif
