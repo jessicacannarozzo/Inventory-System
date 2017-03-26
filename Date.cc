@@ -9,6 +9,8 @@
 
 #include "Date.h"
 #include <iostream>
+#include <iomanip>
+#include <string>
 
 Date::Date(int m, int d, int y) {
   this->month = m;
@@ -53,4 +55,13 @@ void Date::setDate(int days) { //from days
 
 int Date::convertToDays() const {
   return (this->day + this->month*30 + this->year*365);
+}
+
+//print: source: Dr. Christine Laurendeau
+ostream& operator<<(ostream& output, Date& d) {
+  output<<setfill('0')<<setw(2)<<d.month<<"/"
+      <<setfill('0')<<setw(2)<<d.day<<"/"
+      <<setfill('0')<<setw(2)<<d.year;
+
+  return output;
 }

@@ -9,8 +9,11 @@
 
 #ifndef DATE_H
 #define DATE_H
+#include <ostream>
+using namespace std;
 
 class Date {
+  friend ostream& operator<<(ostream&, Date&);
   public:
     Date(int, int, int);
     Date& operator+=(int);
