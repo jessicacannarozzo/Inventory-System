@@ -11,7 +11,17 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                 */
+/* Authors: Jess Cannarozzo (101007447)            */
+/*          Karla Martins Spuldaro (101021516)     */
+/*                                                 */
+/* Class Def: Main.cc                              */
+/* Launches the program.                           */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #include "InvControl.h"
+// #include "Date.h"
 
 int main(int argc, char* argv[])
 {
@@ -21,4 +31,3 @@ int main(int argc, char* argv[])
 
   return 0;
 }
-
