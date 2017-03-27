@@ -140,7 +140,7 @@ void ProdList::toString(string& outStr)
 
   forwardToString(ss);
   ss << endl << endl;
-  backwardToString(ss);
+  //backwardToString(ss);
 
   outStr = ss.str();
 }
@@ -171,7 +171,9 @@ void ProdList::productToString(stringstream& ss, Product* p)
 	<< p->getSize() << "  " << setw(4) << p->getUnits() << "    ";
 
     tmp << setw(6) << fixed << setprecision(2) << p->getPrice();
-    ss << "$" << tmp.str() << endl;
+    ss << "$" << tmp.str();
+    Date d = p->getExpDate();
+    ss << "  "<< d << endl;
 }
 
 void ProdList::backwardToString(stringstream& ss)

@@ -1,6 +1,4 @@
 -Part2:
-    . Add date params in all products created in InvControl;
-    . Add print date in printStock()
     . Fix prod purchase feature 
     . Fix memory leak (prod pointers are not freed)
 

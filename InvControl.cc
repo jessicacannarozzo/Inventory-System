@@ -188,72 +188,70 @@ void InvControl::initProducts()
 {
   //Dynamically allocated memory
 
-  MiscGoods* prod01 = new MiscGoods("Sudzzy Dish Soap", "1 L", 10, 3.99f,1,2,3);
+  MiscGoods* prod01 = new MiscGoods("Sudzzy Dish Soap", "1 L", 10, 3.99f,1,1,0);
   store.addProd(prod01);
   
-  //cout <<"TEST id: "<<prod01->getId()<<" name: "<<prod01->getName()<<" size: "<< prod01->getSize()<<" units: "<<prod01->getUnits()<<" price: "<<prod01->getPrice()<<endl;
   
-  
- /* MiscGoods* prod02 = new MiscGoods("Peachy Laundry Soap", "2 L", 3, 8.99f);
+  MiscGoods* prod02 = new MiscGoods("Peachy Laundry Soap", "2 L", 3, 8.99f,1,1,0);
   store.addProd(prod02);
 
-  MiscGoods* prod03 = new MiscGoods("Daisy's Spicy Chili", "150 g", 5, 1.29f);
+  MiscGoods* prod03 = new MiscGoods("Daisy's Spicy Chili", "150 g", 5, 1.29f,1,1,0);
   store.addProd(prod03);
 
-  MiscGoods* prod04 = new MiscGoods("Daisy's Maple Baked Beans", "220 g", 2, 2.49f);
+  MiscGoods* prod04 = new MiscGoods("Daisy's Maple Baked Beans", "220 g", 2, 2.49f,1,1,0);
   store.addProd(prod04);
 
-  Meat* prod05 = new Meat("Marmaduke Hot Dogs", "12-pack", 4, 4.99f, 30);
+  Meat* prod05 = new Meat("Marmaduke Hot Dogs", "12-pack", 4, 4.99f,1,1,0,5);
   store.addProd(prod05);
 
-  Meat* prod06 = new Meat("Garfield Hamburger Patties", "900 g", 2, 11.99f, 30);
+  Meat* prod06 = new Meat("Garfield Hamburger Patties", "900 g", 2, 11.99f,1,1,0,5);
   store.addProd(prod06);
 
-  Dairy* prod07 = new Dairy("Chunky Munkey Ice Cream", "2 L", 1, 2.97f, 45);
+  Dairy* prod07 = new Dairy("Chunky Munkey Ice Cream", "2 L", 1, 2.97f,1,1,0,5);
   store.addProd(prod07);
 
-  Bakery* prod08 = new Bakery("It's Your Bday Chocolate Cake", "500 g", 0, 12.99f, 5);
+  Bakery* prod08 = new Bakery("It's Your Bday Chocolate Cake", "500 g", 0, 12.99f,1,1,0,5);
   store.addProd(prod08);
 
-  Bakery* prod09 = new Bakery("Happy Baker's Hot dog buns", "12-pack", 5, 3.49f, 14);
+  Bakery* prod09 = new Bakery("Happy Baker's Hot dog buns", "12-pack", 5, 3.49f,1,1,0,5);
   store.addProd(prod09);
 
-  Bakery* prod10 = new Bakery("Happy Baker's Hamburger buns", "8-pack", 8, 3.99f, 15);
+  Bakery* prod10 = new Bakery("Happy Baker's Hamburger buns", "8-pack", 8, 3.99f,1,1,0,5);
   store.addProd(prod10);
 
-  Dairy* prod11 = new Dairy("Moo-cow 2% milk", "1 L", 7, 2.99f, 7);
+  Dairy* prod11 = new Dairy("Moo-cow 2% milk", "1 L", 7, 2.99f ,1,1,0,5);
   store.addProd(prod11);
 
-  CoffeeTea* prod12 = new CoffeeTea("Moo-cow instant coffee", "200 g", 3, 4.99f);
+  CoffeeTea* prod12 = new CoffeeTea("Moo-cow instant coffee", "200 g", 3, 4.99f,1,1,0);
   store.addProd(prod12);
 
-  Dairy* prod13 = new Dairy("Moo-cow 5% coffee cream", "250 ml", 4, 1.49f, 20);
+  Dairy* prod13 = new Dairy("Moo-cow 5% coffee cream", "250 ml", 4, 1.49f, 1,1,0,5);
   store.addProd(prod13);
 
-  MiscGoods* prod14 = new MiscGoods("Good Morning Granola Cereal", "400 g", 2, 5.49f);
+  MiscGoods* prod14 = new MiscGoods("Good Morning Granola Cereal", "400 g", 2, 5.49f,1,1,0);
   store.addProd(prod14);
 
-  CoffeeTea* prod15 = new CoffeeTea("Lightening Bolt Instant Coffee", "150 g", 8, 4.99f);
+  CoffeeTea* prod15 = new CoffeeTea("Lightening Bolt Instant Coffee", "150 g", 8, 4.99f,1,1,0);
   store.addProd(prod15);
 
-  CoffeeTea* prod16 = new CoffeeTea("Lightening Bolt Decaf Coffee", "100 g", 2, 4.99f);
+  CoffeeTea* prod16 = new CoffeeTea("Lightening Bolt Decaf Coffee", "100 g", 2, 4.99f,1,1,0);
   store.addProd(prod16);
 
-  MiscGoods* prod17 = new MiscGoods("Munchies BBQ Chips", "250 g", 7, 2.99f);
+  MiscGoods* prod17 = new MiscGoods("Munchies BBQ Chips", "250 g", 7, 2.99f,1,1,0);
   store.addProd(prod17);
 
-  MiscGoods* prod18 = new MiscGoods("Munchies Ketchup Chips", "250 g", 3, 2.99f);
+  MiscGoods* prod18 = new MiscGoods("Munchies Ketchup Chips", "250 g", 3, 2.99f,1,1,0);
   store.addProd(prod18);
 
-  MiscGoods* prod19 = new MiscGoods("Dogbert Salted Chips", "210 g", 4, 1.99f);
+  MiscGoods* prod19 = new MiscGoods("Dogbert Salted Chips", "210 g", 4, 1.99f,1,1,0);
   store.addProd(prod19);
 
-  MiscGoods* prod20 = new MiscGoods("Dogbert Sweet and Spicy Popcorn", "180 g", 5, 2.29f);
+  MiscGoods* prod20 = new MiscGoods("Dogbert Sweet and Spicy Popcorn", "180 g", 5, 2.29f,1,1,0);
   store.addProd(prod20);
 
   //our product!!!
   MiscGoods* prod21 = new MiscGoods("Off-brand Kit-Kat", "1000 g", 100, 9.99f);
-  store.addProd(prod21);*/
+  store.addProd(prod21);
   
 }
 
