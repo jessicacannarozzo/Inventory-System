@@ -8,48 +8,10 @@ Keeps track of product and customer information, and allows for the record-keepi
 *Update A4*: Ability to track and print order information. Also implemented a "facade" class to hide order process details.
 *Update A5*: New product categories based on a hierarchy and products are now taxable.
 
+
 Authors:
 Jess Cannarozzo (S/N: 101007447)
 Karla Martins Spuldaro (S/N: 101021516)
-
-
-List of Source Files:
-//.cc
-CustArray.cc
-Customer.cc
-Date.cc
-InvControl.cc
-main.cc
-Order.cc
-OrderArray.cc
-OrderServer.cc
-Product.cc
-ProdList.cc
-PurchArray.cc
-Purchase.cc
-Store.cc
-UI.cc
-
-//.h files
-CustArray.h
-Customer.h
-Date.h
-defs.h
-InvControl.h
-Order.h
-OrderArray.h
-OrderServer.h
-Product.h
-ProdList.h
-PurchArray.h
-Purchase.h
-Store.h
-UI.h
-
-//other
-Makefile
-readme
-UML-diagram
 
 
 Compilation Command:
@@ -58,3 +20,60 @@ make
 
 Operating Instructions:
 ./cushop -a OR ./cushop -c
+
+
+List of Source Files:
+//.cc
+Bakery.cc
+CoffeeTea.cc
+CustArray.cc
+Customer.cc
+Dairy.cc
+Date.cc
+InvControl.cc
+main.cc
+Meat.cc
+MiscGoods.cc
+NonPerishable.cc
+NonTaxable.cc
+Order.cc
+OrderArray.cc
+OrderServer.cc
+Perishable.cc
+Product.cc
+ProdList.cc
+PurchArray.cc
+Purchase.cc
+Store.cc
+Taxable.cc
+UI.cc
+
+//.h files
+Bakery.h
+CoffeeTea.h
+CustArray.h
+Customer.h
+Dairy.h
+Date.h
+defs.h
+InvControl.h
+Meat.h
+MiscGoods.h
+NonPerishable.h
+NonTaxable.h
+Order.h
+OrderArray.h
+OrderServer.h
+Perishable.h
+Product.h
+ProdList.h
+PurchArray.h
+Purchase.h
+Store.h
+Taxable.h
+UI.h
+
+//other
+Makefile
+readme
+UML-diagram

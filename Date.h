@@ -21,7 +21,6 @@ class Date {
     bool operator>(Date&);
     bool operator<(Date&);
 
-
   private:
     int convertToDays() const;
     void setDate(int);

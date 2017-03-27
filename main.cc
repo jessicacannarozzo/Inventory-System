@@ -21,13 +21,19 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "InvControl.h"
-// #include "Date.h"
+#include "Date.h"
+#include <iostream>
 
 int main(int argc, char* argv[])
 {
-  InvControl control;
+  Date *d = new Date(5, 1, 0);
 
-  control.launch(argc, argv);
+  cout << *d << endl;
+  d += 1;
+  cout << *d << endl;
+  // InvControl control;
+  //
+  // control.launch(argc, argv);
 
   return 0;
 }
