@@ -17,7 +17,7 @@
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
 /* Class Def: MiscGoods.h                          */
-/* MiscGoods type. MiscGoods product category                */
+/* MiscGoods type. MiscGoods product category      */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef MISCGOODS_H
@@ -31,7 +31,6 @@ class MiscGoods : public NonPerishable, public NonTaxable
 {
   public:
     MiscGoods(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0);
-    ~MiscGoods();
 };
 
 #endif

@@ -155,7 +155,7 @@ void ProdList::forwardToString(stringstream& ss)
   ss<<" ID                                 Name             Size    Qty    Price    Exp.Date" << endl;
   ss << " --                                 ----             ----    ---    -----    --------" << endl;
 
-  while (currNode != NULL) { //repetitive code, move to another function or in Product class
+  while (currNode != NULL) { 
     productToString(ss, currNode->data);
     currNode = currNode->next;
   }
