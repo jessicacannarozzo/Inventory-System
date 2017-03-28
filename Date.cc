@@ -50,13 +50,13 @@ bool Date::operator<(Date& other) {
 }
 
 void Date::setDate(int days) { //from days
-  this->year = days / 365;
-  this->month = (days % 365) / 30;
-  this->day = (days % 365) % 30;
+  this->year = days / 360;
+  this->month = (days % 360) / 30;
+  this->day = (days % 360) % 30;
 }
 
 int Date::convertToDays() const {
-  return (day + month*30 + year*365);
+  return (day + month*30 + year*360);
 }
 
 //print: source: Dr. Christine Laurendeau

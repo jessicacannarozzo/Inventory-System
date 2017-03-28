@@ -16,6 +16,8 @@
 NonTaxable::NonTaxable(string n, string s, int u, float p, int m, int d, int y)
            :Product(n,s,u,p,m,d,y){}
 
+NonTaxable::~NonTaxable(){}
+
 float NonTaxable::computeTax()
 {
   return 0;

@@ -15,3 +15,5 @@
 
 CoffeeTea::CoffeeTea(string n, string s, int u, float p, int m, int d, int y)
           :Product(n,s,u,p,m,d,y), NonPerishable(n,s,u,p,m,d,y), Taxable(n,s,u,p,m,d,y){}
+          
+CoffeeTea::~CoffeeTea(){}

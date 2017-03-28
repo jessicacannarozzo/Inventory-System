@@ -15,3 +15,5 @@
 
 Bakery::Bakery(string n, string s, int u, float p,int m, int d, int y, int l)
        :Product(n,s,u,p,m,d,y),Perishable(n,s,u,p,m,d,y,l), Taxable(n,s,u,p,m,d,y){}
+      
+Bakery::~Bakery(){}

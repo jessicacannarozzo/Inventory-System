@@ -20,6 +20,8 @@ Perishable::Perishable(string n, string s, int u, float p,int m,int d,int y, int
   computeExpDate();
 }
 
+Perishable::~Perishable(){}
+
 void Perishable::computeExpDate()
 {
   expiryDate = manufacturedDate + lifespan;

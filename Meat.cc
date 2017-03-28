@@ -15,3 +15,5 @@
 
 Meat::Meat(string n, string s, int u, float p,int m, int d, int y, int l)
            :Product(n,s,u,p,m,d,y),Perishable(n,s,u,p,m,d,y,l), NonTaxable(n,s,u,p,m,d,y){}
+           
+Meat::~Meat(){}

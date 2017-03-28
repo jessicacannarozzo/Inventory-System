@@ -31,6 +31,7 @@ class Product
 {
   public:
     Product(string="Unknown", string="Unknown", int=0, float=0.0f,int=0,int=0,int=0);
+    virtual ~Product();
     int    getId();        //returns product id
     string getName();      //returns product name
     string getSize();      //returns product size

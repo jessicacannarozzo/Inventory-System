@@ -15,6 +15,8 @@
 
 Taxable::Taxable(string n, string s, int u, float p,int m,int d,int y)
            :Product(n,s,u,p,m,d,y){}
+           
+Taxable::~Taxable(){}
 
 float Taxable::computeTax()
 {

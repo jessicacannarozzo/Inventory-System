@@ -19,6 +19,8 @@ NonPerishable::NonPerishable(string n, string s, int u, float p,int m, int d, in
   computeExpDate();
 }
 
+NonPerishable::~NonPerishable(){}
+
 void NonPerishable::computeExpDate()
 {
   expiryDate = manufacturedDate + TWO_YRS;

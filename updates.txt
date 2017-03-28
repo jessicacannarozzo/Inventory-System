@@ -1,7 +1,4 @@
--Part2:
-    . Fix prod purchase feature 
-    . Fix memory leak (prod pointers are not freed)
-
+-Part2: OK
 -Part3: OK
 -Part4: fix setDate()
 -Part5: to do
