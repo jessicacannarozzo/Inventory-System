@@ -1,9 +1,4 @@
--Part2:
-    . Add date params in all products created in InvControl;
-    . Fix everywhere in program where a Product is instantiated;
-    . Fix prod purchase feature 
-    . Run tests after compilation errors are fixed
-
+-Part2: OK
 -Part3: OK
--Part4: to finalize
+-Part4: fix setDate()
 -Part5: to do

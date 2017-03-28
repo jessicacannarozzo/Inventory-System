@@ -140,7 +140,7 @@ void ProdList::toString(string& outStr)
 
   forwardToString(ss);
   ss << endl << endl;
-  backwardToString(ss);
+  //backwardToString(ss);
 
   outStr = ss.str();
 }
@@ -152,10 +152,10 @@ void ProdList::forwardToString(stringstream& ss)
   Node* currNode = head;
 
   ss<<endl<<"STOCK (Increasing order of product units):"<<endl<<endl;
-  ss<<" ID                                 Name             Size    Qty    Price" << endl;
-  ss << " --                                 ----             ----    ---    -----" << endl;
+  ss<<" ID                                 Name             Size    Qty    Price    Exp.Date" << endl;
+  ss << " --                                 ----             ----    ---    -----    --------" << endl;
 
-  while (currNode != NULL) { //repetitive code, move to another function or in Product class
+  while (currNode != NULL) { 
     productToString(ss, currNode->data);
     currNode = currNode->next;
   }
@@ -171,7 +171,9 @@ void ProdList::productToString(stringstream& ss, Product* p)
 	<< p->getSize() << "  " << setw(4) << p->getUnits() << "    ";
 
     tmp << setw(6) << fixed << setprecision(2) << p->getPrice();
-    ss << "$" << tmp.str() << endl;
+    ss << "$" << tmp.str();
+    Date d = p->getExpDate();
+    ss << "  "<< d << endl;
 }
 
 void ProdList::backwardToString(stringstream& ss)
@@ -187,8 +189,8 @@ void ProdList::backwardToString(stringstream& ss)
 
 
   ss<<endl<<"STOCK (Decreasing order of product units):"<<endl<<endl;
-  ss<<" ID                                 Name             Size    Qty    Price" << endl;
-  ss << " --                                 ----             ----    ---    -----" << endl;
+  ss<<" ID                                 Name             Size    Qty    Price    Exp.Date" << endl;
+  ss << " --                                 ----             ----    ---    -----    --------" << endl;
 
   while (currNode != NULL) {
     productToString(ss, currNode->data);

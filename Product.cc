@@ -25,6 +25,8 @@ Product::Product(string n, string s, int u, float p, int m, int d, int y)
   price = (p >= 0) ? p : 0;
 }
 
+Product::~Product() {}
+
 void Product::incrementUnits() {
   units++;
 }
@@ -42,3 +44,4 @@ string Product::getName()  { return name;  }
 string Product::getSize()  { return size;  }
 int    Product::getUnits() { return units; }
 float  Product::getPrice() { return price; }
+Date   Product::getExpDate(){return expiryDate;}

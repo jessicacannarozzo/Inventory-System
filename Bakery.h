@@ -31,6 +31,7 @@ class Bakery : public Perishable, public Taxable
 {
   public:
     Bakery(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0, int=1);
+    virtual ~Bakery();
 };
 
 #endif
