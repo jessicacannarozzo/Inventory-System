@@ -16,22 +16,23 @@
 /* Authors: Jess Cannarozzo (101007447)            */
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
-/* Class Def: Perishable.h                         */
-/* Perishable type. Contain perishable behaviour to*/
-/* compute a product’s expiry date                 */
+/* Class Def: ExpirationBehaviour.h                */
+/* ExpirationBehaviour type. Contain expiration    */
+/* date behaviour of a product                     */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef PERISHABLE_H
-#define PERISHABLE_H
-#include "ExpirationBehaviour.h"
+#ifndef EXPIRATIONBEHAVIOUR_H
+#define EXPIRATIONBEHAVIOUR_H
+#include "Product.h"
 using namespace std;
 
-class Perishable : public virtual ExpirationBehaviour
+class ExpirationBehaviour
 {
   public:
-    Perishable();
-    virtual ~Perishable();
-    virtual void computeExpDate(); // computes and sets the product’s expiry date
+    ExpirationBehaviour();
+    virtual ~ExpirationBehaviour();
+    virtual void computeExpDate() = 0; // computes and sets the product’s expiry date
+ 
 };
 
 #endif

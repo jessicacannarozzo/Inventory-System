@@ -16,22 +16,23 @@
 /* Authors: Jess Cannarozzo (101007447)            */
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
-/* Class Def: Perishable.h                         */
-/* Perishable type. Contain perishable behaviour to*/
-/* compute a product’s expiry date                 */
+/* Class Def: TaxationBehaviour.h                  */
+/* TaxationBehaviour type. Contain taxation        */
+/* behaviour of a product                          */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef PERISHABLE_H
-#define PERISHABLE_H
-#include "ExpirationBehaviour.h"
+#ifndef TAXATIONBEHAVIOUR_H
+#define TAXATIONBEHAVIOUR_H
+#include "Product.h"
 using namespace std;
 
-class Perishable : public virtual ExpirationBehaviour
+class TaxationBehaviour
 {
   public:
-    Perishable();
-    virtual ~Perishable();
-    virtual void computeExpDate(); // computes and sets the product’s expiry date
+    TaxationBehaviour();
+    virtual ~TaxationBehaviour();
+    virtual float computeTax() = 0; // returns the amount of tax to be paid on the product
+ 
 };
 
 #endif

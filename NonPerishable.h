@@ -23,16 +23,15 @@
 
 #ifndef NONPERISHABLE_H
 #define NONPERISHABLE_H
-#include <string>
 #include "defs.h"
-#include "Product.h"
+#include "ExpirationBehaviour.h"
 
 using namespace std;
 
-class NonPerishable : public virtual Product
+class NonPerishable : public virtual ExpirationBehaviour
 {
   public:
-    NonPerishable(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0);
+    NonPerishable();
     virtual ~NonPerishable();
     virtual void computeExpDate(); // computes and sets the product’s expiry date
 };

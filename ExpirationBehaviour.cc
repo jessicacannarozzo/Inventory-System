@@ -11,15 +11,7 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#include "Taxable.h"
+#include "ExpirationBehaviour.h"
 
-Taxable::Taxable()
-           :TaxationBehaviour(){}
-           
-Taxable::~Taxable(){}
-
-float Taxable::computeTax()
-{
-  float taxRate = ON_TAX/100;
-  return price * taxRate;
-}
+ExpirationBehaviour::ExpirationBehaviour(){}
+ExpirationBehaviour::~ExpirationBehaviour(){}
