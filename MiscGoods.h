@@ -22,15 +22,13 @@
 
 #ifndef MISCGOODS_H
 #define MISCGOODS_H
-#include <string>
-#include "NonPerishable.h"
-#include "NonTaxable.h"
+#include "Product.h"
 using namespace std;
 
-class MiscGoods : public NonPerishable, public NonTaxable
+class MiscGoods : public Product
 {
   public:
-    MiscGoods(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0);
+    MiscGoods(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0,int=0);
     virtual ~MiscGoods();
 };
 

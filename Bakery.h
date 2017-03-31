@@ -16,21 +16,19 @@
 /* Authors: Jess Cannarozzo (101007447)            */
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
-/* Class Def: Bakery.h                          */
-/* Bakery type. Bakery product category      */
+/* Class Def: Bakery.h                             */
+/* Bakery type. Bakery product category            */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef BAKERY_H
 #define BAKERY_H
-#include <string>
-#include "Perishable.h"
-#include "Taxable.h"
+#include "Product.h"
 using namespace std;
 
-class Bakery : public Perishable, public Taxable
+class Bakery : public Product
 {
   public:
-    Bakery(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0, int=1);
+    Bakery(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0, int=0);
     virtual ~Bakery();
 };
 

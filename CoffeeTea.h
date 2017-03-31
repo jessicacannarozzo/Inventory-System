@@ -22,15 +22,13 @@
 
 #ifndef COFFEETEA_H
 #define COFFEETEA_H
-#include <string>
-#include "NonPerishable.h"
-#include "Taxable.h"
+#include "Product.h"
 using namespace std;
 
-class CoffeeTea : public NonPerishable, public Taxable
+class CoffeeTea : public Product
 {
   public:
-    CoffeeTea(string="Unknown", string="Unknown", int=0, float=0.0f,int=0,int=0,int=0);
+    CoffeeTea(string="Unknown", string="Unknown", int=0, float=0.0f,int=0,int=0,int=0,int=0);
     virtual ~CoffeeTea();
 };
 

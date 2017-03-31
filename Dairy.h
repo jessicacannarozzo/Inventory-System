@@ -22,12 +22,10 @@
 
 #ifndef DAIRY_H
 #define DAIRY_H
-#include <string>
-#include "Perishable.h"
-#include "NonTaxable.h"
+#include "Product.h"
 using namespace std;
 
-class Dairy : public Perishable, public NonTaxable
+class Dairy : public Product
 {
   public:
     Dairy(string="Unknown", string="Unknown", int=0, float=0.0f,int=0,int=0,int=0, int=1);
