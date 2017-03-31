@@ -44,4 +44,4 @@ string Product::getName()  { return name;  }
 string Product::getSize()  { return size;  }
 int    Product::getUnits() { return units; }
 float  Product::getPrice() { return price; }
-Date   Product::getExpDate(){return expiryDate;}
+Date&   Product::getExpDate(){return expiryDate;}
