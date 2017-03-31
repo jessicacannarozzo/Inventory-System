@@ -6,7 +6,8 @@ Keeps track of product and customer information, and allows for the record-keepi
 *Update A2*: Dynamic memory allocation & the ability to add more inventory to the store.
 *Update A3*: ProdArray replaced with ProdList, a doubly linked list. Also a new feature to reorganize stock in ascending order based on the number of units, as well as remove product feature.
 *Update A4*: Ability to track and print order information. Also implemented a "facade" class to hide order process details.
-*Update A5*: New product categories based on a hierarchy and products are now taxable.
+*Update A5*: New product categories based on a hierarchy and products are now taxable. Date class implemented in MM/DD/YYYY format.
+*Update A6*: Behaviour hierachy and STL list for CustArray implemented. 
 
 
 Authors:
