@@ -14,6 +14,11 @@
 #include "Dairy.h"
 
 Dairy::Dairy(string n, string s, int u, float p, int m, int d, int y, int l)
-      :Product(n,s,u,p,m,d,y,l){}
+      :Product(n,s,u,p,m,d,y,l)
+{
+  expB = new Perishable;
+  taxB = new NonTaxable;
+  computeExpDate();
+}
       
 Dairy::~Dairy(){}

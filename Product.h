@@ -24,6 +24,8 @@
 #ifndef PRODUCT_H
 #define PRODUCT_H
 #include "Date.h"
+#include "TaxationBehaviour.h"
+#include "ExpirationBehaviour.h"
 #include <string>
 using namespace std;
 
@@ -54,6 +56,8 @@ class Product
     Date       manufacturedDate;
     Date       expiryDate;
     int        lifespan; //the number of days between the manufactured date and the expiry date
+    TaxationBehaviour*   taxB;
+    ExpirationBehaviour* expB;
     
 };
 

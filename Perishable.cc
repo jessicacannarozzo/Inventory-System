@@ -14,14 +14,14 @@
 #include "Perishable.h"
 
 Perishable::Perishable()
-           :ExpirationBehaviour()
-{
-  computeExpDate();
-}
+           :ExpirationBehaviour(){}
 
 Perishable::~Perishable(){}
 
-void Perishable::computeExpDate()
+Date Perishable::computeExpDate(Date manufacturedDate, int lifespan)
 {
+  Date expiryDate(0,0,0); 
   expiryDate = manufacturedDate + lifespan;
+  return expiryDate;
 }
+

@@ -16,7 +16,7 @@
 int Product::nextProdId = 5001;
 
 Product::Product(string n, string s, int u, float p, int m, int d, int y, int l)
-        :manufacturedDate(m,d,y), expiryDate(0,0,0)
+        :manufacturedDate(m,d,y)
 {
   id    = nextProdId++;
   name  = n;
@@ -24,6 +24,9 @@ Product::Product(string n, string s, int u, float p, int m, int d, int y, int l)
   units = (u >= 0) ? u : 0;
   price = (p >= 0) ? p : 0;
   lifespan = l;
+  taxB = NULL;
+  expB = NULL;
+  expiryDate = NULL;
 }
 
 Product::~Product() {}
@@ -46,5 +49,12 @@ string Product::getSize()  { return size;  }
 int    Product::getUnits() { return units; }
 float  Product::getPrice() { return price; }
 Date   Product::getExpDate(){return expiryDate;}
-void   Product::computeExpDate(){}
-void   Product::computeTax(){}
+
+void   Product::computeExpDate()
+{
+  expiryDate = expD->computeExpDate(manufacturedDate, lifespan);
+}
+void   Product::computeTax()
+{
+  taxB->computeTax();
+}

@@ -18,7 +18,7 @@ Taxable::Taxable()
            
 Taxable::~Taxable(){}
 
-float Taxable::computeTax()
+float Taxable::computeTax(float price)
 {
   float taxRate = ON_TAX/100;
   return price * taxRate;

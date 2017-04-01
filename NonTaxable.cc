@@ -18,7 +18,7 @@ NonTaxable::NonTaxable()
 
 NonTaxable::~NonTaxable(){}
 
-float NonTaxable::computeTax()
+float NonTaxable::computeTax(float price)
 {
   return 0;
 }

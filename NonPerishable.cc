@@ -14,14 +14,14 @@
 #include "NonPerishable.h"
 
 NonPerishable::NonPerishable()
-           :ExpirationBehaviour()
-{
-  computeExpDate();
-}
+              :ExpirationBehaviour()
+{}
 
 NonPerishable::~NonPerishable(){}
 
-void NonPerishable::computeExpDate()
+Date NonPerishable::computeExpDate(Date manufacturedDate, int lifespan)
 {
+  Date expiryDate(0,0,0); 
   expiryDate = manufacturedDate + TWO_YRS;
+  return expiryDate;
 }

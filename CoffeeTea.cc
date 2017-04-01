@@ -14,6 +14,11 @@
 #include "CoffeeTea.h"
 
 CoffeeTea::CoffeeTea(string n, string s, int u, float p, int m, int d, int y, int l)
-          :Product(n,s,u,p,m,d,y,l){}
+          :Product(n,s,u,p,m,d,y,l))
+{
+  expB = new NonPerishable;
+  taxB = new Taxable;
+  computeExpDate();
+}
           
 CoffeeTea::~CoffeeTea(){}

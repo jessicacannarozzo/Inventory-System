@@ -24,6 +24,7 @@
 #ifndef PERISHABLE_H
 #define PERISHABLE_H
 #include "ExpirationBehaviour.h"
+#include "defs.h"
 using namespace std;
 
 class Perishable : public virtual ExpirationBehaviour
@@ -31,7 +32,7 @@ class Perishable : public virtual ExpirationBehaviour
   public:
     Perishable();
     virtual ~Perishable();
-    virtual void computeExpDate(); // computes and sets the product’s expiry date
+    virtual Date computeExpDate(Date*, int); // computes and sets the product’s expiry date
 };
 
 #endif
