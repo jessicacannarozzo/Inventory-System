@@ -56,12 +56,8 @@ class Product
     Date       manufacturedDate;
     Date       expiryDate;
     int        lifespan; //the number of days between the manufactured date and the expiry date
-<<<<<<< HEAD
     TaxationBehaviour*   taxB;
     ExpirationBehaviour* expB;
-    
-=======
->>>>>>> master
 };
 
 #endif
