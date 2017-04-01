@@ -40,9 +40,8 @@ int ProdList::add(Product* p) {
   currNode = head;
   prevNode = NULL;
 
-
   while (currNode != NULL) {
-	if (newProd->data->getUnits() <= currNode->data->getUnits())
+	if (newProd->data->getExpDate() < currNode->data->getExpDate())
 		break; // found the insertion point, quit loop
 	prevNode = currNode;
     currNode = currNode->next;
@@ -117,7 +116,7 @@ void ProdList::reorg() {
   Node* temp = new Node;
 
   while (currNode->next != NULL) {
-    if (currNode->data->getUnits() > currNode->next->data->getUnits()) {
+    if (currNode->data->getExpDate() < currNode->next->data->getExpDate()) {
       //swap
       temp->data = currNode->data;
       currNode->data = currNode->next->data;
@@ -155,7 +154,7 @@ void ProdList::forwardToString(stringstream& ss)
   ss<<" ID                                 Name             Size    Qty    Price    Exp.Date" << endl;
   ss << " --                                 ----             ----    ---    -----    --------" << endl;
 
-  while (currNode != NULL) { 
+  while (currNode != NULL) {
     productToString(ss, currNode->data);
     currNode = currNode->next;
   }

@@ -38,11 +38,11 @@ class Product
     int    getUnits();     //returns product units available
     float  getPrice();     //returns product price
     void incrementUnits(); //increments units by 1.
-	void decrementUnits(); //decrements units by 1.
+	  void decrementUnits(); //decrements units by 1.
     void incrementUnitsByX(int); //increments units by X amount
-    virtual float computeTax(); //returns the amount of tax to be paid on the product
-    virtual void  computeExpDate(); // computes and sets the product’s expiry date
-    Date getExpDate();
+    virtual float computeTax() = 0; //returns the amount of tax to be paid on the product
+    virtual void  computeExpDate() = 0; // computes and sets the product’s expiry date
+    Date& getExpDate();
 
   protected:
     static int nextProdId;
@@ -54,7 +54,6 @@ class Product
     Date       manufacturedDate;
     Date       expiryDate;
     int        lifespan; //the number of days between the manufactured date and the expiry date
-    
 };
 
 #endif
