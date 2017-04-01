@@ -16,20 +16,23 @@
 /* Authors: Jess Cannarozzo (101007447)            */
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
-/* Class Def: MiscGoods.h                          */
-/* MiscGoods type. MiscGoods product category      */
+/* Class Def: TaxationBehaviour.h                  */
+/* TaxationBehaviour type. Contain taxation        */
+/* behaviour of a product                          */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef MISCGOODS_H
-#define MISCGOODS_H
+#ifndef TAXATIONBEHAVIOUR_H
+#define TAXATIONBEHAVIOUR_H
 #include "Product.h"
 using namespace std;
 
-class MiscGoods : public Product
+class TaxationBehaviour
 {
   public:
-    MiscGoods(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0,int=0);
-    virtual ~MiscGoods();
+    TaxationBehaviour();
+    virtual ~TaxationBehaviour();
+    virtual float computeTax() = 0; // returns the amount of tax to be paid on the product
+ 
 };
 
 #endif

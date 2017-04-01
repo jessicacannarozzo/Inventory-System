@@ -23,15 +23,14 @@
 
 #ifndef NONTAXABLE_H
 #define NONTAXABLE_H
-#include <string>
-#include "Product.h"
+#include "TaxationBehaviour.h"
 #include "defs.h"
 using namespace std;
 
-class NonTaxable : public virtual Product
+class NonTaxable : public virtual TaxationBehaviour
 {
   public:
-    NonTaxable(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0);
+    NonTaxable();
     virtual ~NonTaxable();
     virtual float computeTax(); // returns the amount of tax to be paid on the product
 };

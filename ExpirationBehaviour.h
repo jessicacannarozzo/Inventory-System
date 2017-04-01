@@ -16,20 +16,23 @@
 /* Authors: Jess Cannarozzo (101007447)            */
 /*          Karla Martins Spuldaro (101021516)     */
 /*                                                 */
-/* Class Def: MiscGoods.h                          */
-/* MiscGoods type. MiscGoods product category      */
+/* Class Def: ExpirationBehaviour.h                */
+/* ExpirationBehaviour type. Contain expiration    */
+/* date behaviour of a product                     */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef MISCGOODS_H
-#define MISCGOODS_H
+#ifndef EXPIRATIONBEHAVIOUR_H
+#define EXPIRATIONBEHAVIOUR_H
 #include "Product.h"
 using namespace std;
 
-class MiscGoods : public Product
+class ExpirationBehaviour
 {
   public:
-    MiscGoods(string="Unknown", string="Unknown", int=0, float=0.0f, int=0,int=0,int=0,int=0);
-    virtual ~MiscGoods();
+    ExpirationBehaviour();
+    virtual ~ExpirationBehaviour();
+    virtual void computeExpDate() = 0; // computes and sets the product’s expiry date
+ 
 };
 
 #endif

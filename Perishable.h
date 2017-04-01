@@ -23,19 +23,15 @@
 
 #ifndef PERISHABLE_H
 #define PERISHABLE_H
-#include <string>
-#include "Product.h"
+#include "ExpirationBehaviour.h"
 using namespace std;
 
-class Perishable : public virtual Product
+class Perishable : public virtual ExpirationBehaviour
 {
   public:
-    Perishable(string="Unknown", string="Unknown", int=0, float=0.0f, int=1,int=0,int=0,int=0);
-    virtual void computeExpDate(); // computes and sets the product’s expiry date
+    Perishable();
     virtual ~Perishable();
-  protected:
-    int lifespan; // the number of days between the manufactured date and the expiry date
-
+    virtual void computeExpDate(); // computes and sets the product’s expiry date
 };
 
 #endif

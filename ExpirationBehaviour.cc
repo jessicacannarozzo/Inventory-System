@@ -11,9 +11,7 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#include "Meat.h"
+#include "ExpirationBehaviour.h"
 
-Meat::Meat(string n, string s, int u, float p,int m, int d, int y, int l)
-           :Product(n,s,u,p,m,d,y,l){}
-           
-Meat::~Meat(){}
+ExpirationBehaviour::ExpirationBehaviour(){}
+ExpirationBehaviour::~ExpirationBehaviour(){}

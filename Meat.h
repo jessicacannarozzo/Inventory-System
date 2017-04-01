@@ -22,15 +22,13 @@
 
 #ifndef MEAT_H
 #define MEAT_H
-#include <string>
-#include "Perishable.h"
-#include "NonTaxable.h"
+#include "Product.h"
 using namespace std;
 
-class Meat : public Perishable, public NonTaxable
+class Meat : public Product
 {
   public:
-    Meat(string="Unknown", string="Unknown", int=0, float=0.0f,int=0,int=0,int=0,int=1);
+    Meat(string="Unknown", string="Unknown", int=0, float=0.0f,int=0,int=0,int=0,int=0);
     virtual ~Meat();
 };
 

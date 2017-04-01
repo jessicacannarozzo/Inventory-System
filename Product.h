@@ -30,7 +30,7 @@ using namespace std;
 class Product
 {
   public:
-    Product(string="Unknown", string="Unknown", int=0, float=0.0f,int=0,int=0,int=0);
+    Product(string="Unknown", string="Unknown", int=0, float=0.0f,int=0,int=0,int=0,int=0);
     virtual ~Product();
     int    getId();        //returns product id
     string getName();      //returns product name
@@ -38,7 +38,7 @@ class Product
     int    getUnits();     //returns product units available
     float  getPrice();     //returns product price
     void incrementUnits(); //increments units by 1.
-	void decrementUnits(); //decrements units by 1.
+	  void decrementUnits(); //decrements units by 1.
     void incrementUnitsByX(int); //increments units by X amount
     virtual float computeTax() = 0; //returns the amount of tax to be paid on the product
     virtual void  computeExpDate() = 0; // computes and sets the product’s expiry date
@@ -53,7 +53,7 @@ class Product
     float      price;
     Date       manufacturedDate;
     Date       expiryDate;
-
+    int        lifespan; //the number of days between the manufactured date and the expiry date
 };
 
 #endif

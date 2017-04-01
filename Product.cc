@@ -15,7 +15,7 @@
 
 int Product::nextProdId = 5001;
 
-Product::Product(string n, string s, int u, float p, int m, int d, int y)
+Product::Product(string n, string s, int u, float p, int m, int d, int y, int l)
         :manufacturedDate(m,d,y), expiryDate(0,0,0)
 {
   id    = nextProdId++;
@@ -23,6 +23,7 @@ Product::Product(string n, string s, int u, float p, int m, int d, int y)
   size  = s;
   units = (u >= 0) ? u : 0;
   price = (p >= 0) ? p : 0;
+  lifespan = l;
 }
 
 Product::~Product() {}
@@ -44,4 +45,6 @@ string Product::getName()  { return name;  }
 string Product::getSize()  { return size;  }
 int    Product::getUnits() { return units; }
 float  Product::getPrice() { return price; }
+void   Product::computeExpDate(){}
+void   Product::computeTax(){}
 Date&   Product::getExpDate(){return expiryDate;}
