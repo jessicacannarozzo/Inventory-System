@@ -62,10 +62,10 @@ void InvControl::processAdmin()
       view.promptForFloat("Price", prodPrice);
       view.promptForInt("Lifespan in days", prodLifespan);
       //prompt for expiry
-      view.promptForMonth("expiry", prodMonth);
-      view.promptForDay("expiry", prodDay);
-      view.promptForYear("expiry", prodYear);
-      // Product* prod = new Product(prodName, prodSize, prodUnits, prodPrice, prodMonth, prodDay, prodYear);
+      view.promptForMonth("manufactured", prodMonth);
+      view.promptForDay("manufactured", prodDay);
+      view.promptForYear("manufactured", prodYear);
+      // Product* prod = new Product(prodName, prodSize, prodUnits, prodPrice, prodMonth, prodDay, prodYear, prodLifespan);
       // store.addProd(prod);
       view.pause();
 

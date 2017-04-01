@@ -30,8 +30,6 @@ using namespace std;
 class Taxable : public virtual TaxationBehaviour
 {
   public:
-    Taxable();
-    virtual ~Taxable();
     virtual float computeTax(float); // returns the amount of tax to be paid on the product
 };
 
