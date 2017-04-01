@@ -23,6 +23,8 @@
 #ifndef MISCGOODS_H
 #define MISCGOODS_H
 #include "Product.h"
+#include "NonPerishable.h"
+#include "NonTaxable.h"
 using namespace std;
 
 class MiscGoods : public Product

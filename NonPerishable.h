@@ -31,9 +31,7 @@ using namespace std;
 class NonPerishable : public virtual ExpirationBehaviour
 {
   public:
-    NonPerishable();
-    virtual ~NonPerishable();
-    virtual void computeExpDate(); // computes and sets the product’s expiry date
+    virtual Date computeExpDate(Date, int); // computes and sets the product’s expiry date
 };
 
 #endif

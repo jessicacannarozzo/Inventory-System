@@ -15,7 +15,7 @@ UI.o:	UI.cc UI.h CustArray.h ProdList.h OrderArray.h
 Store.o:	Store.cc Store.h ProdList.h
 	g++ -c Store.cc
 
-Product.o:	Product.cc Product.h Date.h
+Product.o:	Product.cc Product.h Date.h ExpirationBehaviour.h TaxationBehaviour.h
 	g++ -c Product.cc
 
 CustArray.o:	CustArray.cc CustArray.h Customer.h defs.h
@@ -45,31 +45,31 @@ OrderServer.o: OrderServer.cc OrderServer.h OrderArray.h
 Date.o: Date.cc Date.h
 	g++ -c Date.cc
 
-Perishable.o: Perishable.cc Perishable.h Product.h
+Perishable.o: Perishable.cc Perishable.h ExpirationBehaviour.h defs.h
 	g++ -c Perishable.cc
 	
-NonPerishable.o: NonPerishable.cc NonPerishable.h Product.h defs.h
+NonPerishable.o: NonPerishable.cc NonPerishable.h ExpirationBehaviour.h defs.h
 	g++ -c NonPerishable.cc	
 
-Taxable.o: Taxable.cc Taxable.h Product.h defs.h
+Taxable.o: Taxable.cc Taxable.h TaxationBehaviour.h defs.h
 	g++ -c Taxable.cc
 	
-NonTaxable.o: NonTaxable.cc NonTaxable.h Product.h
+NonTaxable.o: NonTaxable.cc NonTaxable.h TaxationBehaviour.h
 	g++ -c NonTaxable.cc
 	
-Dairy.o: Dairy.cc Perishable.h NonTaxable.h 
+Dairy.o: Dairy.cc Product.h Perishable.h NonTaxable.h
 	g++ -c Dairy.cc		
 	
-CoffeeTea.o: CoffeeTea.cc NonPerishable.h Taxable.h 
+CoffeeTea.o: CoffeeTea.cc Product.h NonPerishable.h Taxable.h
 	g++ -c CoffeeTea.cc
 	
-Bakery.o: Bakery.cc Perishable.h Taxable.h 
+Bakery.o: Bakery.cc Product.h Perishable.h Taxable.h
 	g++ -c Bakery.cc
 	
-Meat.o: Meat.cc Perishable.h NonTaxable.h 
+Meat.o: Meat.cc Product.h Perishable.h NonTaxable.h
 	g++ -c Meat.cc	
 	
-MiscGoods.o: MiscGoods.cc NonPerishable.h NonTaxable.h 
+MiscGoods.o: MiscGoods.cc Product.h NonPerishable.h NonTaxable.h
 	g++ -c MiscGoods.cc
 		
 clean:

@@ -23,6 +23,8 @@
 #ifndef MEAT_H
 #define MEAT_H
 #include "Product.h"
+#include "Perishable.h"
+#include "NonTaxable.h"
 using namespace std;
 
 class Meat : public Product

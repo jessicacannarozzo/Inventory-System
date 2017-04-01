@@ -23,15 +23,13 @@
 
 #ifndef TAXATIONBEHAVIOUR_H
 #define TAXATIONBEHAVIOUR_H
-#include "Product.h"
+#include "defs.h"
 using namespace std;
 
 class TaxationBehaviour
 {
   public:
-    TaxationBehaviour();
-    virtual ~TaxationBehaviour();
-    virtual float computeTax() = 0; // returns the amount of tax to be paid on the product
+    virtual float computeTax(float) = 0; // returns the amount of tax to be paid on the product
  
 };
 

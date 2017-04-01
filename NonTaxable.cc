@@ -13,12 +13,7 @@
 
 #include "NonTaxable.h"
 
-NonTaxable::NonTaxable()
-           :TaxationBehaviour(){}
-
-NonTaxable::~NonTaxable(){}
-
-float NonTaxable::computeTax()
+float NonTaxable::computeTax(float price)
 {
   return 0;
 }

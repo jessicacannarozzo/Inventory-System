@@ -23,15 +23,14 @@
 
 #ifndef EXPIRATIONBEHAVIOUR_H
 #define EXPIRATIONBEHAVIOUR_H
-#include "Product.h"
+#include "Date.h"
+#include "defs.h"
 using namespace std;
 
 class ExpirationBehaviour
 {
   public:
-    ExpirationBehaviour();
-    virtual ~ExpirationBehaviour();
-    virtual void computeExpDate() = 0; // computes and sets the product’s expiry date
+    virtual Date computeExpDate(Date, int) = 0; // computes and sets the product’s expiry date
  
 };
 

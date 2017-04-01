@@ -24,9 +24,15 @@ Product::Product(string n, string s, int u, float p, int m, int d, int y, int l)
   units = (u >= 0) ? u : 0;
   price = (p >= 0) ? p : 0;
   lifespan = l;
+  taxB = NULL;
+  expB = NULL;
 }
 
-Product::~Product() {}
+Product::~Product() 
+{
+  delete expB;
+  delete taxB;
+}
 
 void Product::incrementUnits() {
   units++;
@@ -45,6 +51,15 @@ string Product::getName()  { return name;  }
 string Product::getSize()  { return size;  }
 int    Product::getUnits() { return units; }
 float  Product::getPrice() { return price; }
-void   Product::computeExpDate(){}
-void   Product::computeTax(){}
+
 Date&   Product::getExpDate(){return expiryDate;}
+
+void   Product::computeExpDate()
+{
+  expiryDate = expB->computeExpDate(manufacturedDate, lifespan);
+}
+
+float   Product::computeTax()
+{
+  return taxB->computeTax(price);
+}
