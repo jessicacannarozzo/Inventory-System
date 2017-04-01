@@ -48,7 +48,8 @@ string Product::getName()  { return name;  }
 string Product::getSize()  { return size;  }
 int    Product::getUnits() { return units; }
 float  Product::getPrice() { return price; }
-Date   Product::getExpDate(){return expiryDate;}
+<<<<<<< HEAD
+Date&   Product::getExpDate(){return expiryDate;}
 
 void   Product::computeExpDate()
 {
@@ -58,3 +59,8 @@ void   Product::computeTax()
 {
   taxB->computeTax();
 }
+=======
+void   Product::computeExpDate(){}
+void   Product::computeTax(){}
+Date&   Product::getExpDate(){return expiryDate;}
+>>>>>>> master

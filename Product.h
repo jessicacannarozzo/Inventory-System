@@ -44,7 +44,7 @@ class Product
     void incrementUnitsByX(int); //increments units by X amount
     virtual float computeTax(); //returns the amount of tax to be paid on the product
     virtual void  computeExpDate(); // computes and sets the product’s expiry date
-    Date getExpDate();
+    Date& getExpDate();
 
   protected:
     static int nextProdId;
@@ -56,9 +56,12 @@ class Product
     Date       manufacturedDate;
     Date       expiryDate;
     int        lifespan; //the number of days between the manufactured date and the expiry date
+<<<<<<< HEAD
     TaxationBehaviour*   taxB;
     ExpirationBehaviour* expB;
     
+=======
+>>>>>>> master
 };
 
 #endif

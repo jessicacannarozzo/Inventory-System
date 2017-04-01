@@ -62,7 +62,7 @@ void UI::cashierMenu(int& choice)
 
 
 void UI::printStock(ProdList& arr)
-{ 
+{
   string s;
   arr.toString(s);
   cout << s;
@@ -163,7 +163,7 @@ void UI::printPurchases(PurchArray& arr)
     Purchase* p = arr.getPurchase(i);
 
     cout << p->getProd()->getId()   << "  " << setw(40) << p->getProd()->getName() << "  "
-         << setw(10) << p->getProd()->getSize() << "  " << setw(4)  << p->getPurchQnt() 
+         << setw(10) << p->getProd()->getSize() << "  " << setw(4)  << p->getPurchQnt()
          << "    ";
 
     ss << setw(6) << fixed << setprecision(2) << p->getProd()->getPrice()*p->getPurchQnt();
@@ -174,6 +174,36 @@ void UI::printPurchases(PurchArray& arr)
 
 }
 
+void UI::promptForMonth(string prompt, int& m) {
+  cout << "Enter a(n) " + prompt + " month between 1 and 12." << endl;
+  m = readInt();
+
+  while (m < 1 || m > 12) {
+    cout << "Please enter a valid " + prompt + " month between 1 and 12." << endl;
+    m = readInt();
+  }
+}
+
+void UI::promptForDay(string prompt, int& d) {
+  cout << "Enter a(n) " + prompt + " day between 1 and 30." << endl;
+  d = readInt();
+
+  while (d < 1 || d > 30) {
+    cout << "Please enter a valid " + prompt + " day between 1 and 30." << endl;
+    d = readInt();
+  }
+}
+
+void UI::promptForYear(string prompt, int& y) {
+  cout << "Enter a(n) " + prompt + " year." << endl;
+  y = readInt();
+
+  while (y < 1) {
+    cout << "Please enter a valid " + prompt + " year." << endl;
+    y = readInt();
+  }
+}
+
 
 void UI::printOrders(OrderArray& orders)
 {
@@ -182,7 +212,7 @@ void UI::printOrders(OrderArray& orders)
   for (int i=0; i < orders.getOrderSize(); i++) {
     Order* order = orders.getOrder(i);
     cout << "Order ID: " << order->getOrderID() << "  " << setw(10)
-         << "Customer: " << order->getCustomer()->getName() << setw(15) 
+         << "Customer: " << order->getCustomer()->getName() << setw(15)
          << "  " << setw(20) << "TOTAL: $" << order->getTotalAmount()  << endl;
     PurchArray& purchases = order->getOrderPurches();
     printPurchases(purchases);

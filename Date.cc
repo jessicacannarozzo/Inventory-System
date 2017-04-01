@@ -64,7 +64,7 @@ ostream& operator<<(ostream& output, Date& d) {
   output<<setfill('0')<<setw(2)<<d.month<<"/"
       <<setfill('0')<<setw(2)<<d.day<<"/"
       <<setfill('0')<<setw(2)<<d.year;
-      
+
   output << setfill(' ');
 
   return output;
