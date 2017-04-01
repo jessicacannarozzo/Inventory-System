@@ -30,9 +30,7 @@ using namespace std;
 class Perishable : public virtual ExpirationBehaviour
 {
   public:
-    Perishable();
-    virtual ~Perishable();
-    virtual Date computeExpDate(Date*, int); // computes and sets the product’s expiry date
+    virtual Date computeExpDate(Date, int); // computes and sets the product’s expiry date
 };
 
 #endif

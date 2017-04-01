@@ -13,12 +13,6 @@
 
 #include "NonPerishable.h"
 
-NonPerishable::NonPerishable()
-              :ExpirationBehaviour()
-{}
-
-NonPerishable::~NonPerishable(){}
-
 Date NonPerishable::computeExpDate(Date manufacturedDate, int lifespan)
 {
   Date expiryDate(0,0,0); 

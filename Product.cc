@@ -16,7 +16,7 @@
 int Product::nextProdId = 5001;
 
 Product::Product(string n, string s, int u, float p, int m, int d, int y, int l)
-        :manufacturedDate(m,d,y)
+        :manufacturedDate(m,d,y), expiryDate(0,0,0)
 {
   id    = nextProdId++;
   name  = n;
@@ -26,10 +26,13 @@ Product::Product(string n, string s, int u, float p, int m, int d, int y, int l)
   lifespan = l;
   taxB = NULL;
   expB = NULL;
-  expiryDate = NULL;
 }
 
-Product::~Product() {}
+Product::~Product() 
+{
+  delete expB;
+  delete taxB;
+}
 
 void Product::incrementUnits() {
   units++;
@@ -53,9 +56,10 @@ Date&   Product::getExpDate(){return expiryDate;}
 
 void   Product::computeExpDate()
 {
-  expiryDate = expD->computeExpDate(manufacturedDate, lifespan);
+  expiryDate = expB->computeExpDate(manufacturedDate, lifespan);
 }
-void   Product::computeTax()
+
+float   Product::computeTax()
 {
-  taxB->computeTax();
+  return taxB->computeTax(price);
 }

@@ -13,11 +13,6 @@
 
 #include "Perishable.h"
 
-Perishable::Perishable()
-           :ExpirationBehaviour(){}
-
-Perishable::~Perishable(){}
-
 Date Perishable::computeExpDate(Date manufacturedDate, int lifespan)
 {
   Date expiryDate(0,0,0); 

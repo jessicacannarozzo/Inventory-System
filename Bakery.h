@@ -23,6 +23,8 @@
 #ifndef BAKERY_H
 #define BAKERY_H
 #include "Product.h"
+#include "Perishable.h"
+#include "Taxable.h"
 using namespace std;
 
 class Bakery : public Product

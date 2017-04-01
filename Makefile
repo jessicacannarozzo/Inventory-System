@@ -57,19 +57,19 @@ Taxable.o: Taxable.cc Taxable.h TaxationBehaviour.h defs.h
 NonTaxable.o: NonTaxable.cc NonTaxable.h TaxationBehaviour.h
 	g++ -c NonTaxable.cc
 	
-Dairy.o: Dairy.cc Product.h 
+Dairy.o: Dairy.cc Product.h Perishable.h NonTaxable.h
 	g++ -c Dairy.cc		
 	
-CoffeeTea.o: CoffeeTea.cc Product.h 
+CoffeeTea.o: CoffeeTea.cc Product.h NonPerishable.h Taxable.h
 	g++ -c CoffeeTea.cc
 	
-Bakery.o: Bakery.cc Product.h 
+Bakery.o: Bakery.cc Product.h Perishable.h Taxable.h
 	g++ -c Bakery.cc
 	
-Meat.o: Meat.cc Product.h 
+Meat.o: Meat.cc Product.h Perishable.h NonTaxable.h
 	g++ -c Meat.cc	
 	
-MiscGoods.o: MiscGoods.cc Product.h 
+MiscGoods.o: MiscGoods.cc Product.h NonPerishable.h NonTaxable.h
 	g++ -c MiscGoods.cc
 		
 clean:

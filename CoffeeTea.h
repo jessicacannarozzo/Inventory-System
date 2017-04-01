@@ -23,6 +23,8 @@
 #ifndef COFFEETEA_H
 #define COFFEETEA_H
 #include "Product.h"
+#include "NonPerishable.h"
+#include "Taxable.h"
 using namespace std;
 
 class CoffeeTea : public Product

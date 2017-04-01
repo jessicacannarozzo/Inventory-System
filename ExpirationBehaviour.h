@@ -30,9 +30,7 @@ using namespace std;
 class ExpirationBehaviour
 {
   public:
-    ExpirationBehaviour();
-    virtual ~ExpirationBehaviour();
-    virtual Date computeExpDate(Date*, int) = 0; // computes and sets the product’s expiry date
+    virtual Date computeExpDate(Date, int) = 0; // computes and sets the product’s expiry date
  
 };
 

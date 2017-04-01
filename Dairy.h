@@ -23,6 +23,8 @@
 #ifndef DAIRY_H
 #define DAIRY_H
 #include "Product.h"
+#include "Perishable.h"
+#include "NonTaxable.h"
 using namespace std;
 
 class Dairy : public Product

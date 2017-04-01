@@ -150,7 +150,7 @@ void ProdList::forwardToString(stringstream& ss)
   // The I/O manipulation functions help us make the output look pretty.
   Node* currNode = head;
 
-  ss<<endl<<"STOCK (Increasing order of product units):"<<endl<<endl;
+  ss<<endl<<"STOCK (Increasing order of product expiry date):"<<endl<<endl;
   ss<<" ID                                 Name             Size    Qty    Price    Exp.Date" << endl;
   ss << " --                                 ----             ----    ---    -----    --------" << endl;
 
