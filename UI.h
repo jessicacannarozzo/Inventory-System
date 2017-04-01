@@ -41,6 +41,9 @@ class UI
     void promptForInt(string, int&);    //prompts integer from user
     void promptForStr(string, string&); //prompts string from user
     void promptForFloat(string, float&);//prompts float  from user
+    void promptForMonth(string, int&);          //prompts int month from user
+    void promptForDay(string, int&);            //prompts int day from user
+    void promptForYear(string, int&);           //prompts int year from user
     void printError(string);            //displays given error message
     void printUsageError();             //displays usage error for running program
     void printStock(ProdList&);         //displays store product stock info

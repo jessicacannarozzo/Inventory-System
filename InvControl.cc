@@ -13,7 +13,7 @@
 
 #include <cstdlib>
 #include "InvControl.h"
-//#include <iostream> 
+//#include <iostream>
 OrderServer InvControl::orderServer;
 
 InvControl::InvControl()
@@ -47,7 +47,7 @@ void InvControl::processAdmin()
 {
   int    choice;
   string prodName, prodSize;
-  int    prodUnits, prodId, amount;
+  int    prodUnits, prodId, amount, prodLifespan, prodMonth, prodDay, prodYear;
   float  prodPrice;
 
   int code;
@@ -55,17 +55,20 @@ void InvControl::processAdmin()
   while (1) {
     choice = -1;
     view.adminMenu(choice);
-    if (choice == 1) {		// add new product - FIX THIS LATER
-      view.printError("Sorry. Option currently not available."); //REMOVE THIS LINE
-      /*
+    if (choice == 1) {		// add new product
       view.promptForStr("Product name", prodName);
       view.promptForStr("Product size", prodSize);
       view.promptForInt("# units", prodUnits);
       view.promptForFloat("Price", prodPrice);
-      Product* prod = new Product(prodName, prodSize, prodUnits, prodPrice);
-      store.addProd(prod);
+      view.promptForInt("Lifespan in days", prodLifespan);
+      //prompt for expiry
+      view.promptForMonth("expiry", prodMonth);
+      view.promptForDay("expiry", prodDay);
+      view.promptForYear("expiry", prodYear);
+      // Product* prod = new Product(prodName, prodSize, prodUnits, prodPrice, prodMonth, prodDay, prodYear);
+      // store.addProd(prod);
       view.pause();
-      */
+
     }
     else if (choice == 2) {	// add inventory
 	  code = C_NOK;
@@ -190,8 +193,8 @@ void InvControl::initProducts()
 
   MiscGoods* prod01 = new MiscGoods("Sudzzy Dish Soap", "1 L", 10, 3.99f,1,1,17);
   store.addProd(prod01);
-  
-  
+
+
   MiscGoods* prod02 = new MiscGoods("Peachy Laundry Soap", "2 L", 3, 8.99f,1,1,17);
   store.addProd(prod02);
 
@@ -252,7 +255,7 @@ void InvControl::initProducts()
   //our product!!!
   MiscGoods* prod21 = new MiscGoods("Off-brand Kit-Kat", "1000 g", 100, 9.99f,1,1,17);
   store.addProd(prod21);
-  
+
 }
 
 void InvControl::initCustomers()
