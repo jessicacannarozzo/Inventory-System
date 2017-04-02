@@ -53,7 +53,7 @@ class Store
 	Product* verifyProdId(int);
 	int verifyProdInStock(Product* p); // Verify that a given product is in stock
 
-	void productPurchase(Product*, Customer*, float*, int*); // Init customer purchase
+	void productPurchase(Product*, Customer*, float*, int*, float*); // Init customer purchase
 
 	//compute loyalty points earned by a customer with a purchase. Update customer points. Return number of points.
 	int computeLoyaltyPoints(float, Customer*);

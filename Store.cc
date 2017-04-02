@@ -14,7 +14,6 @@
 
 #include "Store.h"
 #include <math.h> // using round() in computeLoyaltyPoints()
-
 ProdList& Store::getStock()     { return stock; }
 
 CustArray& Store::getCustomers() { return customers; }
@@ -58,7 +57,7 @@ int Store::verifyProdInStock(Product* p)
 }
 
 
-void Store::productPurchase(Product* prod, Customer* cust, float* totalAmount, int* totalPoints)
+void Store::productPurchase(Product* prod, Customer* cust, float* totalAmount, int* totalPoints, float* tax)
 {
 
 	cust->buyItem(prod);
@@ -69,9 +68,8 @@ void Store::productPurchase(Product* prod, Customer* cust, float* totalAmount, i
 
 	//compute the number of loyalty points earned by the customer with purchasing that product
 	*totalPoints += computeLoyaltyPoints(prod->getPrice(), cust);
-	float tax = prod->computeTax();
-	*totalAmount += (prod->getPrice() + tax);
-
+	*tax = prod->computeTax();
+	*totalAmount += (prod->getPrice() + *tax);
 }
 
 int Store::computeLoyaltyPoints(float price, Customer* cust)

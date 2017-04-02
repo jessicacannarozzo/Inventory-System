@@ -86,11 +86,13 @@ void UI::printCustomers(CustArray& arr)
 }
 
 
-void UI::printPurchaseSummary(float totalAmount, int points)
+void UI::printPurchaseSummary(float totalAmount, int points, float tax)
 {
 	cout << "\n\n PURCHASE SUMMARY : \n\n";
-    cout<< " Total purchase amount: $" << totalAmount <<"\n";
-    cout<< " Total points earned  :  " << points <<"\n"<<endl;
+	cout<< " Price: $" << totalAmount - tax <<"\n";
+	cout<< " TAX: $" << setprecision(2)<<tax <<"\n";
+    cout<< " Total purchase amount: $" << fixed << setprecision(2)<< totalAmount <<"\n";
+    cout<< " Total points earned(before tax):  " << points <<"\n"<<endl;
 }
 
 
