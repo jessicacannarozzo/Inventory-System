@@ -28,7 +28,7 @@ Product::Product(string n, string s, int u, float p, int m, int d, int y, int l)
   expB = NULL;
 }
 
-Product::~Product() 
+Product::~Product()
 {
   delete expB;
   delete taxB;

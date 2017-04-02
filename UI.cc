@@ -204,6 +204,23 @@ void UI::promptForYear(string prompt, int& y) {
   }
 }
 
+void UI::promptForProdType(int &prompt) {
+
+  cout << "Please choose a product type. Enter an integer between 1 and 5." << endl;
+  cout << "          1: Bakery\n";
+  cout << "          2: CoffeeTea\n";
+  cout << "          3: Dairy\n";
+  cout << "          4: Meat\n";
+  cout << "          5: Misc Goods\n";
+
+  prompt = readInt();
+
+  while (prompt < 0 || prompt > 5) {
+    cout << "Please enter a number between 1 and 5." << endl;
+    prompt = readInt();
+  }
+}
+
 
 void UI::printOrders(OrderArray& orders)
 {

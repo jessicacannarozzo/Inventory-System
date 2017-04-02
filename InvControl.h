@@ -38,8 +38,9 @@ class InvControl
     Store              store;
     UI                 view;
     static OrderServer orderServer;
-    void   initProducts();  //initiate product stock
+    void   initProducts();  //initiate original product stock
     void   initCustomers(); //initiate collection of registered customers
+    void   initNewProd(int, string, string, int, float, int, int, int, int);   //new prods may be added to the store
     void   processAdmin();  //process admin menu options
     void   processCashier();//process cashier menu options
 

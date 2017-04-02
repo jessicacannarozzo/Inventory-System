@@ -47,7 +47,7 @@ void InvControl::processAdmin()
 {
   int    choice;
   string prodName, prodSize;
-  int    prodUnits, prodId, amount, prodLifespan, prodMonth, prodDay, prodYear;
+  int    prodUnits, prodId, amount, prodLifespan, prodMonth, prodDay, prodYear, prodPrompt;
   float  prodPrice;
 
   int code;
@@ -61,10 +61,12 @@ void InvControl::processAdmin()
       view.promptForInt("# units", prodUnits);
       view.promptForFloat("Price", prodPrice);
       view.promptForInt("Lifespan in days", prodLifespan);
-      //prompt for expiry
+      //prompt for manufactured date
       view.promptForMonth("manufactured", prodMonth);
       view.promptForDay("manufactured", prodDay);
       view.promptForYear("manufactured", prodYear);
+      view.promptForProdType(prodPrompt);
+      initNewProd(prodPrompt, prodName, prodSize, prodUnits, prodPrice, prodMonth, prodDay, prodYear, prodLifespan);
       // Product* prod = new Product(prodName, prodSize, prodUnits, prodPrice, prodMonth, prodDay, prodYear, prodLifespan);
       // store.addProd(prod);
       view.pause();
@@ -185,7 +187,37 @@ void InvControl::processCashier()
   }
 }
 
+void InvControl::initNewProd(int prompt, string name, string size, int units, float price, int month, int day, int year, int lifespan) {
+  // Product* newP;
+  switch (prompt) {
+    case 1: { //Bakery
+      Bakery *b = new Bakery(name, size, units, price, month, day, year, lifespan);
+      store.addProd(b);
+      break;
+    }
+    case 2: { //CoffeeTea
+      CoffeeTea *c = new CoffeeTea(name, size, units, price, month, day, year, lifespan);
+      store.addProd(c);
+      break;
+    }
+    case 3: { //Dairy
+      Dairy *d = new Dairy(name, size, units, price, month, day, year, lifespan);
+      store.addProd(d);
+      break;
+    }
+    case 4: { //Meat
+      Meat *m = new Meat(name, size, units, price, month, day, year, lifespan);
+      store.addProd(m);
+      break;
+    }
 
+    case 5: { //Misc Goods
+      Meat *misc = new Meat(name, size, units, price, month, day, year, lifespan);
+      store.addProd(misc);
+      break;
+    }
+  }
+}
 
 void InvControl::initProducts()
 {
