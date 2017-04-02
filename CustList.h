@@ -20,7 +20,10 @@ class CustList {
   public:
     CustList();
     ~CustList();
+    void add(Customer*); //adds new customer to the array
+    Customer* get(int);  //returns customer object at a given position in array
   private:
+    list<Customer> custList;
 };
 
 #endif
