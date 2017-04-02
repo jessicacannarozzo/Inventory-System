@@ -21,9 +21,10 @@ class CustList {
     CustList();
     ~CustList();
     void add(Customer*); //adds new customer to the array
-    Customer* get(int);  //returns customer object at a given position in array
+    Customer& get(int);  //returns customer object at a given position in array
   private:
     list<Customer> custList;
+    list<Customer>::iterator itr;
 };
 
 #endif

@@ -10,12 +10,21 @@
 
 #include "CustList.h"
 
+CustList::CustList() {} //empty custList
 
+// CustList::~CustList() {
+//
+// }
 
 void CustList::add(Customer* c) { //adds new customer to the end of the array
-
+  custList.push_back(*c);
 }
 
-Customer* CustList::get(int index) { //returns customer object at a given position in array
-
+Customer& CustList::get(int index) { //returns customer object at a given position in array
+  Customer cust;
+  for (itr = custList.begin(); itr != custList.end(); itr++) {
+    if (index == 0) return *itr;
+    else index--;
+  }
+  return cust; //customer does not exist
 }

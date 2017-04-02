@@ -16,7 +16,7 @@
 #include <math.h> // using round() in computeLoyaltyPoints()
 ProdList& Store::getStock()     { return stock; }
 
-CustArray& Store::getCustomers() { return customers; }
+CustList& Store::getCustomers() { return customers; }
 
 void Store::addProd(Product* prod)
 {
@@ -31,13 +31,19 @@ void Store::addCust(Customer* cust)
 
 Customer* Store::verifyCustomer(int id)
 {
+  list<Customer>::iterator itr;
 	// search for existing customer
-	for (int i=0; i < customers.getSize(); i++) {
-		if(customers.get(i)->getId() == id)
-		{
-			return customers.get(i);
-		}
-	}
+	// for (int i=0; i < customers.getSize(); i++) {
+	// 	if(customers.get(i)->getId() == id)
+	// 	{
+	// 		return customers.get(i);
+	// 	}
+	// }
+
+  // for (itr = customers.begin(); itr != customers.end(); itr++) {
+  //
+  // }
+
 	return NULL;
 }
 
@@ -45,7 +51,7 @@ Customer* Store::verifyCustomer(int id)
 
 Product* Store::verifyProdId(int prodId)
 {
-  return stock.find(prodId); 
+  return stock.find(prodId);
 }
 
 

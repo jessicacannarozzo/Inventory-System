@@ -29,7 +29,8 @@
 // #include "ProdArray.h"
 #include "ProdList.h"
 //#include "Product.h"
-#include "CustArray.h"
+// #include "CustArray.h"
+#include "CustList.h"
 #include "Customer.h"
 #include "Dairy.h"
 #include "CoffeeTea.h"
@@ -44,7 +45,7 @@ class Store
     void       addProd(Product*); //add Product in store stock
     void       addCust(Customer*);// add new customer
     ProdList& getStock();        //get collection of products in stock
-    CustArray& getCustomers();    //get collection of registered customers
+    CustList& getCustomers();    //get collection of registered customers
 
     // Verify that a given custumer id is existing. Return prt to customer found, or null otherwise
 	Customer* verifyCustomer(int);
@@ -62,7 +63,7 @@ class Store
 
   private:
     ProdList  stock;
-    CustArray  customers;
+    CustList  customers;
 
 };
 
