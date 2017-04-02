@@ -13,7 +13,6 @@
 
 #include <cstdlib>
 #include "InvControl.h"
-//#include <iostream>
 OrderServer InvControl::orderServer;
 
 InvControl::InvControl()
@@ -136,6 +135,7 @@ void InvControl::processCashier()
 	  //Init cust purchase
 	  float totalAmount = 0;
 	  int   totalPoints = 0;
+	  float tax = 0;
 	  view.promptForInt("Enter a sequence of product ids to be purchased (Terminate with 0)", prodId);
 
  	  Product* prod = NULL;
@@ -155,14 +155,13 @@ void InvControl::processCashier()
 		else
 		{
 		  // update client purchases
-		  store.productPurchase(prod, cust, &totalAmount, &totalPoints);
+		  store.productPurchase(prod, cust, &totalAmount, &totalPoints, &tax);
 		  // update order server purchases
 		  newOrder->addPurchase(prod);
         }
 		view.promptForInt("Next product id", prodId);
 	  }
-
-	  view.printPurchaseSummary(totalAmount, totalPoints);
+	  view.printPurchaseSummary(totalAmount, totalPoints, tax);
       // send new order to the order server for storage
       orderServer.update(newOrder);
     }
@@ -172,13 +171,13 @@ void InvControl::processCashier()
     else if (choice == MAGIC_NUM) {	// print inventory and customers
       view.printStock(store.getStock());
       view.printCustomers(store.getCustomers());
-
+      /*
       OrderArray orders;
       orderServer.retrieve(orders);
       if(orders.getOrderSize() == 0)
         view.printError("COPY DID NOT WORK");
       view.printOrders(orders);
-
+      */
       view.pause();
     }
     else {
