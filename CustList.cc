@@ -10,10 +10,12 @@
 
 #include "CustList.h"
 
-void CustList::add(Customer*) { //adds new customer to the array
+
+
+void CustList::add(Customer* c) { //adds new customer to the end of the array
 
 }
 
-Customer* CustList::get(int) { //returns customer object at a given position in array
+Customer* CustList::get(int index) { //returns customer object at a given position in array
 
 }
