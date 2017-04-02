@@ -52,7 +52,7 @@ class UI
     void pause();
 
 	//print a summary to the screen of the total purchase amount and number of points earned
-	void printPurchaseSummary(float, int);
+	void printPurchaseSummary(float, int, float);
 
   private:
     int    readInt();

@@ -15,6 +15,6 @@
 
 float Taxable::computeTax(float price)
 {
-  float taxRate = ON_TAX/100;
-  return price * taxRate;
+  float taxRate = 0.13f; //tax rate in Ontario (13%)
+  return (price * taxRate);
 }

@@ -24,7 +24,6 @@
 #ifndef TAXABLE_H
 #define TAXABLE_H
 #include "TaxationBehaviour.h"
-#include "defs.h"
 using namespace std;
 
 class Taxable : public virtual TaxationBehaviour
