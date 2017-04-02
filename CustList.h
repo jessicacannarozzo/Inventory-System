@@ -7,3 +7,20 @@
 /* List of customers that may buy products from    */
 /* the store.                                      */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include <Customer.h>
+
+#ifndef CUSTLIST_H
+#define CUSTLIST_H
+
+class CustList {
+  public:
+    CustList();
+    ~CustList();
+  private:
+};
+
+#endif
