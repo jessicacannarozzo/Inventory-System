@@ -27,7 +27,7 @@ List of Source Files:
 //.cc
 Bakery.cc
 CoffeeTea.cc
-CustArray.cc
+CustList.cc
 Customer.cc
 Dairy.cc
 Date.cc
@@ -52,11 +52,12 @@ UI.cc
 //.h files
 Bakery.h
 CoffeeTea.h
-CustArray.h
+CustList.h
 Customer.h
 Dairy.h
 Date.h
 defs.h
+ExpirationBehaviour.h
 InvControl.h
 Meat.h
 MiscGoods.h
@@ -72,6 +73,7 @@ PurchArray.h
 Purchase.h
 Store.h
 Taxable.h
+TaxationBehaviour.h
 UI.h
 
 //other
