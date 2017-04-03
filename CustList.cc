@@ -12,9 +12,9 @@
 
 CustList::CustList() {} //empty custList
 
-// CustList::~CustList() {
-//
-// }
+CustList::~CustList() {
+
+}
 
 void CustList::add(Customer* c) { //adds new customer to the end of the array
   custList.push_back(*c);

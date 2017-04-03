@@ -70,19 +70,19 @@ void UI::printStock(ProdList& arr)
 
 
 
-void UI::printCustomers(CustArray& arr)
+void UI::printCustomers(CustList& arr)
 {
-  cout << endl << "CUSTOMERS: " << endl << endl;
-  cout << "---------------------------------------------------------------------------" << endl;
-  for (int i=0; i < arr.getSize(); i++) {
-    Customer* cust = arr.get(i);
-    cout << cust->getId() << "  " << setw(10) << cust->getName()
-         << "  " << setw(4) << cust->getPoints() << endl;
-
-	// iterate through customer purchase array
-	PurchArray& purchases = cust->getPurchArray();
-    printPurchases(purchases);
-  }
+  // cout << endl << "CUSTOMERS: " << endl << endl;
+  // cout << "---------------------------------------------------------------------------" << endl;
+  // for (int i=0; i < arr.getSize(); i++) {
+  //   Customer* cust = arr.get(i);
+  //   cout << cust->getId() << "  " << setw(10) << cust->getName()
+  //        << "  " << setw(4) << cust->getPoints() << endl;
+  //
+	// // iterate through customer purchase array
+	// PurchArray& purchases = cust->getPurchArray();
+  //   printPurchases(purchases);
+  // }
 }
 
 
