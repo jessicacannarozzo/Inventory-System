@@ -31,20 +31,16 @@ void Store::addCust(Customer* cust)
 
 Customer* Store::verifyCustomer(int id)
 {
-  list<Customer>::iterator itr;
+  Customer* cust = new Customer("");
 	// search for existing customer
-	// for (int i=0; i < customers.getSize(); i++) {
-	// 	if(customers.get(i)->getId() == id)
-	// 	{
-	// 		return customers.get(i);
-	// 	}
-	// }
+	for (int i=0; cust != NULL; i++) {
+    *cust = customers.get(i);
+		if (cust->getId() == id) {
+			return &customers.get(i);
+		}
+	}
 
-  // for (itr = customers.begin(); itr != customers.end(); itr++) {
-  //
-  // }
-
-	return NULL;
+	return NULL; //customer not found
 }
 
 

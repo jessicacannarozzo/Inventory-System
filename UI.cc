@@ -86,6 +86,8 @@ void UI::printCustomers(CustList& arr)
   	// iterate through customer purchase array
   	PurchArray& purchases = cust->getPurchArray();
       printPurchases(purchases);
+
+      if (&arr.get(i+1) == NULL) break;
     }
   }
 }
