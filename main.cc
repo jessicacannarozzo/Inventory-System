@@ -26,18 +26,9 @@
 
 int main(int argc, char* argv[])
 {
-
-  /*Date *d = new Date(5, 1, 0);
-
-  cout << *d << endl;
-  d += 1;
-  cout << *d << endl;
-  */
-
    InvControl control;
 
    control.launch(argc, argv);
-
 
   return 0;
 }

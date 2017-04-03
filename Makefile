@@ -12,7 +12,7 @@ InvControl.o:	InvControl.cc InvControl.h Store.h UI.h OrderServer.h
 UI.o:	UI.cc UI.h CustList.h ProdList.h OrderArray.h
 	g++ -c UI.cc
 
-Store.o:	Store.cc Store.h ProdList.h
+Store.o:	Store.cc Store.h ProdList.h CustList.h
 	g++ -c Store.cc
 
 Product.o:	Product.cc Product.h Date.h ExpirationBehaviour.h TaxationBehaviour.h

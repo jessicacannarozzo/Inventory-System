@@ -12,9 +12,7 @@
 
 CustList::CustList() {} //empty custList
 
-// CustList::~CustList() {
-//
-// }
+CustList::~CustList() {} //I think STL Lists are deallocated automatically?
 
 void CustList::add(Customer* c) { //adds new customer to the end of the array
   custList.push_back(*c);

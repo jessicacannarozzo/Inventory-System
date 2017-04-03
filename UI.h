@@ -28,7 +28,7 @@
 using namespace std;
 
 #include "ProdList.h"
-#include "CustArray.h"
+#include "CustList.h"
 #include "OrderArray.h"
 #include "Date.h"
 
@@ -48,7 +48,7 @@ class UI
     void printError(string);            //displays given error message
     void printUsageError();             //displays usage error for running program
     void printStock(ProdList&);         //displays store product stock info
-    void printCustomers(CustArray&);    //displays registered customers info
+    void printCustomers(CustList&);    //displays registered customers info
     void printOrders(OrderArray&);      //displays all orders info
     void pause();
 
