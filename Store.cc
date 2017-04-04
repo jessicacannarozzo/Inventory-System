@@ -36,10 +36,11 @@ Customer* Store::verifyCustomer(int id)
 	for (int i=0; cust != NULL; i++) {
     *cust = customers.get(i);
 		if (cust->getId() == id) {
+		    delete cust;
 			return &customers.get(i);
 		}
 	}
-
+    delete cust;
 	return NULL; //customer not found
 }
 

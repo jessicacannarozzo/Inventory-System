@@ -90,6 +90,7 @@ void UI::printCustomers(CustList& arr)
       if (&arr.get(i+1) == NULL) break;
     }
   }
+  delete cust;
 }
 
 
