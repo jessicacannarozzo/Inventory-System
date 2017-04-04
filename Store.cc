@@ -11,7 +11,6 @@
 /*                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-
 #include "Store.h"
 #include <math.h> // using round() in computeLoyaltyPoints()
 ProdList& Store::getStock()     { return stock; }
@@ -33,8 +32,9 @@ Customer* Store::verifyCustomer(int id)
 {
   Customer* cust = new Customer("");
 	// search for existing customer
-	for (int i=0; cust != NULL; i++) {
+	for (int i=0; &customers.get(i) != NULL; i++) {
     *cust = customers.get(i);
+  
 		if (cust->getId() == id) {
 		    delete cust;
 			return &customers.get(i);
